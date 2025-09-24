@@ -8,10 +8,79 @@
   <meta name="CocoaVersion" content="2487.7">
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
   </style>
 </head>
 <body>
 <p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello Netlify&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</p>
+<p class="p1">&lt;title&gt;Roy’s Europa XS Build Log&lt;/title&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">body { font-family: sans-serif; margin: 2rem; background:#f8f8f8; }</p>
+<p class="p1">h1 { text-align:center; }</p>
+<p class="p1">.category { margin-top:2rem; padding:1rem; background:white; border-radius:1rem; }</p>
+<p class="p1">.entry { margin:1rem 0; padding:1rem; background:#fff; border:1px solid #ddd; border-radius:0.5rem; }</p>
+<p class="p1">.entry h3 { margin:0 0 .3rem 0; }</p>
+<p class="p1">.photos img { height:120px; margin:4px; border-radius:8px; cursor:pointer; }</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;h1&gt;Europa XS Build Log&lt;/h1&gt;</p>
+<p class="p1">&lt;div id="content"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">Papa.parse("logs.csv", {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>download: true,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>header: true,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>complete: function(results) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const byCategory = {};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>results.data.forEach(row =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!row.Category) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>byCategory[row.Category] = byCategory[row.Category] || [];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>byCategory[row.Category].push(row);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const container = document.getElementById("content");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for (const [cat, entries] of Object.entries(byCategory)) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const section = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>section.className = "category";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>section.innerHTML = `&lt;h2&gt;${cat}&lt;/h2&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>entries.forEach(e =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const div = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>div.className = "entry";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const title = e.Title || "(no title)";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const summary = e.Summary || "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const date = e.Created || "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>div.innerHTML = `&lt;h3&gt;${title}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;small&gt;${date}&lt;/small&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;p&gt;${summary}&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Photos</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (parseInt(e["Assets Count"]) &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>const photosDiv = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">          </span>photosDiv.className = "photos";</p>
+<p class="p1"><span class="Apple-converted-space">          </span>// Use glob pattern ID*.jpg within the Category folder</p>
+<p class="p1"><span class="Apple-converted-space">          </span>// We'll attempt to load 1–10 possible images</p>
+<p class="p1"><span class="Apple-converted-space">          </span>for (let i=1;i&lt;=10;i++) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const img = document.createElement("img");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>img.src = `Photo Assets/${cat}/${e.ID}.jpg`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>img.onerror = () =&gt; img.remove();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>img.onclick = () =&gt; window.open(img.src,"_blank");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>photosDiv.appendChild(img);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>div.appendChild(photosDiv);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>section.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>container.appendChild(section);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">});</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
