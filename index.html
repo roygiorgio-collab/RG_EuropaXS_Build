@@ -110,10 +110,15 @@ div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
 
         if (entry.assets && entry.assets.length > 0) {
           entry.assets.forEach((photo, idx) => {
-            const path = encodeURI(
-              photo.filename.trim()
-                .replace(/\s+\/|\/\s+/g, "/") // remove spaces before/after slashes
-                .replace(/\s{2,}/g, " ")      // collapse double spaces
+            let cleaned = photo.filename.trim()
+  .replace(/\s+\/|\/\s+/g, "/")  // remove spaces before/after slashes
+  .replace(/\s{2,}/g, " ");      // collapse double spaces
+
+// Strip the last two characters before the .jpg extension
+cleaned = cleaned.replace(/(..)(\.jpg)$/i, "$2");
+
+const path = encodeURI(cleaned);
+
             );
             const img = document.createElement("img");
             img.src = path;
