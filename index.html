@@ -5,13 +5,17 @@
 <title>Europa XS Build Log</title>
 <style>
 body { font-family: sans-serif; margin: 2rem; background:#f8f8f8; }
-.entry { background:white; margin:1rem 0; padding:1rem; border-radius:0.5rem; }
-.photos img { height:120px; margin:4px; border-radius:8px; cursor:pointer; }
+h1 { text-align: center; }
+.category { margin-top: 2rem; background: white; padding: 1rem; border-radius: 0.75rem; }
+.entry { background: #fff; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; border: 1px solid #ddd; }
+.entry h3 { margin: 0 0 .3rem 0; }
+small { color: #666; }
 </style>
 </head>
 <body>
 <h1>Europa XS Build Log</h1>
 <div id="content"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
 Papa.parse("logs.csv", {
@@ -19,17 +23,39 @@ Papa.parse("logs.csv", {
   header: true,
   complete: function(results) {
     const container = document.getElementById("content");
+    const byCategory = {};
 
-    // 👇 Add this line to reverse the order of entries
-    results.data.reverse();
-
+    // Group entries by category
     results.data.forEach(e => {
-      if(!e.Category) return;
-      const div = document.createElement("div");
-      div.className = "entry";
-      div.innerHTML = `<h3>${e.Title || "(no title)"}</h3><p>${e.Summary || ""}</p>`;
-      container.appendChild(div);
+      if (!e.Category) return;
+      if (!byCategory[e.Category]) byCategory[e.Category] = [];
+      byCategory[e.Category].push(e);
     });
+
+    // Sort each category by Created date (oldest first)
+    for (const cat in byCategory) {
+      byCategory[cat].sort((a, b) => new Date(a.Created) - new Date(b.Created));
+    }
+
+    // Display categories and their entries
+    for (const [cat, entries] of Object.entries(byCategory)) {
+      const section = document.createElement("div");
+      section.className = "category";
+      section.innerHTML = `<h2>${cat}</h2>`;
+
+      entries.forEach(e => {
+        const div = document.createElement("div");
+        div.className = "entry";
+        div.innerHTML = `
+          <h3>${e.Title || "(no title)"}</h3>
+          <small>${e.Created || ""}</small>
+          <p>${e.Summary || ""}</p>
+        `;
+        section.appendChild(div);
+      });
+
+      container.appendChild(section);
+    }
   }
 });
 </script>
