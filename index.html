@@ -9,7 +9,8 @@ h1 { text-align: center; }
 .category { margin-top: 2rem; background: white; padding: 1rem; border-radius: 1rem; }
 .entry { margin: 1rem 0; padding: 1rem; background: #fff; border: 1px solid #ddd; border-radius: 0.5rem; }
 .entry h3 { margin: 0 0 .3rem 0; }
-.photos img { height: 120px; margin: 4px; border-radius: 8px; cursor: pointer; }
+.photos img { height: 120px; margin: 4px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+.photos img:hover { transform: scale(1.1); }
 </style>
 </head>
 <body>
@@ -27,7 +28,7 @@ Papa.parse("logs.csv", {
     // Sort by Created date (oldest first)
     data.sort((a, b) => new Date(a.Created) - new Date(b.Created));
 
-    // Group by category
+    // Group by Category
     const byCategory = {};
     data.forEach(row => {
       if (!row.Category) return;
@@ -57,14 +58,14 @@ Papa.parse("logs.csv", {
         if (photoCount > 0) {
           const photosDiv = document.createElement("div");
           photosDiv.className = "photos";
-          // try to display up to 10 photos in the matching Category folder
-          for (let i = 1; i <= 10; i++) {
-            const img = document.createElement("img");
-            img.src = `Photo Assets/${cat}/${e.ID}-${i}.jpg`;
-            img.onerror = () => img.remove();
-            img.onclick = () => window.open(img.src, "_blank");
-            photosDiv.appendChild(img);
-          }
+
+          // Try to load the photo by ID (matches your export format)
+          const img = document.createElement("img");
+          img.src = `Photo Assets/${cat}/${e.ID}.jpg`;
+          img.onerror = () => img.remove();
+          img.onclick = () => window.open(img.src, "_blank");
+          photosDiv.appendChild(img);
+
           div.appendChild(photosDiv);
         }
 
