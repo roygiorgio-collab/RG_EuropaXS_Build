@@ -69,7 +69,7 @@ fetch("logs.json")
   .then(data => {
     const container = document.getElementById("content");
 
-    // group by category
+    // group entries by category
     const byCategory = {};
     data.forEach(e => {
       if (!e.category) return;
@@ -89,30 +89,27 @@ fetch("logs.json")
       byCategory[cat].forEach(entry => {
         const div = document.createElement("div");
         div.className = "entry";
-       // Convert "time spent (min)" → "Xh Ym" format
-const mins = parseInt(entry["time spent (min)"] || entry["Time Spent (min)"] || 0, 10);
-const hrs = Math.floor(mins / 60);
-const rem = mins % 60;
-const timeDisplay = mins
-  ? `${hrs ? hrs + "h " : ""}${rem}m`
-  : "";
 
-const mins = parseInt(entry.timeSpent || 0, 10);
-const hrs = Math.floor(mins / 60);
-const rem = mins % 60;
-const timeDisplay = mins ? `${hrs ? hrs + "h " : ""}${rem}m` : "";
+        // Convert timeSpent (in minutes) to hours + minutes
+        const mins = parseInt(entry.timeSpent || 0, 10);
+        const hrs = Math.floor(mins / 60);
+        const rem = mins % 60;
+        const timeDisplay = mins ? `${hrs ? hrs + "h " : ""}${rem}m` : "";
 
-div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
-                 <small>${entry.created || ""}${timeDisplay ? " • " + timeDisplay : ""}</small>
-                 <p>${entry.summary || ""}</p>`;
+        div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
+                         <small>${entry.created || ""}${timeDisplay ? " • " + timeDisplay : ""}</small>
+                         <p>${entry.summary || ""}</p>`;
 
+        // Photos
         const photosDiv = document.createElement("div");
         photosDiv.className = "photos";
 
-        if (entry.assets) {
+        if (entry.assets && entry.assets.length > 0) {
           entry.assets.forEach((photo, idx) => {
             const path = encodeURI(
-              photo.filename.trim().replace(/\s+\/|\/\s+/g, "/").replace(/\s{2,}/g, " ")
+              photo.filename.trim()
+                .replace(/\s+\/|\/\s+/g, "/") // remove spaces before/after slashes
+                .replace(/\s{2,}/g, " ")      // collapse double spaces
             );
             const img = document.createElement("img");
             img.src = path;
@@ -120,6 +117,7 @@ div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
             photosDiv.appendChild(img);
           });
         }
+
         div.appendChild(photosDiv);
         section.appendChild(div);
       });
