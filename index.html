@@ -13,11 +13,55 @@
   .photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
   .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
   .photos img:hover { transform: scale(1.05); }
+
+  /* --- lightbox --- */
+  #lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+  }
+  #lightbox img {
+    max-height: 90vh;
+    max-width: 90vw;
+    border-radius: 8px;
+  }
+  #lightbox .nav {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 1rem;
+  }
+  #lightbox .nav:hover { color: #ccc; }
+  #lightbox #prev { left: 0; }
+  #lightbox #next { right: 0; }
+  #lightbox #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
 <h1>Europa XS Build Log</h1>
 <div id="content"></div>
+
+<!-- lightbox container -->
+<div id="lightbox">
+  <span id="close">&times;</span>
+  <span id="prev" class="nav">&#10094;</span>
+  <img id="lightbox-img" src="">
+  <span id="next" class="nav">&#10095;</span>
+</div>
 
 <script>
 fetch("logs.json")
@@ -25,15 +69,14 @@ fetch("logs.json")
   .then(data => {
     const container = document.getElementById("content");
 
-    // Group entries by category
+    // group by category
     const byCategory = {};
-    data.forEach(entry => {
-      if (!entry.category) return;
-      if (!byCategory[entry.category]) byCategory[entry.category] = [];
-      byCategory[entry.category].push(entry);
+    data.forEach(e => {
+      if (!e.category) return;
+      if (!byCategory[e.category]) byCategory[e.category] = [];
+      byCategory[e.category].push(e);
     });
 
-    // Sort categories alphabetically
     const categories = Object.keys(byCategory).sort();
 
     categories.forEach(cat => {
@@ -41,46 +84,71 @@ fetch("logs.json")
       section.className = "category";
       section.innerHTML = `<h2>${cat}</h2>`;
 
-      // Sort entries by date (oldest to newest)
-      byCategory[cat].sort((a, b) => new Date(a.created) - new Date(b.created));
+      byCategory[cat].sort((a,b) => new Date(a.created) - new Date(b.created));
 
       byCategory[cat].forEach(entry => {
         const div = document.createElement("div");
         div.className = "entry";
-        const title = entry.title || "(no title)";
-        const summary = entry.summary || "";
-        const date = entry.created || "";
-        div.innerHTML = `<h3>${title}</h3><small>${date}</small><p>${summary}</p>`;
+        div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
+                         <small>${entry.created || ""}</small>
+                         <p>${entry.summary || ""}</p>`;
+        const photosDiv = document.createElement("div");
+        photosDiv.className = "photos";
 
-        // Show attached photos
-        if (entry.assets && entry.assets.length > 0) {
-          const photosDiv = document.createElement("div");
-          photosDiv.className = "photos";
-
-          entry.assets.forEach(photo => {
+        if (entry.assets) {
+          entry.assets.forEach((photo, idx) => {
             const path = encodeURI(
-  photo.filename
-    .trim()
-    .replace(/\s+\/|\/\s+/g, "/")  // remove spaces before or after slashes
-    .replace(/\s{2,}/g, " ")       // collapse double spaces anywhere
-);
-
-
-            if (path) {
-              const img = document.createElement("img");
-              img.src = path;
-              img.onclick = () => window.open(img.src, "_blank");
-              photosDiv.appendChild(img);
-            }
+              photo.filename.trim().replace(/\s+\/|\/\s+/g, "/").replace(/\s{2,}/g, " ")
+            );
+            const img = document.createElement("img");
+            img.src = path;
+            img.dataset.index = idx;
+            photosDiv.appendChild(img);
           });
-
-          div.appendChild(photosDiv);
         }
-
+        div.appendChild(photosDiv);
         section.appendChild(div);
       });
 
       container.appendChild(section);
+    });
+
+    /* ----- Lightbox logic ----- */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const btnPrev = document.getElementById("prev");
+    const btnNext = document.getElementById("next");
+    const btnClose = document.getElementById("close");
+    let currentImages = [];
+    let currentIndex = 0;
+
+    // open lightbox
+    document.body.addEventListener("click", e => {
+      if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("photos")) {
+        currentImages = [...e.target.parentElement.querySelectorAll("img")];
+        currentIndex = currentImages.indexOf(e.target);
+        lightbox.style.display = "flex";
+        lightboxImg.src = currentImages[currentIndex].src;
+      }
+    });
+
+    // navigate
+    function show(offset) {
+      if (!currentImages.length) return;
+      currentIndex = (currentIndex + offset + currentImages.length) % currentImages.length;
+      lightboxImg.src = currentImages[currentIndex].src;
+    }
+
+    btnPrev.onclick = () => show(-1);
+    btnNext.onclick = () => show(1);
+    btnClose.onclick = () => lightbox.style.display = "none";
+    lightbox.onclick = e => { if (e.target === lightbox) lightbox.style.display = "none"; };
+    document.addEventListener("keydown", e => {
+      if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowLeft") show(-1);
+        if (e.key === "ArrowRight") show(1);
+        if (e.key === "Escape") lightbox.style.display = "none";
+      }
     });
   })
   .catch(err => {
