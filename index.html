@@ -4,31 +4,33 @@
 <meta charset="UTF-8">
 <title>Europa XS Build Log</title>
 <style>
-  body { font-family: sans-serif; margin: 2rem; background: #f8f8f8; }
+  body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
+  h1 { text-align: center; margin-bottom: 2rem; }
+  h2 { background: #eee; padding: 0.5rem 1rem; border-radius: 8px; }
   .category { margin-bottom: 2rem; }
   .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
-  .photos img { height: 120px; margin: 4px; border-radius: 8px; cursor: pointer; }
-  h2 { background: #eee; padding: 0.5rem 1rem; border-radius: 8px; }
+  .entry h3 { margin-top: 0; }
+  .photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+  .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+  .photos img:hover { transform: scale(1.05); }
 </style>
 </head>
 <body>
 <h1>Europa XS Build Log</h1>
 <div id="content"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
-Papa.parse("logs.csv", {
-  download: true,
-  header: true,
-  complete: function(results) {
+fetch("logs.json")
+  .then(r => r.json())
+  .then(data => {
     const container = document.getElementById("content");
-    const byCategory = {};
 
     // Group entries by category
-    results.data.forEach(e => {
-      if (!e.Category) return;
-      if (!byCategory[e.Category]) byCategory[e.Category] = [];
-      byCategory[e.Category].push(e);
+    const byCategory = {};
+    data.forEach(entry => {
+      if (!entry.category) return;
+      if (!byCategory[entry.category]) byCategory[entry.category] = [];
+      byCategory[entry.category].push(entry);
     });
 
     // Sort categories alphabetically
@@ -40,46 +42,46 @@ Papa.parse("logs.csv", {
       section.innerHTML = `<h2>${cat}</h2>`;
 
       // Sort entries by date (oldest to newest)
-      byCategory[cat].sort((a, b) => new Date(a.Created) - new Date(b.Created));
+      byCategory[cat].sort((a, b) => new Date(a.created) - new Date(b.created));
 
-      byCategory[cat].forEach(e => {
+      byCategory[cat].forEach(entry => {
         const div = document.createElement("div");
         div.className = "entry";
-        div.innerHTML = `
-          <h3>${e.Title || "(no title)"}</h3>
-          <p><em>${e.Created}</em></p>
-          <p>${e.Summary || ""}</p>
-          <div class="photos"></div>
-        `;
+        const title = entry.title || "(no title)";
+        const summary = entry.summary || "";
+        const date = entry.created || "";
+        div.innerHTML = `<h3>${title}</h3><small>${date}</small><p>${summary}</p>`;
 
-        // Load photos from the matching folder
-        const photosDiv = div.querySelector(".photos");
-        const folder = encodeURIComponent(cat.trim());
-        fetch(`Photo Assets/${folder}/`)
-          .then(res => {
-            if (!res.ok) throw new Error("Folder not accessible");
-            return res.text();
-          })
-          .then(text => {
-            // Look for .jpg links in Netlify’s generated directory listing
-            const matches = [...text.matchAll(/href="([^"]+\.jpg)"/gi)];
-            matches.forEach(m => {
+        // Show attached photos
+        if (entry.assets && entry.assets.length > 0) {
+          const photosDiv = document.createElement("div");
+          photosDiv.className = "photos";
+
+          entry.assets.forEach(photo => {
+            const path = photo.filename
+              ? photo.filename.replace(/ /g, "%20")  // encode spaces
+              : "";
+            if (path) {
               const img = document.createElement("img");
-              img.src = `Photo Assets/${folder}/${decodeURIComponent(m[1])}`;
+              img.src = path;
+              img.onclick = () => window.open(img.src, "_blank");
               photosDiv.appendChild(img);
-            });
-          })
-          .catch(() => {
-            // Silent fail if Netlify doesn’t show folder listing
+            }
           });
+
+          div.appendChild(photosDiv);
+        }
 
         section.appendChild(div);
       });
 
       container.appendChild(section);
     });
-  }
-});
+  })
+  .catch(err => {
+    console.error("Error loading logs.json", err);
+    document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
+  });
 </script>
 </body>
 </html>
