@@ -58,7 +58,12 @@ fetch("logs.json")
           photosDiv.className = "photos";
 
           entry.assets.forEach(photo => {
-            const path = encodeURI(photo.filename.trim().replace(/^\.\/| \//g, "/"));
+            const path = encodeURI(
+  photo.filename
+    .trim()
+    .replace(/\s+\/|\/\s+/g, "/")  // remove spaces before or after slashes
+    .replace(/\s{2,}/g, " ")       // collapse double spaces anywhere
+);
 
 
             if (path) {
