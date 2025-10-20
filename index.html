@@ -89,9 +89,18 @@ fetch("logs.json")
       byCategory[cat].forEach(entry => {
         const div = document.createElement("div");
         div.className = "entry";
-        div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
-                         <small>${entry.created || ""}</small>
-                         <p>${entry.summary || ""}</p>`;
+       // Convert "time spent (min)" → "Xh Ym" format
+const mins = parseInt(entry["time spent (min)"] || entry["Time Spent (min)"] || 0, 10);
+const hrs = Math.floor(mins / 60);
+const rem = mins % 60;
+const timeDisplay = mins
+  ? `${hrs ? hrs + "h " : ""}${rem}m`
+  : "";
+
+div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
+                 <small>${entry.created || ""}${timeDisplay ? " • " + timeDisplay : ""}</small>
+                 <p>${entry.summary || ""}</p>`;
+
         const photosDiv = document.createElement("div");
         photosDiv.className = "photos";
 
