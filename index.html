@@ -58,9 +58,8 @@ fetch("logs.json")
           photosDiv.className = "photos";
 
           entry.assets.forEach(photo => {
-            const path = photo.filename
-              ? photo.filename.replace(/ /g, "%20")  // encode spaces
-              : "";
+            const path = encodeURI(photo.filename);
+
             if (path) {
               const img = document.createElement("img");
               img.src = path;
