@@ -58,7 +58,8 @@ fetch("logs.json")
           photosDiv.className = "photos";
 
           entry.assets.forEach(photo => {
-            const path = encodeURI(photo.filename);
+            const path = encodeURI(photo.filename.trim().replace(/^\.\/| \//g, "/"));
+
 
             if (path) {
               const img = document.createElement("img");
