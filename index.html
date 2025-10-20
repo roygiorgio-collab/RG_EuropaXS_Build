@@ -6,28 +6,14 @@
 <style>
 body { font-family: sans-serif; margin: 2rem; background:#f8f8f8; }
 h1 { text-align: center; }
-a { color: #0077cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.toc { background:white; padding:1rem; border-radius:0.75rem; margin-bottom:2rem; }
-.category { margin-top:2rem; background:white; padding:1rem; border-radius:0.75rem; }
-.entry { background:#fff; margin:1rem 0; padding:1rem; border-radius:0.5rem; border:1px solid #ddd; }
-.entry h3 { margin:0 0 .3rem 0; }
-small { color:#666; }
-.photos { margin:1rem 0; }
-.photos img { height:120px; margin:4px; border-radius:8px; cursor:pointer; transition:transform 0.2s; }
-.photos img:hover { transform:scale(1.05); }
+.category { margin-top: 2rem; background: white; padding: 1rem; border-radius: 1rem; }
+.entry { margin: 1rem 0; padding: 1rem; background: #fff; border: 1px solid #ddd; border-radius: 0.5rem; }
+.entry h3 { margin: 0 0 .3rem 0; }
+.photos img { height: 120px; margin: 4px; border-radius: 8px; cursor: pointer; }
 </style>
 </head>
 <body>
 <h1>Europa XS Build Log</h1>
-
-<!-- 🧭 Table of Contents -->
-<div id="toc" class="toc">
-  <h2>Sections</h2>
-  <ul id="toc-list"></ul>
-</div>
-
-<!-- 🧱 Build Log Content -->
 <div id="content"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
@@ -36,52 +22,58 @@ Papa.parse("logs.csv", {
   download: true,
   header: true,
   complete: function(results) {
-    const container = document.getElementById("content");
-    const tocList = document.getElementById("toc-list");
+    let data = results.data.filter(e => e.Category && e.Title);
+
+    // Sort by Created date (oldest first)
+    data.sort((a, b) => new Date(a.Created) - new Date(b.Created));
+
+    // Group by category
     const byCategory = {};
-
-    // Group entries by category
-    results.data.forEach(e => {
-      if (!e.Category) return;
-      if (!byCategory[e.Category]) byCategory[e.Category] = [];
-      byCategory[e.Category].push(e);
+    data.forEach(row => {
+      if (!row.Category) return;
+      byCategory[row.Category] = byCategory[row.Category] || [];
+      byCategory[row.Category].push(row);
     });
 
-    // Sort each category by Created date (oldest first)
-    for (const cat in byCategory) {
-      byCategory[cat].sort((a, b) => new Date(a.Created) - new Date(b.Created));
-    }
+    const container = document.getElementById("content");
 
-    // Build table of contents
-    Object.keys(byCategory).forEach(cat => {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="#${cat.replace(/\s+/g, '_')}">${cat}</a>`;
-      tocList.appendChild(li);
-    });
-
-    // Display categories with photos and entries
     for (const [cat, entries] of Object.entries(byCategory)) {
       const section = document.createElement("div");
       section.className = "category";
-      section.id = cat.replace(/\s+/g, '_');
       section.innerHTML = `<h2>${cat}</h2>`;
 
-      // Try to display photos for this category
-      const photosDiv = document.createElement("div");
-      photosDiv.className = "photos";
+      entries.forEach(e => {
+        const div = document.createElement("div");
+        div.className = "entry";
+        const title = e.Title || "(no title)";
+        const summary = e.Summary || "";
+        const date = e.Created || "";
+        div.innerHTML = `<h3>${title}</h3>
+                         <small>${date}</small>
+                         <p>${summary}</p>`;
 
-      // We’ll attempt to load images Photo Assets/<Category>/1.jpg, 2.jpg, ... up to 50
-      // This approach will show all existing images and skip broken ones
-      for (let i = 1; i <= 50; i++) {
-        const img = document.createElement("img");
-        const safeCat = cat.replace(/[^a-z0-9]/gi, ' ').trim();
-        img.src = `Photo Assets/${safeCat}/${i}.jpg`;
-        img.onerror = () => img.remove();
-        img.onclick = () => window.open(img.src, "_blank");
-        photosDiv.appendChild(img);
-      }
+        // --- PHOTO SECTION ---
+        const photoCount = parseInt(e["Assets Count"]) || 0;
+        if (photoCount > 0) {
+          const photosDiv = document.createElement("div");
+          photosDiv.className = "photos";
+          // try to display up to 10 photos in the matching Category folder
+          for (let i = 1; i <= 10; i++) {
+            const img = document.createElement("img");
+            img.src = `Photo Assets/${cat}/${e.ID}-${i}.jpg`;
+            img.onerror = () => img.remove();
+            img.onclick = () => window.open(img.src, "_blank");
+            photosDiv.appendChild(img);
+          }
+          div.appendChild(photosDiv);
+        }
 
-      section.appendChild(photosDiv);
-
-      // Add log entries
-      entries.forEac
+        section.appendChild(div);
+      });
+      container.appendChild(section);
+    }
+  }
+});
+</script>
+</body>
+</html>
