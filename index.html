@@ -97,6 +97,11 @@ const timeDisplay = mins
   ? `${hrs ? hrs + "h " : ""}${rem}m`
   : "";
 
+const mins = parseInt(entry.timeSpent || 0, 10);
+const hrs = Math.floor(mins / 60);
+const rem = mins % 60;
+const timeDisplay = mins ? `${hrs ? hrs + "h " : ""}${rem}m` : "";
+
 div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
                  <small>${entry.created || ""}${timeDisplay ? " • " + timeDisplay : ""}</small>
                  <p>${entry.summary || ""}</p>`;
