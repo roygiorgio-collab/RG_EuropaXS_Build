@@ -4,13 +4,11 @@
 <meta charset="UTF-8">
 <title>Europa XS Build Log</title>
 <style>
-body { font-family: sans-serif; margin: 2rem; background:#f8f8f8; }
-h1 { margin-bottom: 1.5rem; }
-.category { margin-bottom: 2rem; }
-.entry { background:white; margin:1rem 0; padding:1rem; border-radius:0.5rem; }
-.photos { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 6px; }
-.photos img { height:120px; border-radius:8px; cursor:pointer; transition: transform 0.2s; }
-.photos img:hover { transform: scale(1.05); }
+  body { font-family: sans-serif; margin: 2rem; background: #f8f8f8; }
+  .category { margin-bottom: 2rem; }
+  .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
+  .photos img { height: 120px; margin: 4px; border-radius: 8px; cursor: pointer; }
+  h2 { background: #eee; padding: 0.5rem 1rem; border-radius: 8px; }
 </style>
 </head>
 <body>
@@ -23,61 +21,62 @@ Papa.parse("logs.csv", {
   download: true,
   header: true,
   complete: function(results) {
-    const content = document.getElementById("content");
+    const container = document.getElementById("content");
+    const byCategory = {};
 
-    // Group by category
-    const grouped = {};
-    results.data.forEach(row => {
-      if (!row.Category) return;
-      if (!grouped[row.Category]) grouped[row.Category] = [];
-      grouped[row.Category].push(row);
+    // Group entries by category
+    results.data.forEach(e => {
+      if (!e.Category) return;
+      if (!byCategory[e.Category]) byCategory[e.Category] = [];
+      byCategory[e.Category].push(e);
     });
 
     // Sort categories alphabetically
-    const sortedCategories = Object.keys(grouped).sort();
+    const categories = Object.keys(byCategory).sort();
 
-    sortedCategories.forEach(category => {
-      const catDiv = document.createElement("div");
-      catDiv.className = "category";
-      const catTitle = document.createElement("h2");
-      catTitle.textContent = category;
-      catDiv.appendChild(catTitle);
+    categories.forEach(cat => {
+      const section = document.createElement("div");
+      section.className = "category";
+      section.innerHTML = `<h2>${cat}</h2>`;
 
-      grouped[category]
-        .sort((a, b) => new Date(a.Date) - new Date(b.Date)) // oldest to newest
-        .forEach(entry => {
-          const div = document.createElement("div");
-          div.className = "entry";
-          div.innerHTML = `<h3>${entry.Title || "(no title)"}</h3>
-                           <p>${entry.Summary || ""}</p>`;
+      // Sort entries by date (oldest to newest)
+      byCategory[cat].sort((a, b) => new Date(a.Created) - new Date(b.Created));
 
-          // Try to load all JPGs from this category folder
-          const photosDiv = document.createElement("div");
-          photosDiv.className = "photos";
+      byCategory[cat].forEach(e => {
+        const div = document.createElement("div");
+        div.className = "entry";
+        div.innerHTML = `
+          <h3>${e.Title || "(no title)"}</h3>
+          <p><em>${e.Created}</em></p>
+          <p>${e.Summary || ""}</p>
+          <div class="photos"></div>
+        `;
 
-          // Assume up to 20 photos per category (adjustable)
-          for (let i = 1; i <= 20; i++) {
-            const imgPath = \`Photo Assets/${category}/${entry.ID || ""}-${i}.jpg\`;
-            const img = document.createElement("img");
-            img.src = imgPath;
-            img.onerror = () => img.remove(); // hide if missing
-            photosDiv.appendChild(img);
-          }
+        // Load photos from the matching folder
+        const photosDiv = div.querySelector(".photos");
+        const folder = encodeURIComponent(cat.trim());
+        fetch(`Photo Assets/${folder}/`)
+          .then(res => {
+            if (!res.ok) throw new Error("Folder not accessible");
+            return res.text();
+          })
+          .then(text => {
+            // Look for .jpg links in Netlify’s generated directory listing
+            const matches = [...text.matchAll(/href="([^"]+\.jpg)"/gi)];
+            matches.forEach(m => {
+              const img = document.createElement("img");
+              img.src = `Photo Assets/${folder}/${decodeURIComponent(m[1])}`;
+              photosDiv.appendChild(img);
+            });
+          })
+          .catch(() => {
+            // Silent fail if Netlify doesn’t show folder listing
+          });
 
-          // Also show any JPGs that don’t follow the ID pattern (fallback)
-          const genericPath = \`Photo Assets/${category}/\`;
-          for (let i = 0; i < 20; i++) {
-            const img = document.createElement("img");
-            img.src = \`\${genericPath}${i}.jpg\`;
-            img.onerror = () => img.remove();
-            photosDiv.appendChild(img);
-          }
+        section.appendChild(div);
+      });
 
-          div.appendChild(photosDiv);
-          catDiv.appendChild(div);
-        });
-
-      content.appendChild(catDiv);
+      container.appendChild(section);
     });
   }
 });
