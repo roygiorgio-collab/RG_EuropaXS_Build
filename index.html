@@ -89,7 +89,7 @@ fetch("logs.json")
         const div = document.createElement("div");
         div.className = "entry";
 
-        // Convert timeSpent (in seconds) to hours + minutes
+        // Convert timeSpent (seconds) → hours + minutes
         const secs = parseInt(entry.timeSpent || 0, 10);
         const mins = Math.floor(secs / 60);
         const hrs = Math.floor(mins / 60);
@@ -100,23 +100,39 @@ fetch("logs.json")
                          <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
                          <p>${entry.summary || ""}</p>`;
 
-        // Photos
+        // ---- PHOTO HANDLING ----
         const photosDiv = document.createElement("div");
         photosDiv.className = "photos";
 
         if (entry.assets && entry.assets.length > 0) {
           entry.assets.forEach((photo, idx) => {
-            let cleaned = photo.filename.trim()
-              .replace(/\s+\/|\/\s+/g, "/")  // remove spaces around slashes
-              .replace(/\s{2,}/g, " ");      // collapse double spaces
+            let cleaned = photo.filename
+              .trim()
+              .replace(/\s+\/|\/\s+/g, "/")   // remove spaces before/after slashes
+              .replace(/\s{2,}/g, " ")        // collapse double spaces
+              .replace(/\s+$/, "");           // trim trailing spaces
 
-            // Strip last two characters before ".jpg"
-            cleaned = cleaned.replace(/(..)(\.jpg)$/i, "$2");
+            // Generate fallback variants if KitFlight trimmed inconsistently
+            function possibleNames(name) {
+              const variants = [name];
+              const base = name.replace(/\.jpg$/i, "");
+              for (let i = 1; i <= 3; i++) variants.push(base.slice(0, -i) + ".jpg");
+              return variants;
+            }
 
-            const path = encodeURI(cleaned);
             const img = document.createElement("img");
-            img.src = path;
+            const variants = possibleNames(cleaned);
             img.dataset.index = idx;
+
+            // Try each filename variant until one works
+            let tried = 0;
+            function tryNext() {
+              if (tried >= variants.length) return;
+              img.src = encodeURI(variants[tried]);
+              img.onerror = () => { tried++; tryNext(); };
+            }
+            tryNext();
+
             photosDiv.appendChild(img);
           });
         }
