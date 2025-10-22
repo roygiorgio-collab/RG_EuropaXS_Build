@@ -5,7 +5,8 @@
 <title>Europa XS Build Log</title>
 <style>
   body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
-  h1 { text-align: center; margin-bottom: 2rem; }
+  h1 { text-align: center; margin-bottom: 0.5rem; }
+  #project-stats { text-align: center; color: #666; margin-bottom: 2rem; }
   h2 { background: #eee; padding: 0.5rem 1rem; border-radius: 8px; }
   .category { margin-bottom: 2rem; }
   .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
@@ -61,6 +62,10 @@
 </head>
 <body>
 <h1>Europa XS Build Log</h1>
+<div id="project-stats">
+  <p>Started April 17, 2025</p>
+  <p id="total-hours"></p>
+</div>
 <div id="content"></div>
 
 <!-- lightbox container -->
@@ -78,20 +83,31 @@ fetch("logs.json")
   .then(data => {
     const container = document.getElementById("content");
     const byCategory = {};
+    let totalSeconds = 0;
 
-    // Group entries by category
+    // Group entries by category and compute totals
     data.forEach(e => {
       if (!e.category) return;
       if (!byCategory[e.category]) byCategory[e.category] = [];
       byCategory[e.category].push(e);
+      totalSeconds += parseInt(e.timeSpent || 0, 10);
     });
+
+    // Convert total seconds to hours
+    const totalHours = totalSeconds / 3600;
+    document.getElementById("total-hours").textContent =
+      `Total Project Time: ${totalHours.toFixed(1)} hours`;
 
     const categories = Object.keys(byCategory).sort();
 
     categories.forEach(cat => {
       const section = document.createElement("div");
       section.className = "category";
-      section.innerHTML = `<h2>${cat}</h2>`;
+
+      // Calculate category total
+      const catSeconds = byCategory[cat].reduce((sum, e) => sum + (parseInt(e.timeSpent || 0, 10)), 0);
+      const catHours = catSeconds / 3600;
+      section.innerHTML = `<h2>${cat} — ${catHours.toFixed(1)} hrs</h2>`;
 
       // Sort entries by date
       byCategory[cat].sort((a,b) => new Date(a.created) - new Date(b.created));
@@ -123,7 +139,6 @@ fetch("logs.json")
               .replace(/\s{2,}/g, " ")
               .replace(/\s+$/, "");
 
-            // Generate fallback variants (safety for old exports)
             function possibleNames(name) {
               const variants = [name];
               const base = name.replace(/\.jpg$/i, "");
@@ -133,10 +148,8 @@ fetch("logs.json")
 
             const img = document.createElement("img");
             img.dataset.index = idx;
-            img.dataset.caption = photo.description || ""; // 👈 Caption added here
+            img.dataset.caption = photo.description || "";
             const variants = possibleNames(cleaned);
-
-            // Try each filename variant until one works
             let tried = 0;
             function tryNext() {
               if (tried >= variants.length) return;
