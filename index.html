@@ -23,6 +23,7 @@
     background: rgba(0,0,0,0.9);
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
   #lightbox img {
     max-height: 90vh;
@@ -49,6 +50,13 @@
     color: white;
     cursor: pointer;
   }
+  #caption {
+    color: #ccc;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    max-width: 90vw;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
@@ -60,6 +68,7 @@
   <span id="close">&times;</span>
   <span id="prev" class="nav">&#10094;</span>
   <img id="lightbox-img" src="">
+  <div id="caption"></div>
   <span id="next" class="nav">&#10095;</span>
 </div>
 
@@ -70,6 +79,7 @@ fetch("logs.json")
     const container = document.getElementById("content");
     const byCategory = {};
 
+    // Group entries by category
     data.forEach(e => {
       if (!e.category) return;
       if (!byCategory[e.category]) byCategory[e.category] = [];
@@ -83,6 +93,7 @@ fetch("logs.json")
       section.className = "category";
       section.innerHTML = `<h2>${cat}</h2>`;
 
+      // Sort entries by date
       byCategory[cat].sort((a,b) => new Date(a.created) - new Date(b.created));
 
       byCategory[cat].forEach(entry => {
@@ -108,11 +119,11 @@ fetch("logs.json")
           entry.assets.forEach((photo, idx) => {
             let cleaned = photo.filename
               .trim()
-              .replace(/\s+\/|\/\s+/g, "/")   // remove spaces before/after slashes
-              .replace(/\s{2,}/g, " ")        // collapse double spaces
-              .replace(/\s+$/, "");           // trim trailing spaces
+              .replace(/\s+\/|\/\s+/g, "/")
+              .replace(/\s{2,}/g, " ")
+              .replace(/\s+$/, "");
 
-            // Generate fallback variants if KitFlight trimmed inconsistently
+            // Generate fallback variants (safety for old exports)
             function possibleNames(name) {
               const variants = [name];
               const base = name.replace(/\.jpg$/i, "");
@@ -121,8 +132,9 @@ fetch("logs.json")
             }
 
             const img = document.createElement("img");
-            const variants = possibleNames(cleaned);
             img.dataset.index = idx;
+            img.dataset.caption = photo.description || ""; // 👈 Caption added here
+            const variants = possibleNames(cleaned);
 
             // Try each filename variant until one works
             let tried = 0;
@@ -147,6 +159,7 @@ fetch("logs.json")
     /* ----- Lightbox logic ----- */
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
+    const caption = document.getElementById("caption");
     const btnPrev = document.getElementById("prev");
     const btnNext = document.getElementById("next");
     const btnClose = document.getElementById("close");
@@ -159,6 +172,7 @@ fetch("logs.json")
         currentIndex = currentImages.indexOf(e.target);
         lightbox.style.display = "flex";
         lightboxImg.src = currentImages[currentIndex].src;
+        caption.textContent = currentImages[currentIndex].dataset.caption || "";
       }
     });
 
@@ -166,6 +180,7 @@ fetch("logs.json")
       if (!currentImages.length) return;
       currentIndex = (currentIndex + offset + currentImages.length) % currentImages.length;
       lightboxImg.src = currentImages[currentIndex].src;
+      caption.textContent = currentImages[currentIndex].dataset.caption || "";
     }
 
     btnPrev.onclick = () => show(-1);
