@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Europa XS Build Log</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
+  h1 { text-align: center; margin-bottom: 0.5rem; }
+  #stats { text-align: center; color: #555; margin-bottom: 2rem; }
+
+  h2 { background: #eee; padding: 0.5rem 1rem; border-radius: 8px; }
+  .category { margin-bottom: 2rem; }
+  .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
+  .entry h3 { margin-top: 0; }
+  .photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+  .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+  .photos img:hover { transform: scale(1.05); }
+
+  /* Sort dropdown */
+  #sort-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  #sort-select {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  /* --- lightbox --- */
+  #lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #lightbox img {
+    max-height: 90vh;
+    max-width: 90vw;
+    border-radius: 8px;
+  }
+  #lightbox .nav {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 1rem;
+  }
+  #lightbox .nav:hover { color: #ccc; }
+  #lightbox #prev { left: 0; }
+  #lightbox #next { right: 0; }
+  #lightbox #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+  #caption {
+    color: #ccc;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    max-width: 90vw;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<h1>Europa XS Build Log</h1>
+<div id="stats">Started April 17, 2025 • Total time: <span id="total-time">–</span></div>
+
+<div id="sort-controls">
+  <label for="sort-select">Sort by:</label>
+  <select id="sort-select">
+    <option value="date-desc">Date (Newest → Oldest)</option>
+    <option value="date-asc">Date (Oldest → Newest)</option>
+    <option value="category-asc">Category (A → Z)</option>
+    <option value="category-desc">Category (Z → A)</option>
+  </select>
+</div>
+
+<div id="content"></div>
+
+<!-- lightbox container -->
+<div id="lightbox">
+  <span id="close">&times;</span>
+  <span id="prev" class="nav">&#10094;</span>
+  <img id="lightbox-img" src="">
+  <div id="caption"></div>
+  <span id="next" class="nav">&#10095;</span>
+</div>
+
+<script>
+fetch("logs.json")
+  .then(r => r.json())
+  .then(data => {
+    const container = document.getElementById("content");
+    const totalTimeEl = document.getElementById("total-time");
+    const sortSelect = document.getElementById("sort-select");
+
+    function formatTime(secs) {
+      const mins = Math.floor(secs / 60);
+      const hrs = Math.floor(mins / 60);
+      const rem = mins % 60;
+      return `${hrs ? hrs + "h " : ""}${rem}m`;
+    }
+
+    // Calculate total project time
+    const totalSeconds = data.reduce((sum, e) => sum + (parseInt(e.timeSpent || 0, 10)), 0);
+    totalTimeEl.textContent = formatTime(totalSeconds);
+
+    function render(sortedData) {
+      container.innerHTML = "";
+      const byCategory = {};
+
+      sortedData.forEach(e => {
+        if (!e.category) return;
+        if (!byCategory[e.category]) byCategory[e.category] = [];
+        byCategory[e.category].push(e);
+      });
+
+      const categories = Object.keys(byCategory);
+
+      categories.forEach(cat => {
+        const section = document.createElement("div");
+        section.className = "category";
+
+        // Calculate total time for this category
+        const catTime = byCategory[cat].reduce((s, e) => s + (parseInt(e.timeSpent || 0, 10)), 0);
+        section.innerHTML = `<h2>${cat} (${formatTime(catTime)})</h2>`;
+
+        // Sort entries by date
+        byCategory[cat].sort((a, b) => new Date(a.created) - new Date(b.created));
+
+        byCategory[cat].forEach(entry => {
+          const div = document.createElement("div");
+          div.className = "entry";
+          const secs = parseInt(entry.timeSpent || 0, 10);
+          const timeDisplay = secs ? formatTime(secs) : "";
+
+          div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
+                           <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
+                           <p>${entry.summary || ""}</p>`;
+
+          const photosDiv = document.createElement("div");
+          photosDiv.className = "photos";
+
+          if (entry.assets && entry.assets.length > 0) {
+            entry.assets.forEach((photo, idx) => {
+              let cleaned = photo.filename
+                .trim()
+                .replace(/\s+\/|\/\s+/g, "/")
+                .replace(/\s{2,}/g, " ")
+                .replace(/\s+$/, "");
+
+              const img = document.createElement("img");
+              img.dataset.index = idx;
+              img.dataset.caption = photo.description || "";
+              img.src = encodeURI(cleaned);
+              photosDiv.appendChild(img);
+            });
+          }
+
+          div.appendChild(photosDiv);
+          section.appendChild(div);
+        });
+
+        container.appendChild(section);
+      });
+    }
+
+    // Default sort: newest first
+    render(data);
+
+    sortSelect.addEventListener("change", () => {
+      const mode = sortSelect.value;
+      let sorted;
+
+      switch (mode) {
+        case "date-asc":
+          sorted = [...data].sort((a, b) => new Date(a.created) - new Date(b.created));
+          break;
+        case "date-desc":
+          sorted = [...data].sort((a, b) => new Date(b.created) - new Date(a.created));
+          break;
+        case "category-asc":
+          sorted = [...data].sort((a, b) => a.category.localeCompare(b.category));
+          break;
+        case "category-desc":
+          sorted = [...data].sort((a, b) => b.category.localeCompare(a.category));
+          break;
+        default:
+          sorted = data;
+      }
+      render(sorted);
+    });
+
+    /* ----- Lightbox logic ----- */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const caption = document.getElementById("caption");
+    const btnPrev = document.getElementById("prev");
+    const btnNext = document.getElementById("next");
+    const btnClose = document.getElementById("close");
+    let currentImages = [];
+    let currentIndex = 0;
+
+    document.body.addEventListener("click", e => {
+      if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("photos")) {
+        currentImages = [...e.target.parentElement.querySelectorAll("img")];
+        currentIndex = currentImages.indexOf(e.target);
+        lightbox.style.display = "flex";
+        lightboxImg.src = currentImages[currentIndex].src;
+        caption.textContent = currentImages[currentIndex].dataset.caption || "";
+      }
+    });
+
+    function show(offset) {
+      if (!currentImages.length) return;
+      currentIndex = (currentIndex + offset + currentImages.length) % currentImages.length;
+      lightboxImg.src = currentImages[currentIndex].src;
+      caption.textContent = currentImages[currentIndex].dataset.caption || "";
+    }
+
+    btnPrev.onclick = () => show(-1);
+    btnNext.onclick = () => show(1);
+    btnClose.onclick = () => lightbox.style.display = "none";
+    lightbox.onclick = e => { if (e.target === lightbox) lightbox.style.display = "none"; };
+    document.addEventListener("keydown", e => {
+      if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowLeft") show(-1);
+        if (e.key === "ArrowRight") show(1);
+        if (e.key === "Escape") lightbox.style.display = "none";
+      }
+    });
+  })
+  .catch(err => {
+    console.error("Error loading logs.json", err);
+    document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
+  });
+</script>
+</body>
+</html>
