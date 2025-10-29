@@ -127,43 +127,54 @@ fetch("logs.json")
 
     function renderEntries(entries) {
       content.innerHTML = "";
-      entries.forEach(entry => {
-        const div = document.createElement("div");
-        div.className = "entry";
+     entries.forEach(entry => {
+  const div = document.createElement("div");
+  div.className = "entry";
 
-       let date;
-if (/\d{4}-\d{2}-\d{2}/.test(entry.created)) {
-  // ISO format (2025-04-17)
-  date = new Date(entry.created);
-} else if (/\d{1,2}\/\d{1,2}\/\d{4}/.test(entry.created)) {
-  // US format (4/17/2025)
-  const [m, d, y] = entry.created.split('/');
-  date = new Date(y, m - 1, d);
-} else {
-  // Try to parse as text (Apr 17, 2025)
-  date = new Date(Date.parse(entry.created));
-}
+  // Handle date formatting
+  let date;
+  if (/\d{4}-\d{2}-\d{2}/.test(entry.created)) {
+    date = new Date(entry.created);
+  } else if (/\d{1,2}\/\d{1,2}\/\d{4}/.test(entry.created)) {
+    const [m, d, y] = entry.created.split('/');
+    date = new Date(y, m - 1, d);
+  } else {
+    date = new Date(Date.parse(entry.created));
+  }
 
-const formattedDate = isNaN(date)
-  ? entry.created
-  : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  const formattedDate = isNaN(date)
+    ? entry.created
+    : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
+  // Format timeSpent (minutes → h/m)
+  let timeSpentDisplay = "";
+  if (entry.timeSpent) {
+    const hours = Math.floor(entry.timeSpent / 60);
+    const minutes = entry.timeSpent % 60;
+    if (hours > 0 && minutes > 0) timeSpentDisplay = `${hours}h ${minutes}m`;
+    else if (hours > 0) timeSpentDisplay = `${hours}h`;
+    else timeSpentDisplay = `${minutes}m`;
+  } else {
+    timeSpentDisplay = "—";
+  }
 
+  // Build entry HTML
+  div.innerHTML = `
+    <h3>${formattedDate} — ${entry.title || ""}</h3>
+    <p><em>${entry.category || ""}</em></p>
+    <p>${entry.text || ""}</p>
+    ${entry.photos && entry.photos.length ? `
+      <div class="photos">
+        ${entry.photos.map((photo, i) => `
+          <img src="${photo.url}" alt="${photo.caption || ''}" data-index="${i}" data-photos='${JSON.stringify(entry.photos)}'>
+        `).join('')}
+      </div>` : ""}
+    <p><strong>Time spent:</strong> ${timeSpentDisplay}</p>
+  `;
 
-        div.innerHTML = `
-          <h3>${formattedDate} — ${entry.title || ""}</h3>
-          <p><em>${entry.category || ""}</em></p>
-          <p>${entry.text || ""}</p>
-          ${entry.photos && entry.photos.length ? `
-            <div class="photos">
-              ${entry.photos.map((photo, i) => `
-                <img src="${photo.url}" alt="${photo.caption || ''}" data-index="${i}" data-photos='${JSON.stringify(entry.photos)}'>
-              `).join('')}
-            </div>` : ""}
-          <p><strong>Time spent:</strong> ${entry.time || ""}</p>
-        `;
-        content.appendChild(div);
-      });
+  content.appendChild(div);
+});
+
     }
 
     renderEntries(logs);
