@@ -129,8 +129,23 @@
 
 <script>
 fetch("logs.json")
-  .then(r => r.json())
+  .then(async (r) => {
+    // Try to get last-modified from headers
+    const lastModified = r.headers.get("Last-Modified");
+    if (lastModified) {
+      const date = new Date(lastModified);
+      const formatted = date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+      const meta = document.getElementById("stats");
+      meta.innerHTML = `Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: ${formatted}`;
+    }
+    return r.json();
+  })
   .then(data => {
+
     const container = document.getElementById("content");
     const totalTimeEl = document.getElementById("total-time");
     const sortSelect = document.getElementById("sort-select");
