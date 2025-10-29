@@ -83,27 +83,6 @@
   <span id="last-updated">Last updated: …</span>
 </p>
 
-<script>
-  // Fetch the last modified date from logs.json via HEAD request
-  fetch('logs.json', { method: 'HEAD' })
-    .then(response => {
-      const lastModified = response.headers.get('Last-Modified');
-      if (lastModified) {
-        const date = new Date(lastModified);
-        const formatted = date.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        });
-        document.getElementById('last-updated').textContent = `Last updated: ${formatted}`;
-      } else {
-        document.getElementById('last-updated').textContent = 'Last updated: unknown';
-      }
-    })
-    .catch(() => {
-      document.getElementById('last-updated').textContent = 'Last updated: unavailable';
-    });
-</script>
 
 
 <div id="sort-controls">
