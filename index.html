@@ -132,23 +132,23 @@ fetch("logs.json")
         div.className = "entry";
 
        let date;
-if (/\d{4}-\d{2}-\d{2}/.test(entry.date)) {
+if (/\d{4}-\d{2}-\d{2}/.test(entry.created)) {
   // ISO format (2025-04-17)
-  date = new Date(entry.date);
-} else if (/\d{1,2}\/\d{1,2}\/\d{4}/.test(entry.date)) {
+  date = new Date(entry.created);
+} else if (/\d{1,2}\/\d{1,2}\/\d{4}/.test(entry.created)) {
   // US format (4/17/2025)
-  const [m, d, y] = entry.date.split('/');
+  const [m, d, y] = entry.created.split('/');
   date = new Date(y, m - 1, d);
 } else {
   // Try to parse as text (Apr 17, 2025)
-  date = new Date(Date.parse(entry.date));
+  date = new Date(Date.parse(entry.created));
 }
 
 const formattedDate = isNaN(date)
-  ? entry.date
+  ? entry.created
   : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
-        const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
 
         div.innerHTML = `
           <h3>${formattedDate} — ${entry.title || ""}</h3>
@@ -173,9 +173,9 @@ const formattedDate = isNaN(date)
     sortSelect.addEventListener("change", () => {
       let sorted = [...logs];
       if (sortSelect.value === "date-asc") {
-        sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+        sorted.sort((a, b) => new Date(a.created) - new Date(b.created));
       } else if (sortSelect.value === "date-desc") {
-        sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+        sorted.sort((a, b) => new Date(b.created) - new Date(a.created));
       } else if (sortSelect.value === "category") {
         sorted.sort((a, b) => (a.category || "").localeCompare(b.category || ""));
       } else if (sortSelect.value === "hours") {
