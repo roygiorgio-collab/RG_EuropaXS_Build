@@ -77,13 +77,8 @@
 </style>
 </head>
 <body>
-<div id="stats" class="text-center mt-4 text-sm text-gray-600">
-  <span>Start date: Apr 17, 2025</span> • 
-  <span>Total hours: <span id="total-hours">84h 45m</span></span> • 
-  <span id="last-updated"></span>
-</div>
-
-
+<h1>Europa XS Build Log</h1>
+<div id="stats">Started April 17, 2025 • Total time: <span id="total-time">–</span></div>
 
 <div id="sort-controls">
   <label for="sort-select">Sort by:</label>
@@ -111,7 +106,7 @@ fetch("logs.json")
   .then(r => r.json())
   .then(data => {
     const container = document.getElementById("content");
-    const totalTimeEl = document.getElementById("total-hours");
+    const totalTimeEl = document.getElementById("total-time");
     const sortSelect = document.getElementById("sort-select");
 
     function formatTime(secs) {
@@ -249,22 +244,10 @@ fetch("logs.json")
         if (e.key === "Escape") lightbox.style.display = "none";
       }
     });
-   })
+  })
   .catch(err => {
     console.error("Error loading logs.json", err);
     document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const lastModified = new Date(document.lastModified);
-    const formatted = lastModified.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-    document.getElementById('last-updated').textContent = `Last updated: ${formatted}`;
   });
 </script>
 </body>
