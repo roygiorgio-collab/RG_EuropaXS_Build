@@ -131,7 +131,23 @@ fetch("logs.json")
         const div = document.createElement("div");
         div.className = "entry";
 
-        const date = new Date(entry.date);
+       let date;
+if (/\d{4}-\d{2}-\d{2}/.test(entry.date)) {
+  // ISO format (2025-04-17)
+  date = new Date(entry.date);
+} else if (/\d{1,2}\/\d{1,2}\/\d{4}/.test(entry.date)) {
+  // US format (4/17/2025)
+  const [m, d, y] = entry.date.split('/');
+  date = new Date(y, m - 1, d);
+} else {
+  // Try to parse as text (Apr 17, 2025)
+  date = new Date(Date.parse(entry.date));
+}
+
+const formattedDate = isNaN(date)
+  ? entry.date
+  : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
         const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
         div.innerHTML = `
