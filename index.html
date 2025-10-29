@@ -111,7 +111,7 @@ fetch("logs.json")
   .then(r => r.json())
   .then(data => {
     const container = document.getElementById("content");
-    const totalTimeEl = document.getElementById("total-time");
+    const totalTimeEl = document.getElementById("total-hours");
     const sortSelect = document.getElementById("sort-select");
 
     function formatTime(secs) {
