@@ -77,8 +77,34 @@
 </style>
 </head>
 <body>
-<h1>Roy Giorgio's EuropaXS Build Log</h1>
-<div id="stats">Started April 17, 2025 • Total time: <span id="total-time">–</span></div>
+<<h1>Roy Giorgio's EuropaXS Build</h1>
+<p id="meta-info">
+  Start date: Apr 17, 2025 • Total hours: 84h 45m • 
+  <span id="last-updated">Last updated: …</span>
+</p>
+
+<script>
+  // Fetch the last modified date from logs.json via HEAD request
+  fetch('logs.json', { method: 'HEAD' })
+    .then(response => {
+      const lastModified = response.headers.get('Last-Modified');
+      if (lastModified) {
+        const date = new Date(lastModified);
+        const formatted = date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+        document.getElementById('last-updated').textContent = `Last updated: ${formatted}`;
+      } else {
+        document.getElementById('last-updated').textContent = 'Last updated: unknown';
+      }
+    })
+    .catch(() => {
+      document.getElementById('last-updated').textContent = 'Last updated: unavailable';
+    });
+</script>
+
 
 <div id="sort-controls">
   <label for="sort-select">Sort by:</label>
