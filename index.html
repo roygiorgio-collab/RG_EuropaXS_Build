@@ -77,22 +77,25 @@
 </style>
 </head>
 <body>
-<h1>Europa XS Build Log</h1>
 <div class="text-center mt-4 text-sm text-gray-600">
   <span>Start date: Apr 17, 2025</span> • 
   <span>Total hours: <span id="total-hours">84h 45m</span></span> • 
   <span id="last-updated"></span>
 </div>
 
+<!-- Keep your KitFlight or log-loading scripts BELOW this line -->
 <script>
-  const lastModified = new Date(document.lastModified);
-  const formatted = lastModified.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
+  document.addEventListener("DOMContentLoaded", () => {
+    const lastModified = new Date(document.lastModified);
+    const formatted = lastModified.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+    document.getElementById('last-updated').textContent = `Last updated: ${formatted}`;
   });
-  document.getElementById('last-updated').textContent = `Last updated: ${formatted}`;
 </script>
+
 
 
 <div id="sort-controls">
