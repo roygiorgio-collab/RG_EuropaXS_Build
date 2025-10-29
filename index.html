@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Europa XS Build Log</title>
+<title>Roy Giorgio's EuropaXS Build</title>
 <style>
   body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
   h1 { text-align: center; margin-bottom: 0.5rem; }
@@ -77,172 +77,95 @@
 </style>
 </head>
 <body>
-<h1>Europa XS Build Log</h1>
-<div id="stats">Started April 17, 2025 • Total time: <span id="total-time">–</span></div>
+<h1>Roy Giorgio's EuropaXS Build</h1>
+
+<div id="stats">
+  <span>Start date: Apr 17, 2025</span> • 
+  <span>Total hours: <span id="total-hours">84h 45m</span></span> • 
+  <span id="last-updated"></span>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lastModified = new Date(document.lastModified);
+    const formatted = lastModified.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+    document.getElementById('last-updated').textContent = `Last updated: ${formatted}`;
+  });
+</script>
 
 <div id="sort-controls">
   <label for="sort-select">Sort by:</label>
   <select id="sort-select">
-    <option value="date-desc">Date (Newest → Oldest)</option>
-    <option value="date-asc">Date (Oldest → Newest)</option>
-    <option value="category-asc">Category (A → Z)</option>
-    <option value="category-desc">Category (Z → A)</option>
+    <option value="date-desc">Newest first</option>
+    <option value="date-asc">Oldest first</option>
+    <option value="category">Category</option>
+    <option value="hours">Hours</option>
   </select>
 </div>
 
 <div id="content"></div>
 
-<!-- lightbox container -->
+<!-- Lightbox -->
 <div id="lightbox">
   <span id="close">&times;</span>
   <span id="prev" class="nav">&#10094;</span>
-  <img id="lightbox-img" src="">
-  <div id="caption"></div>
+  <img id="lightbox-img" src="" alt="">
   <span id="next" class="nav">&#10095;</span>
+  <div id="caption"></div>
 </div>
 
+<!-- KitFlight data loading script -->
 <script>
 fetch("logs.json")
-  .then(r => r.json())
-  .then(data => {
-    const container = document.getElementById("content");
-    const totalTimeEl = document.getElementById("total-time");
+  .then(res => res.json())
+  .then(logs => {
+    const content = document.getElementById("content");
+
+    function renderEntries(entries) {
+      content.innerHTML = "";
+      entries.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "entry";
+
+        const date = new Date(entry.date);
+        const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+        div.innerHTML = `
+          <h3>${formattedDate} — ${entry.title || ""}</h3>
+          <p><em>${entry.category || ""}</em></p>
+          <p>${entry.text || ""}</p>
+          ${entry.photos && entry.photos.length ? `
+            <div class="photos">
+              ${entry.photos.map((photo, i) => `
+                <img src="${photo.url}" alt="${photo.caption || ''}" data-index="${i}" data-photos='${JSON.stringify(entry.photos)}'>
+              `).join('')}
+            </div>` : ""}
+          <p><strong>Time spent:</strong> ${entry.time || ""}</p>
+        `;
+        content.appendChild(div);
+      });
+    }
+
+    renderEntries(logs);
+
+    // Sorting
     const sortSelect = document.getElementById("sort-select");
-
-    function formatTime(secs) {
-      const mins = Math.floor(secs / 60);
-      const hrs = Math.floor(mins / 60);
-      const rem = mins % 60;
-      return `${hrs ? hrs + "h " : ""}${rem}m`;
-    }
-
-    // Calculate total project time
-    const totalSeconds = data.reduce((sum, e) => sum + (parseInt(e.timeSpent || 0, 10)), 0);
-    totalTimeEl.textContent = formatTime(totalSeconds);
-
-    function render(sortedData) {
-      container.innerHTML = "";
-      const byCategory = {};
-
-      sortedData.forEach(e => {
-        if (!e.category) return;
-        if (!byCategory[e.category]) byCategory[e.category] = [];
-        byCategory[e.category].push(e);
-      });
-
-      const categories = Object.keys(byCategory);
-
-      categories.forEach(cat => {
-        const section = document.createElement("div");
-        section.className = "category";
-
-        // Calculate total time for this category
-        const catTime = byCategory[cat].reduce((s, e) => s + (parseInt(e.timeSpent || 0, 10)), 0);
-        section.innerHTML = `<h2>${cat} (${formatTime(catTime)})</h2>`;
-
-        // Sort entries by date
-        byCategory[cat].sort((a, b) => new Date(a.created) - new Date(b.created));
-
-        byCategory[cat].forEach(entry => {
-          const div = document.createElement("div");
-          div.className = "entry";
-          const secs = parseInt(entry.timeSpent || 0, 10);
-          const timeDisplay = secs ? formatTime(secs) : "";
-
-          div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
-                           <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
-                           <p>${entry.summary || ""}</p>`;
-
-          const photosDiv = document.createElement("div");
-          photosDiv.className = "photos";
-
-          if (entry.assets && entry.assets.length > 0) {
-            entry.assets.forEach((photo, idx) => {
-              let cleaned = photo.filename
-                .trim()
-                .replace(/\s+\/|\/\s+/g, "/")
-                .replace(/\s{2,}/g, " ")
-                .replace(/\s+$/, "");
-
-              const img = document.createElement("img");
-              img.dataset.index = idx;
-              img.dataset.caption = photo.description || "";
-              img.src = encodeURI(cleaned);
-              photosDiv.appendChild(img);
-            });
-          }
-
-          div.appendChild(photosDiv);
-          section.appendChild(div);
-        });
-
-        container.appendChild(section);
-      });
-    }
-
-    // Default sort: newest first
-    render(data);
-
     sortSelect.addEventListener("change", () => {
-      const mode = sortSelect.value;
-      let sorted;
-
-      switch (mode) {
-        case "date-asc":
-          sorted = [...data].sort((a, b) => new Date(a.created) - new Date(b.created));
-          break;
-        case "date-desc":
-          sorted = [...data].sort((a, b) => new Date(b.created) - new Date(a.created));
-          break;
-        case "category-asc":
-          sorted = [...data].sort((a, b) => a.category.localeCompare(b.category));
-          break;
-        case "category-desc":
-          sorted = [...data].sort((a, b) => b.category.localeCompare(a.category));
-          break;
-        default:
-          sorted = data;
+      let sorted = [...logs];
+      if (sortSelect.value === "date-asc") {
+        sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+      } else if (sortSelect.value === "date-desc") {
+        sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+      } else if (sortSelect.value === "category") {
+        sorted.sort((a, b) => (a.category || "").localeCompare(b.category || ""));
+      } else if (sortSelect.value === "hours") {
+        sorted.sort((a, b) => (parseFloat(b.time) || 0) - (parseFloat(a.time) || 0));
       }
-      render(sorted);
-    });
-
-    /* ----- Lightbox logic ----- */
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const caption = document.getElementById("caption");
-    const btnPrev = document.getElementById("prev");
-    const btnNext = document.getElementById("next");
-    const btnClose = document.getElementById("close");
-    let currentImages = [];
-    let currentIndex = 0;
-
-    document.body.addEventListener("click", e => {
-      if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("photos")) {
-        currentImages = [...e.target.parentElement.querySelectorAll("img")];
-        currentIndex = currentImages.indexOf(e.target);
-        lightbox.style.display = "flex";
-        lightboxImg.src = currentImages[currentIndex].src;
-        caption.textContent = currentImages[currentIndex].dataset.caption || "";
-      }
-    });
-
-    function show(offset) {
-      if (!currentImages.length) return;
-      currentIndex = (currentIndex + offset + currentImages.length) % currentImages.length;
-      lightboxImg.src = currentImages[currentIndex].src;
-      caption.textContent = currentImages[currentIndex].dataset.caption || "";
-    }
-
-    btnPrev.onclick = () => show(-1);
-    btnNext.onclick = () => show(1);
-    btnClose.onclick = () => lightbox.style.display = "none";
-    lightbox.onclick = e => { if (e.target === lightbox) lightbox.style.display = "none"; };
-    document.addEventListener("keydown", e => {
-      if (lightbox.style.display === "flex") {
-        if (e.key === "ArrowLeft") show(-1);
-        if (e.key === "ArrowRight") show(1);
-        if (e.key === "Escape") lightbox.style.display = "none";
-      }
+      renderEntries(sorted);
     });
   })
   .catch(err => {
