@@ -249,13 +249,13 @@ fetch("logs.json")
         if (e.key === "Escape") lightbox.style.display = "none";
       }
     });
-  })
+   })
   .catch(err => {
     console.error("Error loading logs.json", err);
     document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
   });
+</script>
 
-  <!-- Keep your KitFlight or log-loading scripts BELOW this line -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const lastModified = new Date(document.lastModified);
