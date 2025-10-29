@@ -6,7 +6,7 @@
 <style>
   body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
   h1 { text-align: center; margin-bottom: 0.5rem; }
-  #stats { text-align: center; color: #555; margin-bottom: 2rem; }
+  #meta-info { text-align: center; color: #555; margin-bottom: 2rem; }
 
   h2 { background: #eee; padding: 0.5rem 1rem; border-radius: 8px; }
   .category { margin-bottom: 2rem; }
@@ -16,7 +16,6 @@
   .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
   .photos img:hover { transform: scale(1.05); }
 
-  /* Sort dropdown */
   #sort-controls {
     display: flex;
     justify-content: center;
@@ -31,7 +30,6 @@
     border: 1px solid #ccc;
   }
 
-  /* --- lightbox --- */
   #lightbox {
     display: none;
     position: fixed;
@@ -78,12 +76,7 @@
 </head>
 <body>
 <h1>Roy Giorgio's EuropaXS Build</h1>
-<p id="meta-info">
-  Start date: Apr 17, 2025 • Total hours: 84h 45m • 
-  <span id="last-updated">Last updated: …</span>
-</p>
-
-
+<p id="meta-info">Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: …</p>
 
 <div id="sort-controls">
   <label for="sort-select">Sort by:</label>
@@ -97,7 +90,6 @@
 
 <div id="content"></div>
 
-<!-- lightbox container -->
 <div id="lightbox">
   <span id="close">&times;</span>
   <span id="prev" class="nav">&#10094;</span>
@@ -118,13 +110,12 @@ fetch("logs.json")
         month: "short",
         day: "numeric",
       });
-      const meta = document.getElementById("stats");
-      meta.innerHTML = `Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: ${formatted}`;
+      document.getElementById("meta-info").innerHTML =
+        `Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: ${formatted}`;
     }
     return r.json();
   })
   .then(data => {
-
     const container = document.getElementById("content");
     const totalTimeEl = document.getElementById("total-time");
     const sortSelect = document.getElementById("sort-select");
@@ -136,7 +127,6 @@ fetch("logs.json")
       return `${hrs ? hrs + "h " : ""}${rem}m`;
     }
 
-    // Calculate total project time
     const totalSeconds = data.reduce((sum, e) => sum + (parseInt(e.timeSpent || 0, 10)), 0);
     totalTimeEl.textContent = formatTime(totalSeconds);
 
@@ -151,18 +141,13 @@ fetch("logs.json")
       });
 
       const categories = Object.keys(byCategory);
-
       categories.forEach(cat => {
         const section = document.createElement("div");
         section.className = "category";
-
-        // Calculate total time for this category
         const catTime = byCategory[cat].reduce((s, e) => s + (parseInt(e.timeSpent || 0, 10)), 0);
         section.innerHTML = `<h2>${cat} (${formatTime(catTime)})</h2>`;
 
-        // Sort entries by date
         byCategory[cat].sort((a, b) => new Date(a.created) - new Date(b.created));
-
         byCategory[cat].forEach(entry => {
           const div = document.createElement("div");
           div.className = "entry";
@@ -183,7 +168,6 @@ fetch("logs.json")
                 .replace(/\s+\/|\/\s+/g, "/")
                 .replace(/\s{2,}/g, " ")
                 .replace(/\s+$/, "");
-
               const img = document.createElement("img");
               img.dataset.index = idx;
               img.dataset.caption = photo.description || "";
@@ -200,7 +184,6 @@ fetch("logs.json")
       });
     }
 
-    // Default sort: newest first
     render(data);
 
     sortSelect.addEventListener("change", () => {
@@ -226,7 +209,6 @@ fetch("logs.json")
       render(sorted);
     });
 
-    /* ----- Lightbox logic ----- */
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const caption = document.getElementById("caption");
