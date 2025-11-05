@@ -114,6 +114,8 @@
     <select id="sort-select">
       <option value="category-asc">A → Z</option>
       <option value="category-desc">Z → A</option>
+      <option value="date-desc">Newest → Oldest</option>
+      <option value="date-asc">Oldest → Newest</option>
     </select>
   </div>
   <div>
@@ -180,12 +182,19 @@ fetch("logs.json")
       let categories = Object.keys(byCategory);
 
       // Sort categories according to dropdown
-      const catOrder = sortSelect.value;
-      categories.sort((a, b) =>
-        catOrder === "category-asc"
-          ? a.localeCompare(b)
-          : b.localeCompare(a)
-      );
+     const catOrder = sortSelect.value;
+categories.sort((a, b) => {
+  if (catOrder === "category-asc") return a.localeCompare(b);
+  if (catOrder === "category-desc") return b.localeCompare(a);
+
+  // Compute average or latest date per category
+  const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0)));
+  const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0)));
+
+  return catOrder === "date-desc"
+    ? latestB - latestA
+    : latestA - latestB;
+});
 
       categories.forEach(cat => {
         const section = document.createElement("div");
