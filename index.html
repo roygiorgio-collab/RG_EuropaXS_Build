@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Europa XS Build Log</title>
+<title>Roy Giorgio's EuropaXS Build</title>
 <style>
   body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
   h1 { text-align: center; margin-bottom: 0.5rem; }
@@ -16,52 +16,46 @@
   }
 
   .category { margin-bottom: 2rem; }
-.entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
-.entry h3 { margin-top: 0; }
-.photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
-.photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
-.photos img:hover { transform: scale(1.05); }
+  .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
+  .entry h3 { margin-top: 0; }
+  .photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+  .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+  .photos img:hover { transform: scale(1.05); }
 
-/* Add this here */
-.back-to-top {
-  text-align: right;
-  margin-top: 0.5rem;
-}
+  /* Back-to-top link styling */
+  .back-to-top { text-align: right; margin-top: 0.5rem; }
+  .back-to-top a {
+    color: #555; text-decoration: none; font-size: 0.9rem; transition: color 0.2s ease;
+  }
+  .back-to-top a:hover { color: #1a73e8; text-decoration: underline; }
 
-.back-to-top a {
-  color: #555;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-
-.back-to-top a:hover {
-  color: #1a73e8;
-  text-decoration: underline;
-}
-
+  /* Sort controls */
   #sort-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 
-#sort-controls label {
-  font-weight: 600;
-  margin-right: 0.5rem;
-}
+  #sort-controls label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
 
-select {
-  padding: 0.4rem 0.6rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+  select {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
 
+  html {
+    scroll-behavior: smooth;
+  }
 
+  /* Lightbox */
   #lightbox {
     display: none;
     position: fixed;
@@ -129,17 +123,17 @@ select {
   </div>
 </div>
 
-  <div>
-    <label for="entry-sort">Sort Entries:</label>
-    <select id="entry-sort">
-      <option value="date-desc" selected>Newest → Oldest</option>
-      <option value="date-asc">Oldest → Newest</option>
-    </select>
-  </div>
+<div>
+  <label for="entry-sort">Sort Entries:</label>
+  <select id="entry-sort">
+    <option value="date-desc" selected>Newest → Oldest</option>
+    <option value="date-asc">Oldest → Newest</option>
+  </select>
 </div>
 
 <div id="content"></div>
 
+<!-- Lightbox -->
 <div id="lightbox">
   <span id="close">&times;</span>
   <span id="prev" class="nav">&#10094;</span>
@@ -155,9 +149,7 @@ fetch("logs.json")
     if (lastModified) {
       const date = new Date(lastModified);
       const formatted = date.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
+        year: "numeric", month: "short", day: "numeric",
       });
       document.getElementById("meta-info").innerHTML =
         `Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: ${formatted}`;
@@ -169,6 +161,7 @@ fetch("logs.json")
     const totalTimeEl = document.getElementById("total-time");
     const sortSelect = document.getElementById("sort-select");
     const entrySort = document.getElementById("entry-sort");
+    const jumpSelect = document.getElementById("jump-select");
 
     function formatTime(secs) {
       const mins = Math.floor(secs / 60);
@@ -192,62 +185,39 @@ fetch("logs.json")
 
       let categories = Object.keys(byCategory);
 
-      // Sort categories according to dropdown
-     const catOrder = sortSelect.value;
-categories.sort((a, b) => {
-  if (catOrder === "category-asc") return a.localeCompare(b);
-  if (catOrder === "category-desc") return b.localeCompare(a);
+      // Sort categories based on dropdown
+      const catOrder = sortSelect.value;
+      categories.sort((a, b) => {
+        if (catOrder === "category-asc") return a.localeCompare(b);
+        if (catOrder === "category-desc") return b.localeCompare(a);
 
-  // Compute average or latest date per category
-  const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0)));
-  const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0)));
+        const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0)));
+        const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0)));
+        return catOrder === "date-desc" ? latestB - latestA : latestA - latestB;
+      });
 
-  return catOrder === "date-desc"
-    ? latestB - latestA
-    : latestA - latestB;
-});
+      // Populate Jump menu alphabetically, without duplicates
+      jumpSelect.innerHTML = '<option value="">— Select a Category —</option>';
+      [...categories].sort((a,b)=>a.localeCompare(b)).forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = cat;
+        jumpSelect.appendChild(option);
+      });
 
       categories.forEach(cat => {
         const section = document.createElement("div");
         section.className = "category";
+        section.id = cat;
         const catTime = byCategory[cat].reduce((s, e) => s + (parseInt(e.timeSpent || 0, 10)), 0);
         section.innerHTML = `<h2>${cat} (${formatTime(catTime)})</h2>`;
 
-        // Add Back to Top link
-const backToTop = document.createElement("p");
-backToTop.className = "back-to-top";
-backToTop.innerHTML = `<a href="#">↑ Back to Top</a>`;
-section.appendChild(backToTop);
+        const backToTop = document.createElement("p");
+        backToTop.className = "back-to-top";
+        backToTop.innerHTML = `<a href="#">↑ Back to Top</a>`;
+        section.appendChild(backToTop);
 
-container.appendChild(section);
-        
-// Populate "Jump to Category" dropdown
-const jumpSelect = document.getElementById("jump-select");
-const categories = Array.from(document.querySelectorAll(".category"));
-
-categories.forEach(cat => {
-  const catId = cat.id;
-  const catName = cat.querySelector("h2")?.textContent || catId;
-  const option = document.createElement("option");
-  option.value = catId;
-  option.textContent = catName;
-  jumpSelect.appendChild(option);
-});
-
-jumpSelect.addEventListener("change", () => {
-  const selectedId = jumpSelect.value;
-  if (selectedId) {
-    const target = document.getElementById(selectedId);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
-});
-
-// Sort Entries within category
-
-
-        // Sort entries within category
+        // Sort entries inside category
         const entryOrder = entrySort.value;
         byCategory[cat].sort((a, b) => {
           return entryOrder === "date-desc"
@@ -258,33 +228,25 @@ jumpSelect.addEventListener("change", () => {
         byCategory[cat].forEach(entry => {
           const div = document.createElement("div");
           div.className = "entry";
-          div.dataset.date = entry.created;
           const secs = parseInt(entry.timeSpent || 0, 10);
           const timeDisplay = secs ? formatTime(secs) : "";
-
           div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
                            <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
                            <p>${entry.summary || ""}</p>`;
 
-          const photosDiv = document.createElement("div");
-          photosDiv.className = "photos";
-
           if (entry.assets && entry.assets.length > 0) {
+            const photosDiv = document.createElement("div");
+            photosDiv.className = "photos";
             entry.assets.forEach((photo, idx) => {
-              let cleaned = photo.filename
-                .trim()
-                .replace(/\s+\/|\/\s+/g, "/")
-                .replace(/\s{2,}/g, " ")
-                .replace(/\s+$/, "");
               const img = document.createElement("img");
               img.dataset.index = idx;
               img.dataset.caption = photo.description || "";
-              img.src = encodeURI(cleaned);
+              img.src = encodeURI(photo.filename.trim());
               photosDiv.appendChild(img);
             });
+            div.appendChild(photosDiv);
           }
 
-          div.appendChild(photosDiv);
           section.appendChild(div);
         });
 
@@ -294,10 +256,21 @@ jumpSelect.addEventListener("change", () => {
 
     render(data);
 
+    // Events
     sortSelect.addEventListener("change", () => render(data));
     entrySort.addEventListener("change", () => render(data));
 
-    // Lightbox logic (unchanged)
+    jumpSelect.addEventListener("change", () => {
+      const selectedId = jumpSelect.value;
+      if (!selectedId) return;
+      // Force alphabetical sort for consistency
+      sortSelect.value = "category-asc";
+      render(data);
+      const target = document.getElementById(selectedId);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Lightbox
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const caption = document.getElementById("caption");
