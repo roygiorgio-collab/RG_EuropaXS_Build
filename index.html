@@ -1,245 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Europa XS Build Log</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
+  h1 { text-align: center; margin-bottom: 0.5rem; }
+  #meta-info { text-align: center; color: #555; margin-bottom: 2rem; }
+
+  h2 {
+    background: #e8f0fe;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .category { margin-bottom: 2rem; }
+  .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
+  .entry h3 { margin-top: 0; }
+  .photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+  .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+  .photos img:hover { transform: scale(1.05); }
+
+  .back-to-top {
+    text-align: right;
+    margin-top: 0.5rem;
+  }
+
+  .back-to-top a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-to-top a:hover {
+    color: #1a73e8;
+    text-decoration: underline;
+  }
+
+  #sort-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .sort-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  #sort-controls label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  select {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  #lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #lightbox img {
+    max-height: 90vh;
+    max-width: 90vw;
+    border-radius: 8px;
+  }
+
+  #lightbox .nav {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 1rem;
+  }
+
+  #lightbox .nav:hover { color: #ccc; }
+  #lightbox #prev { left: 0; }
+  #lightbox #next { right: 0; }
+  #lightbox #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  #caption {
+    color: #ccc;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    max-width: 90vw;
+    text-align: center;
+  }
+</style>
+</head>
 <body>
-  <h1>Europa XS Build Log</h1>
+<h1>Europa XS Build Log</h1>
+<p id="meta-info">Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: …</p>
 
-  <div id="sort-controls">
-    <div class="sort-row">
-      <label for="sort-categories">Sort categories:</label>
-      <select id="sort-categories">
-        <option value="date-desc">Date (Newest → Oldest)</option>
-        <option value="date-asc">Date (Oldest → Newest)</option>
-        <option value="category-asc">Category (A → Z)</option>
-        <option value="category-desc">Category (Z → A)</option>
-      </select>
+<div id="sort-controls">
+  <div class="sort-row">
+    <label for="sort-select">Sort categories:</label>
+    <select id="sort-select">
+      <option value="date-desc" selected>Date (Newest → Oldest)</option>
+      <option value="date-asc">Date (Oldest → Newest)</option>
+      <option value="category-asc">Category (A → Z)</option>
+      <option value="category-desc">Category (Z → A)</option>
+    </select>
 
-      <label for="jump-category">Jump to category:</label>
-      <select id="jump-category"></select>
-    </div>
-
-    <div class="sort-row">
-      <label for="sort-entries">Sort entries within category:</label>
-      <select id="sort-entries">
-        <option value="date-desc">Date (Newest → Oldest)</option>
-        <option value="date-asc">Date (Oldest → Newest)</option>
-      </select>
-    </div>
+    <label for="jump-select">Jump to category:</label>
+    <select id="jump-select">
+      <option value="">— Select a Category —</option>
+    </select>
   </div>
 
-  <div id="log"></div>
+  <div class="sort-row">
+    <label for="entry-sort">Sort entries within category:</label>
+    <select id="entry-sort">
+      <option value="date-desc" selected>Date (Newest → Oldest)</option>
+      <option value="date-asc">Date (Oldest → Newest)</option>
+    </select>
+  </div>
+</div>
 
-  <button id="back-to-top">↑ Back to Top</button>
+<div id="content"></div>
 
-  <script>
-    // Load JSON
-    fetch('logs.json')
-      .then(response => response.json())
-      .then(data => {
-        const logContainer = document.getElementById('log');
-        const jumpSelect = document.getElementById('jump-category');
-        const sortCategoriesSelect = document.getElementById('sort-categories');
-        const sortEntriesSelect = document.getElementById('sort-entries');
+<div id="lightbox">
+  <span id="close">&times;</span>
+  <span id="prev" class="nav">&#10094;</span>
+  <img id="lightbox-img" src="">
+  <div id="caption"></div>
+  <span id="next" class="nav">&#10095;</span>
+</div>
 
-        function renderLogs(sortCat = 'date-desc', sortEntries = 'date-desc') {
-          logContainer.innerHTML = '';
+<script>
+fetch("logs.json")
+  .then(async (r) => {
+    const lastModified = r.headers.get("Last-Modified");
+    if (lastModified) {
+      const date = new Date(lastModified);
+      const formatted = date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+      document.getElementById("meta-info").innerHTML =
+        `Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: ${formatted}`;
+    }
+    return r.json();
+  })
+  .then(data => {
+    const container = document.getElementById("content");
+    const totalTimeEl = document.getElementById("total-time");
+    const sortSelect = document.getElementById("sort-select");
+    const entrySort = document.getElementById("entry-sort");
+    const jumpSelect = document.getElementById("jump-select");
 
-          let categories = Object.keys(data);
+    function formatTime(secs) {
+      const mins = Math.floor(secs / 60);
+      const hrs = Math.floor(mins / 60);
+      const rem = mins % 60;
+      return `${hrs ? hrs + "h " : ""}${rem}m`;
+    }
 
-          // Category sorting
-          if (sortCat === 'date-desc' || sortCat === 'date-asc') {
-            categories.sort((a, b) => {
-              const aDate = new Date(data[a][0]?.date || 0);
-              const bDate = new Date(data[b][0]?.date || 0);
-              return sortCat === 'date-desc' ? bDate - aDate : aDate - bDate;
+    const totalSeconds = data.reduce((sum, e) => sum + (parseInt(e.timeSpent || 0, 10)), 0);
+    totalTimeEl.textContent = formatTime(totalSeconds);
+
+    function render(sortedData) {
+      container.innerHTML = "";
+      jumpSelect.innerHTML = '<option value="">— Select a Category —</option>';
+
+      const byCategory = {};
+      sortedData.forEach(e => {
+        if (!e.category) return;
+        if (!byCategory[e.category]) byCategory[e.category] = [];
+        byCategory[e.category].push(e);
+      });
+
+      let categories = Object.keys(byCategory);
+      const catOrder = sortSelect.value;
+
+      categories.sort((a, b) => {
+        if (catOrder === "category-asc") return a.localeCompare(b);
+        if (catOrder === "category-desc") return b.localeCompare(a);
+
+        const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0)));
+        const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0)));
+        return catOrder === "date-desc" ? latestB - latestA : latestA - latestB;
+      });
+
+      // Populate the Jump dropdown alphabetically
+      const jumpCats = [...categories].sort((a, b) => a.localeCompare(b));
+      jumpCats.forEach(cat => {
+        const opt = document.createElement("option");
+        opt.value = cat;
+        opt.textContent = cat;
+        jumpSelect.appendChild(opt);
+      });
+
+      categories.forEach(cat => {
+        const section = document.createElement("div");
+        section.className = "category";
+        section.id = cat;
+        const catTime = byCategory[cat].reduce((s, e) => s + (parseInt(e.timeSpent || 0, 10)), 0);
+        section.innerHTML = `<h2>${cat} (${formatTime(catTime)})</h2>`;
+
+        const entryOrder = entrySort.value;
+        byCategory[cat].sort((a, b) =>
+          entryOrder === "date-desc"
+            ? new Date(b.created) - new Date(a.created)
+            : new Date(a.created) - new Date(b.created)
+        );
+
+        byCategory[cat].forEach(entry => {
+          const div = document.createElement("div");
+          div.className = "entry";
+          const secs = parseInt(entry.timeSpent || 0, 10);
+          const timeDisplay = secs ? formatTime(secs) : "";
+
+          div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
+                           <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
+                           <p>${entry.summary || ""}</p>`;
+
+          const photosDiv = document.createElement("div");
+          photosDiv.className = "photos";
+
+          if (entry.assets && entry.assets.length > 0) {
+            entry.assets.forEach((photo, idx) => {
+              let cleaned = photo.filename.trim().replace(/\s+\/|\/\s+/g, "/").replace(/\s{2,}/g, " ").replace(/\s+$/, "");
+              const img = document.createElement("img");
+              img.dataset.index = idx;
+              img.dataset.caption = photo.description || "";
+              img.src = encodeURI(cleaned);
+              photosDiv.appendChild(img);
             });
-          } else {
-            categories.sort((a, b) =>
-              sortCat === 'category-asc' ? a.localeCompare(b) : b.localeCompare(a)
-            );
           }
 
-          // Populate jump dropdown
-          jumpSelect.innerHTML = '';
-          categories.forEach(cat => {
-            const opt = document.createElement('option');
-            opt.value = cat;
-            opt.textContent = cat;
-            jumpSelect.appendChild(opt);
-          });
-
-          // Render categories collapsed
-          categories.forEach(cat => {
-            const catDiv = document.createElement('div');
-            catDiv.className = 'category';
-            catDiv.id = `cat-${cat}`;
-
-            const catHeader = document.createElement('h2');
-            catHeader.textContent = cat;
-            catHeader.className = 'category-header';
-            catHeader.addEventListener('click', () => {
-              entriesDiv.classList.toggle('open');
-            });
-
-            const entriesDiv = document.createElement('div');
-            entriesDiv.className = 'entries-container';
-
-            // Sort entries
-            let entries = data[cat];
-            entries.sort((a, b) => {
-              const da = new Date(a.date);
-              const db = new Date(b.date);
-              return sortEntries === 'date-desc' ? db - da : da - db;
-            });
-
-            entries.forEach(entry => {
-              const entryDiv = document.createElement('div');
-              entryDiv.className = 'entry';
-              entryDiv.innerHTML = `
-                <h3>${entry.title}</h3>
-                <p><strong>Date:</strong> ${entry.date}</p>
-                <p><strong>Hours:</strong> ${entry.hours}</p>
-                <p>${entry.description}</p>
-                <div class="photos">
-                  ${(entry.photos || [])
-                    .map(photo => `<img src="${photo}" alt="${entry.title} photo">`)
-                    .join('')}
-                </div>
-              `;
-              entriesDiv.appendChild(entryDiv);
-            });
-
-            catDiv.appendChild(catHeader);
-            catDiv.appendChild(entriesDiv);
-            logContainer.appendChild(catDiv);
-          });
-        }
-
-        // Initial render
-        renderLogs();
-
-        // Event listeners
-        sortCategoriesSelect.addEventListener('change', () =>
-          renderLogs(sortCategoriesSelect.value, sortEntriesSelect.value)
-        );
-        sortEntriesSelect.addEventListener('change', () =>
-          renderLogs(sortCategoriesSelect.value, sortEntriesSelect.value)
-        );
-
-        jumpSelect.addEventListener('change', e => {
-          const target = document.getElementById(`cat-${e.target.value}`);
-          if (target) {
-            // Expand selected category
-            const entriesDiv = target.querySelector('.entries-container');
-            entriesDiv.classList.add('open');
-
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            // Change sort to alphabetical when jumping
-            sortCategoriesSelect.value = 'category-asc';
-            renderLogs('category-asc', sortEntriesSelect.value);
-          }
+          div.appendChild(photosDiv);
+          section.appendChild(div);
         });
 
-        // Back to top
-        document.getElementById('back-to-top').addEventListener('click', () =>
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        );
+        const backToTop = document.createElement("p");
+        backToTop.className = "back-to-top";
+        backToTop.innerHTML = `<a href="#">↑ Back to Top</a>`;
+        section.appendChild(backToTop);
+
+        container.appendChild(section);
       });
-  </script>
-
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      line-height: 1.5;
-      margin: 2rem;
     }
 
-    #sort-controls {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 2rem;
+    render(data);
+
+    sortSelect.addEventListener("change", () => render(data));
+    entrySort.addEventListener("change", () => render(data));
+    jumpSelect.addEventListener("change", () => {
+      const val = jumpSelect.value;
+      if (!val) return;
+      sortSelect.value = "category-asc";
+      render(data);
+      document.getElementById(val)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Lightbox logic
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const caption = document.getElementById("caption");
+    const btnPrev = document.getElementById("prev");
+    const btnNext = document.getElementById("next");
+    const btnClose = document.getElementById("close");
+    let currentImages = [];
+    let currentIndex = 0;
+
+    document.body.addEventListener("click", e => {
+      if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("photos")) {
+        currentImages = [...e.target.parentElement.querySelectorAll("img")];
+        currentIndex = currentImages.indexOf(e.target);
+        lightbox.style.display = "flex";
+        lightboxImg.src = currentImages[currentIndex].src;
+        caption.textContent = currentImages[currentIndex].dataset.caption || "";
+      }
+    });
+
+    function show(offset) {
+      if (!currentImages.length) return;
+      currentIndex = (currentIndex + offset + currentImages.length) % currentImages.length;
+      lightboxImg.src = currentImages[currentIndex].src;
+      caption.textContent = currentImages[currentIndex].dataset.caption || "";
     }
 
-    .sort-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .category {
-      margin-bottom: 2rem;
-    }
-
-    .category-header {
-      cursor: pointer;
-      background: #f0f0f0;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-
-    .category-header:hover {
-      background: #e0e0e0;
-    }
-
-    .entries-container {
-      display: none;
-      margin-top: 0.5rem;
-    }
-
-    .entries-container.open {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .entry {
-      background: white;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .entry h3 {
-      margin-top: 0;
-    }
-
-    .photos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 0.5rem;
-    }
-
-    .photos img {
-      height: 120px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .photos img:hover {
-      transform: scale(1.05);
-    }
-
-    #back-to-top {
-      display: block;
-      margin: 2rem auto;
-      padding: 0.5rem 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #f8f8f8;
-    }
-
-    #back-to-top:hover {
-      background: #eee;
-    }
-  </style>
+    btnPrev.onclick = () => show(-1);
+    btnNext.onclick = () => show(1);
+    btnClose.onclick = () => lightbox.style.display = "none";
+    lightbox.onclick = e => { if (e.target === lightbox) lightbox.style.display = "none"; };
+    document.addEventListener("keydown", e => {
+      if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowLeft") show(-1);
+        if (e.key === "ArrowRight") show(1);
+        if (e.key === "Escape") lightbox.style.display = "none";
+      }
+    });
+  })
+  .catch(err => {
+    console.error("Error loading logs.json", err);
+    document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
+  });
+</script>
 </body>
+</html>
