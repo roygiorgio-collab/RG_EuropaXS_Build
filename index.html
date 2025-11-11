@@ -9,7 +9,7 @@
   #meta-info { text-align: center; color: #555; margin-bottom: 0.5rem; }
 
   #tip {
-    text-align: center;
+    text-align: left;
     font-style: italic;
     color: #666;
     margin-bottom: 2rem;
@@ -22,16 +22,22 @@
   }
 
   .top-buttons a {
-    background: #1a73e8;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
+  background: #bbb; /* classy medium gray */
+  color: #000; /* black text */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-  .top-buttons a:hover { background: #155ab6; }
+.top-buttons a:hover {
+  background: #aaa;
+  box-shadow: 3px 3px 7px rgba(0,0,0,0.35);
+}
+
 
   h2 {
     background: #e8f0fe;
@@ -181,7 +187,6 @@
 
 <h1>Roy Giorgio's Europa XS Build Log</h1>
 <p id="meta-info">Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: …</p>
-<p id="tip">💡 Tip: Click the arrow (▶) next to each section title to view individual build entries.</p>
 
 <div id="sort-controls">
   <div class="sort-row">
@@ -206,6 +211,8 @@
       <option value="date-asc">Date (Oldest → Newest)</option>
     </select>
   </div>
+  <p id="tip">💡 Tip: Click the arrow (▶) next to each section title to view individual build entries.</p>
+
 </div>
 
 <div id="content"></div>
