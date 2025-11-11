@@ -1,318 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Roy Giorgio's EuropaXS Build</title>
-<style>
-  body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
-  h1 { text-align: center; margin-bottom: 0.5rem; }
-  #meta-info { text-align: center; color: #555; margin-bottom: 2rem; }
-
-  h2 {
-    background: #e8f0fe;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-
-  .category { margin-bottom: 2rem; }
-  .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
-  .entry h3 { margin-top: 0; }
-  .photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
-  .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
-  .photos img:hover { transform: scale(1.05); }
-
-  /* Back-to-top link styling */
-  .back-to-top { text-align: right; margin-top: 0.5rem; }
-  .back-to-top a {
-    color: #555; text-decoration: none; font-size: 0.9rem; transition: color 0.2s ease;
-  }
-  .back-to-top a:hover { color: #1a73e8; text-decoration: underline; }
-
-  /* Sort controls */
-  #sort-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  #sort-controls label {
-    font-weight: 600;
-    margin-right: 0.5rem;
-  }
-
-  select {
-    padding: 0.4rem 0.6rem;
-    font-size: 1rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Lightbox */
-  #lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  #lightbox img {
-    max-height: 90vh;
-    max-width: 90vw;
-    border-radius: 8px;
-  }
-  #lightbox .nav {
-    position: absolute;
-    top: 50%;
-    font-size: 3rem;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-    padding: 0 1rem;
-  }
-  #lightbox .nav:hover { color: #ccc; }
-  #lightbox #prev { left: 0; }
-  #lightbox #next { right: 0; }
-  #lightbox #close {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-  }
-  #caption {
-    color: #ccc;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    max-width: 90vw;
-    text-align: center;
-  }
-</style>
-</head>
 <body>
-<h1>Roy Giorgio's EuropaXS Build</h1>
-<p id="meta-info">Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: …</p>
+  <h1>Europa XS Build Log</h1>
 
-<div id="sort-controls">
-  <div class="sort-group">
-    <label for="sort-select">Sort Categories:</label>
-    <select id="sort-select">
-      <option value="date-desc">Date (Newest → Oldest)</option>
-      <option value="date-asc">Date (Oldest → Newest)</option>
-      <option value="category-asc">Category (A → Z)</option>
-      <option value="category-desc">Category (Z → A)</option>
-    </select>
+  <div id="sort-controls">
+    <div id="sort-top-row">
+      <label for="category-sort">Sort categories:</label>
+      <select id="category-sort">
+        <option value="date-desc" selected>Date (Newest → Oldest)</option>
+        <option value="date-asc">Date (Oldest → Newest)</option>
+        <option value="category-asc">Category (A → Z)</option>
+        <option value="category-desc">Category (Z → A)</option>
+      </select>
+
+      <label for="jump-to-category">Jump to category:</label>
+      <select id="jump-to-category"></select>
+    </div>
+
+    <div>
+      <label for="entry-sort">Sort entries within category:</label>
+      <select id="entry-sort">
+        <option value="date-desc" selected>Date (Newest → Oldest)</option>
+        <option value="date-asc">Date (Oldest → Newest)</option>
+      </select>
+    </div>
   </div>
 
-  <div class="jump-group">
-    <label for="jump-select">Jump to Category:</label>
-    <select id="jump-select">
-      <option value="">— Select a Category —</option>
-    </select>
-  </div>
-</div>
+  <div id="log-container"></div>
 
-<div>
-  <label for="entry-sort">Sort Entries:</label>
-  <select id="entry-sort">
-    <option value="date-desc" selected>Newest → Oldest</option>
-    <option value="date-asc">Oldest → Newest</option>
-  </select>
-</div>
+  <button id="back-to-top">↑ Back to Top</button>
 
-<div id="content"></div>
+  <script>
+    // --- Smooth Scroll for Back to Top Button ---
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-<!-- Lightbox -->
-<div id="lightbox">
-  <span id="close">&times;</span>
-  <span id="prev" class="nav">&#10094;</span>
-  <img id="lightbox-img" src="">
-  <div id="caption"></div>
-  <span id="next" class="nav">&#10095;</span>
-</div>
-
-<script>
-fetch("logs.json")
-  .then(async (r) => {
-    const lastModified = r.headers.get("Last-Modified");
-    if (lastModified) {
-      const date = new Date(lastModified);
-      const formatted = date.toLocaleDateString("en-US", {
-        year: "numeric", month: "short", day: "numeric",
-      });
-      document.getElementById("meta-info").innerHTML =
-        `Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: ${formatted}`;
-    }
-    return r.json();
-  })
-  .then(data => {
-    const container = document.getElementById("content");
-    const totalTimeEl = document.getElementById("total-time");
-    const sortSelect = document.getElementById("sort-select");
-    const entrySort = document.getElementById("entry-sort");
-    const jumpSelect = document.getElementById("jump-select");
-
-    function formatTime(secs) {
-      const mins = Math.floor(secs / 60);
-      const hrs = Math.floor(mins / 60);
-      const rem = mins % 60;
-      return `${hrs ? hrs + "h " : ""}${rem}m`;
+    // --- Build Log Data (fetched or preloaded externally) ---
+    async function fetchLogData() {
+      const response = await fetch('logData.json');
+      return await response.json();
     }
 
-    const totalSeconds = data.reduce((sum, e) => sum + (parseInt(e.timeSpent || 0, 10)), 0);
-    totalTimeEl.textContent = formatTime(totalSeconds);
+    const logContainer = document.getElementById('log-container');
+    const categorySortSelect = document.getElementById('category-sort');
+    const entrySortSelect = document.getElementById('entry-sort');
+    const jumpToSelect = document.getElementById('jump-to-category');
 
-    function render(sortedData) {
-      container.innerHTML = "";
-      const byCategory = {};
+    let groupedLogs = {};
 
-      sortedData.forEach(e => {
-        if (!e.category) return;
-        if (!byCategory[e.category]) byCategory[e.category] = [];
-        byCategory[e.category].push(e);
-      });
+    // --- Render Categories and Entries ---
+    function renderLogs(grouped) {
+      logContainer.innerHTML = '';
+      for (const [category, entries] of Object.entries(grouped)) {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'category';
+        categoryDiv.id = category.replace(/\s+/g, '-');
 
-      let categories = Object.keys(byCategory);
+        const categoryHeader = document.createElement('h2');
+        categoryHeader.textContent = category;
+        categoryDiv.appendChild(categoryHeader);
 
-      // Sort categories based on dropdown
-      const catOrder = sortSelect.value;
-      categories.sort((a, b) => {
-        if (catOrder === "category-asc") return a.localeCompare(b);
-        if (catOrder === "category-desc") return b.localeCompare(a);
+        for (const entry of entries) {
+          const entryDiv = document.createElement('div');
+          entryDiv.className = 'entry';
 
-        const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0)));
-        const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0)));
-        return catOrder === "date-desc" ? latestB - latestA : latestA - latestB;
-      });
+          const title = document.createElement('h3');
+          title.textContent = entry.title;
+          entryDiv.appendChild(title);
 
-      // Populate Jump menu alphabetically, without duplicates
-      jumpSelect.innerHTML = '<option value="">— Select a Category —</option>';
-      [...categories].sort((a,b)=>a.localeCompare(b)).forEach(cat => {
-        const option = document.createElement("option");
-        option.value = cat;
-        option.textContent = cat;
-        jumpSelect.appendChild(option);
-      });
+          const date = document.createElement('p');
+          date.textContent = `Date: ${entry.date}`;
+          entryDiv.appendChild(date);
 
-      categories.forEach(cat => {
-        const section = document.createElement("div");
-        section.className = "category";
-        section.id = cat;
-        const catTime = byCategory[cat].reduce((s, e) => s + (parseInt(e.timeSpent || 0, 10)), 0);
-        section.innerHTML = `<h2>${cat} (${formatTime(catTime)})</h2>`;
+          const time = document.createElement('p');
+          time.textContent = `Time spent: ${entry.time}`;
+          entryDiv.appendChild(time);
 
-        const backToTop = document.createElement("p");
-        backToTop.className = "back-to-top";
-        backToTop.innerHTML = `<a href="#">↑ Back to Top</a>`;
-        section.appendChild(backToTop);
+          const desc = document.createElement('p');
+          desc.textContent = entry.description;
+          entryDiv.appendChild(desc);
 
-        // Sort entries inside category
-        const entryOrder = entrySort.value;
-        byCategory[cat].sort((a, b) => {
-          return entryOrder === "date-desc"
-            ? new Date(b.created) - new Date(a.created)
-            : new Date(a.created) - new Date(b.created);
-        });
-
-        byCategory[cat].forEach(entry => {
-          const div = document.createElement("div");
-          div.className = "entry";
-          const secs = parseInt(entry.timeSpent || 0, 10);
-          const timeDisplay = secs ? formatTime(secs) : "";
-          div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
-                           <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
-                           <p>${entry.summary || ""}</p>`;
-
-          if (entry.assets && entry.assets.length > 0) {
-            const photosDiv = document.createElement("div");
-            photosDiv.className = "photos";
-            entry.assets.forEach((photo, idx) => {
-              const img = document.createElement("img");
-              img.dataset.index = idx;
-              img.dataset.caption = photo.description || "";
-              img.src = encodeURI(photo.filename.trim());
+          if (entry.photos && entry.photos.length) {
+            const photosDiv = document.createElement('div');
+            photosDiv.className = 'photos';
+            for (const photo of entry.photos) {
+              const img = document.createElement('img');
+              img.src = photo.url;
+              img.alt = photo.caption;
+              img.title = photo.caption;
               photosDiv.appendChild(img);
-            });
-            div.appendChild(photosDiv);
+            }
+            entryDiv.appendChild(photosDiv);
           }
 
-          section.appendChild(div);
-        });
+          categoryDiv.appendChild(entryDiv);
+        }
 
-        container.appendChild(section);
-      });
+        logContainer.appendChild(categoryDiv);
+      }
     }
 
-    render(data);
-
-    // Events
-    sortSelect.addEventListener("change", () => render(data));
-    entrySort.addEventListener("change", () => render(data));
-
-    jumpSelect.addEventListener("change", () => {
-      const selectedId = jumpSelect.value;
-      if (!selectedId) return;
-      // Force alphabetical sort for consistency
-      sortSelect.value = "category-asc";
-      render(data);
-      const target = document.getElementById(selectedId);
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    // Lightbox
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const caption = document.getElementById("caption");
-    const btnPrev = document.getElementById("prev");
-    const btnNext = document.getElementById("next");
-    const btnClose = document.getElementById("close");
-    let currentImages = [];
-    let currentIndex = 0;
-
-    document.body.addEventListener("click", e => {
-      if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("photos")) {
-        currentImages = [...e.target.parentElement.querySelectorAll("img")];
-        currentIndex = currentImages.indexOf(e.target);
-        lightbox.style.display = "flex";
-        lightboxImg.src = currentImages[currentIndex].src;
-        caption.textContent = currentImages[currentIndex].dataset.caption || "";
+    // --- Sorting Logic ---
+    function sortCategories(order) {
+      let categories = Object.keys(groupedLogs);
+      switch (order) {
+        case 'category-asc':
+          categories.sort();
+          break;
+        case 'category-desc':
+          categories.sort().reverse();
+          break;
+        case 'date-asc':
+          categories.sort((a, b) => new Date(groupedLogs[a][0].date) - new Date(groupedLogs[b][0].date));
+          break;
+        case 'date-desc':
+          categories.sort((a, b) => new Date(groupedLogs[b][0].date) - new Date(groupedLogs[a][0].date));
+          break;
       }
-    });
 
-    function show(offset) {
-      if (!currentImages.length) return;
-      currentIndex = (currentIndex + offset + currentImages.length) % currentImages.length;
-      lightboxImg.src = currentImages[currentIndex].src;
-      caption.textContent = currentImages[currentIndex].dataset.caption || "";
+      const sortedGrouped = {};
+      for (const cat of categories) sortedGrouped[cat] = groupedLogs[cat];
+      renderLogs(sortedGrouped);
     }
 
-    btnPrev.onclick = () => show(-1);
-    btnNext.onclick = () => show(1);
-    btnClose.onclick = () => lightbox.style.display = "none";
-    lightbox.onclick = e => { if (e.target === lightbox) lightbox.style.display = "none"; };
-    document.addEventListener("keydown", e => {
-      if (lightbox.style.display === "flex") {
-        if (e.key === "ArrowLeft") show(-1);
-        if (e.key === "ArrowRight") show(1);
-        if (e.key === "Escape") lightbox.style.display = "none";
+    function sortEntries(order) {
+      for (const cat in groupedLogs) {
+        groupedLogs[cat].sort((a, b) =>
+          order === 'date-asc'
+            ? new Date(a.date) - new Date(b.date)
+            : new Date(b.date) - new Date(a.date)
+        );
       }
+      sortCategories(categorySortSelect.value);
+    }
+
+    // --- Populate Jump-to Dropdown ---
+    function populateJumpTo() {
+      const categories = Object.keys(groupedLogs).sort((a, b) => a.localeCompare(b));
+      jumpToSelect.innerHTML = '';
+      for (const category of categories) {
+        const option = document.createElement('option');
+        option.value = category.replace(/\s+/g, '-');
+        option.textContent = category;
+        jumpToSelect.appendChild(option);
+      }
+    }
+
+    jumpToSelect.addEventListener('change', () => {
+      categorySortSelect.value = 'category-asc'; // keep consistent alphabetical view
+      sortCategories('category-asc');
+      const selectedId = jumpToSelect.value;
+      const section = document.getElementById(selectedId);
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
     });
-  })
-  .catch(err => {
-    console.error("Error loading logs.json", err);
-    document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
-  });
-</script>
+
+    // --- Event Listeners ---
+    categorySortSelect.addEventListener('change', e => sortCategories(e.target.value));
+    entrySortSelect.addEventListener('change', e => sortEntries(e.target.value));
+
+    // --- Initialize Page ---
+    fetchLogData().then(data => {
+      groupedLogs = data;
+      populateJumpTo();
+      sortCategories('date-desc');
+    });
+  </script>
 </body>
-</html>
