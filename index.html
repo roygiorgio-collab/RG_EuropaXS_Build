@@ -5,39 +5,86 @@
 <title>Europa XS Build Log</title>
 <style>
   body { font-family: system-ui, sans-serif; margin: 2rem; background: #f8f8f8; }
-  h1 { text-align: center; margin-bottom: 0.5rem; }
-  #meta-info { text-align: center; color: #555; margin-bottom: 2rem; }
+  h1 { text-align: center; margin-bottom: 0.25rem; }
+  #meta-info { text-align: center; color: #555; margin-bottom: 0.5rem; }
+
+  #tip {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .top-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .top-buttons a {
+    background: #1a73e8;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .top-buttons a:hover { background: #155ab6; }
 
   h2 {
     background: #e8f0fe;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+  }
+
+  .h2-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .arrow {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    user-select: none;
+  }
+
+  .expand-buttons {
+    font-size: 0.9rem;
+    color: #1a73e8;
+    user-select: none;
+  }
+
+  .expand-buttons span {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    text-decoration: underline;
   }
 
   .category { margin-bottom: 2rem; }
+  .entries { display: none; }
   .entry { background: white; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; }
   .entry h3 { margin-top: 0; }
   .photos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
   .photos img { height: 120px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
   .photos img:hover { transform: scale(1.05); }
 
-  .back-to-top {
-    text-align: right;
-    margin-top: 0.5rem;
-  }
-
+  .back-to-top { text-align: right; margin-top: 0.5rem; }
   .back-to-top a {
     color: #555;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s ease;
   }
-
-  .back-to-top a:hover {
-    color: #1a73e8;
-    text-decoration: underline;
-  }
+  .back-to-top a:hover { color: #1a73e8; text-decoration: underline; }
 
   #sort-controls {
     display: flex;
@@ -46,7 +93,6 @@
     gap: 0.8rem;
     margin-bottom: 2rem;
   }
-
   .sort-row {
     display: flex;
     flex-wrap: wrap;
@@ -54,12 +100,10 @@
     justify-content: center;
     gap: 1rem;
   }
-
   #sort-controls label {
     font-weight: 600;
     margin-right: 0.5rem;
   }
-
   select {
     padding: 0.4rem 0.6rem;
     font-size: 1rem;
@@ -77,13 +121,11 @@
     justify-content: center;
     flex-direction: column;
   }
-
   #lightbox img {
     max-height: 90vh;
     max-width: 90vw;
     border-radius: 8px;
   }
-
   #lightbox .nav {
     position: absolute;
     top: 50%;
@@ -93,7 +135,6 @@
     user-select: none;
     padding: 0 1rem;
   }
-
   #lightbox .nav:hover { color: #ccc; }
   #lightbox #prev { left: 0; }
   #lightbox #next { right: 0; }
@@ -105,7 +146,6 @@
     color: white;
     cursor: pointer;
   }
-
   #caption {
     color: #ccc;
     font-size: 1rem;
@@ -113,11 +153,35 @@
     max-width: 90vw;
     text-align: center;
   }
+
+  /* Floating "Top" button */
+  #toTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    display: none;
+  }
+  #toTopBtn:hover { background: #155ab6; }
 </style>
 </head>
 <body>
+<div class="top-buttons">
+  <a href="RG_The_Builder.html">About…</a>
+  <a href="Europa_Links.html">Europa Links…</a>
+</div>
+
 <h1>Roy Giorgio's Europa XS Build Log</h1>
 <p id="meta-info">Start date: Apr 17, 2025 • Total hours: <span id="total-time">–</span> • Last updated: …</p>
+<p id="tip">💡 Tip: Click the arrow (▶) next to each section title to view individual build entries.</p>
 
 <div id="sort-controls">
   <div class="sort-row">
@@ -146,6 +210,7 @@
 
 <div id="content"></div>
 
+<!-- Lightbox -->
 <div id="lightbox">
   <span id="close">&times;</span>
   <span id="prev" class="nav">&#10094;</span>
@@ -153,6 +218,9 @@
   <div id="caption"></div>
   <span id="next" class="nav">&#10095;</span>
 </div>
+
+<!-- Floating "Top" Button -->
+<button id="toTopBtn" title="Back to top">↑</button>
 
 <script>
 fetch("logs.json")
@@ -204,13 +272,11 @@ fetch("logs.json")
       categories.sort((a, b) => {
         if (catOrder === "category-asc") return a.localeCompare(b);
         if (catOrder === "category-desc") return b.localeCompare(a);
-
         const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0)));
         const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0)));
         return catOrder === "date-desc" ? latestB - latestA : latestA - latestB;
       });
 
-      // Populate the Jump dropdown alphabetically
       const jumpCats = [...categories].sort((a, b) => a.localeCompare(b));
       jumpCats.forEach(cat => {
         const opt = document.createElement("option");
@@ -223,8 +289,32 @@ fetch("logs.json")
         const section = document.createElement("div");
         section.className = "category";
         section.id = cat;
+
         const catTime = byCategory[cat].reduce((s, e) => s + (parseInt(e.timeSpent || 0, 10)), 0);
-        section.innerHTML = `<h2>${cat} (${formatTime(catTime)})</h2>`;
+        const entriesDiv = document.createElement("div");
+        entriesDiv.className = "entries";
+
+        const h2 = document.createElement("h2");
+        const left = document.createElement("div");
+        left.className = "h2-left";
+
+        const arrow = document.createElement("span");
+        arrow.className = "arrow";
+        arrow.textContent = "▶";
+
+        const title = document.createElement("span");
+        title.textContent = `${cat} (${formatTime(catTime)})`;
+
+        const expandBtns = document.createElement("div");
+        expandBtns.className = "expand-buttons";
+        expandBtns.innerHTML = `<span id="expandAll">Expand All</span> | <span id="collapseAll">Collapse All</span>`;
+
+        left.appendChild(arrow);
+        left.appendChild(title);
+        h2.appendChild(left);
+        h2.appendChild(expandBtns);
+        section.appendChild(h2);
+        section.appendChild(entriesDiv);
 
         const entryOrder = entrySort.value;
         byCategory[cat].sort((a, b) =>
@@ -258,13 +348,24 @@ fetch("logs.json")
           }
 
           div.appendChild(photosDiv);
-          section.appendChild(div);
+          entriesDiv.appendChild(div);
         });
 
-        const backToTop = document.createElement("p");
-        backToTop.className = "back-to-top";
-        backToTop.innerHTML = `<a href="#">↑ Back to Top</a>`;
-        section.appendChild(backToTop);
+        arrow.addEventListener("click", () => {
+          const open = entriesDiv.style.display === "block";
+          entriesDiv.style.display = open ? "none" : "block";
+          arrow.textContent = open ? "▶" : "▼";
+        });
+
+        expandBtns.querySelector("#expandAll").addEventListener("click", () => {
+          document.querySelectorAll(".entries").forEach(el => el.style.display = "block");
+          document.querySelectorAll(".arrow").forEach(a => a.textContent = "▼");
+        });
+
+        expandBtns.querySelector("#collapseAll").addEventListener("click", () => {
+          document.querySelectorAll(".entries").forEach(el => el.style.display = "none");
+          document.querySelectorAll(".arrow").forEach(a => a.textContent = "▶");
+        });
 
         container.appendChild(section);
       });
@@ -282,7 +383,7 @@ fetch("logs.json")
       document.getElementById(val)?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
-    // Lightbox logic
+    /* Lightbox */
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const caption = document.getElementById("caption");
@@ -325,6 +426,17 @@ fetch("logs.json")
     console.error("Error loading logs.json", err);
     document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
   });
+
+/* Floating "Top" button behavior */
+const toTopBtn = document.getElementById("toTopBtn");
+window.onscroll = function() {
+  if (document.documentElement.scrollTop > 200) {
+    toTopBtn.style.display = "block";
+  } else {
+    toTopBtn.style.display = "none";
+  }
+};
+toTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 </script>
 </body>
 </html>
