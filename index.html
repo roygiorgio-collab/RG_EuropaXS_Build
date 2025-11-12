@@ -262,8 +262,17 @@ fetch("logs.json")
     totalTimeEl.textContent = formatTime(totalSeconds);
 
     function render(sortedData) {
-      container.innerHTML = "";
-      jumpSelect.innerHTML = '<option value="">— Select a Category —</option>';
+  // Save expanded category states before re-rendering
+  const openCategories = new Set(
+    [...document.querySelectorAll(".category")].filter(cat => {
+      const entries = cat.querySelector(".entries");
+      return entries && entries.style.display === "block";
+    }).map(cat => cat.id)
+  );
+
+  container.innerHTML = "";
+  jumpSelect.innerHTML = '<option value="">— Select a Category —</option>';
+
 
       const byCategory = {};
       sortedData.forEach(e => {
@@ -321,6 +330,11 @@ fetch("logs.json")
         h2.appendChild(expandBtns);
         section.appendChild(h2);
         section.appendChild(entriesDiv);
+        if (openCategories.has(cat)) {
+  entriesDiv.style.display = "block";
+  arrow.textContent = "▼";
+}
+
 
         const entryOrder = entrySort.value;
         byCategory[cat].sort((a, b) =>
