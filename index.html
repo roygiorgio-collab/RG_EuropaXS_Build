@@ -399,12 +399,29 @@ fetch("logs.json")
     sortSelect.addEventListener("change", () => render(data));
     entrySort.addEventListener("change", () => render(data));
     jumpSelect.addEventListener("change", () => {
-      const val = jumpSelect.value;
-      if (!val) return;
-      sortSelect.value = "category-asc";
-      render(data);
-      document.getElementById(val)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+  const val = jumpSelect.value;
+  if (!val) return;
+
+  sortSelect.value = "category-asc";
+  render(data);
+
+  // Collapse all categories and arrows
+  document.querySelectorAll(".entries").forEach(el => el.style.display = "none");
+  document.querySelectorAll(".arrow").forEach(a => a.textContent = "▶");
+
+  // Expand selected category
+  const section = document.getElementById(val);
+  const entries = section?.querySelector(".entries");
+  const arrow = section?.querySelector(".arrow");
+
+  if (entries && arrow) {
+    entries.style.display = "block";
+    arrow.textContent = "▼";
+  }
+
+  section?.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
 
     /* Lightbox */
     const lightbox = document.getElementById("lightbox");
