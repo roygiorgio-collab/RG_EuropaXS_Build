@@ -25,22 +25,21 @@
   }
 
   .top-buttons a {
-  background: #bbb; /* classy medium gray */
-  color: #000; /* black text */
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  border: 1px solid #999;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
+    background: #bbb; /* classy medium gray */
+    color: #000; /* black text */
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #999;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
 
-.top-buttons a:hover {
-  background: #aaa;
-  box-shadow: 3px 3px 7px rgba(0,0,0,0.35);
-}
-
+  .top-buttons a:hover {
+    background: #aaa;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.35);
+  }
 
   h2 {
     background: #e8f0fe;
@@ -163,11 +162,12 @@
     text-align: center;
   }
 
-  /* Floating "Top" button */
+  /* Floating "Top" button — present in DOM but hidden via opacity for robustness */
   #toTopBtn {
     position: fixed;
     bottom: 20px;
     right: 25px;
+    z-index: 99999;
     background: #1a73e8;
     color: white;
     border: none;
@@ -177,7 +177,16 @@
     font-size: 1.2rem;
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    display: none;
+    display: block;               /* keep in flow so computed styles are reliable */
+    opacity: 0;                   /* hide visually until we want to show */
+    visibility: hidden;
+    transition: opacity 180ms ease, visibility 180ms ease, transform 180ms ease;
+    transform: translateY(6px);
+  }
+  #toTopBtn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
   #toTopBtn:hover { background: #155ab6; }
 </style>
@@ -232,6 +241,7 @@
 <button id="toTopBtn" title="Back to top">↑</button>
 
 <script>
+/* Fetch logs and render */
 fetch("logs.json")
   .then(async (r) => {
     const lastModified = r.headers.get("Last-Modified");
@@ -265,17 +275,16 @@ fetch("logs.json")
     totalTimeEl.textContent = formatTime(totalSeconds);
 
     function render(sortedData) {
-  // Save expanded category states before re-rendering
-  const openCategories = new Set(
-    [...document.querySelectorAll(".category")].filter(cat => {
-      const entries = cat.querySelector(".entries");
-      return entries && entries.style.display === "block";
-    }).map(cat => cat.id)
-  );
+      // Save expanded category states before re-rendering
+      const openCategories = new Set(
+        [...document.querySelectorAll(".category")].filter(cat => {
+          const entries = cat.querySelector(".entries");
+          return entries && entries.style.display === "block";
+        }).map(cat => cat.id)
+      );
 
-  container.innerHTML = "";
-  jumpSelect.innerHTML = '<option value="">— Select a Category —</option>';
-
+      container.innerHTML = "";
+      jumpSelect.innerHTML = '<option value="">— Select a Category —</option>';
 
       const byCategory = {};
       sortedData.forEach(e => {
@@ -290,9 +299,14 @@ fetch("logs.json")
       categories.sort((a, b) => {
         if (catOrder === "category-asc") return a.localeCompare(b);
         if (catOrder === "category-desc") return b.localeCompare(a);
-        const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0)));
-        const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0)));
-        return catOrder === "date-desc" ? latestB - latestA : latestA - latestB;
+
+        const latestA = Math.max(...byCategory[a].map(e => new Date(e.created || 0).getTime()));
+        const latestB = Math.max(...byCategory[b].map(e => new Date(e.created || 0).getTime()));
+        // Math.max may return -Infinity if array empty; coerce to 0
+        const ta = isFinite(latestA) ? latestA : 0;
+        const tb = isFinite(latestB) ? latestB : 0;
+
+        return catOrder === "date-desc" ? tb - ta : ta - tb;
       });
 
       const jumpCats = [...categories].sort((a, b) => a.localeCompare(b));
@@ -325,7 +339,8 @@ fetch("logs.json")
 
         const expandBtns = document.createElement("div");
         expandBtns.className = "expand-buttons";
-        expandBtns.innerHTML = `<span id="expandAll">Expand All</span> | <span id="collapseAll">Collapse All</span>`;
+        // Use class names instead of duplicate IDs
+        expandBtns.innerHTML = `<span class="expand-all">Expand All</span> | <span class="collapse-all">Collapse All</span>`;
 
         left.appendChild(arrow);
         left.appendChild(title);
@@ -333,11 +348,12 @@ fetch("logs.json")
         h2.appendChild(expandBtns);
         section.appendChild(h2);
         section.appendChild(entriesDiv);
-        if (openCategories.has(cat)) {
-  entriesDiv.style.display = "block";
-  arrow.textContent = "▼";
-}
 
+        // restore open state if it was open before render
+        if (openCategories.has(cat)) {
+          entriesDiv.style.display = "block";
+          arrow.textContent = "▼";
+        }
 
         const entryOrder = entrySort.value;
         byCategory[cat].sort((a, b) =>
@@ -374,53 +390,62 @@ fetch("logs.json")
           entriesDiv.appendChild(div);
         });
 
+        // Toggle single category
         arrow.addEventListener("click", () => {
           const open = entriesDiv.style.display === "block";
           entriesDiv.style.display = open ? "none" : "block";
           arrow.textContent = open ? "▶" : "▼";
         });
 
-        expandBtns.querySelector("#expandAll").addEventListener("click", () => {
-          document.querySelectorAll(".entries").forEach(el => el.style.display = "block");
-          document.querySelectorAll(".arrow").forEach(a => a.textContent = "▼");
-        });
+        // Expand all / Collapse all - use class selectors and guard for null
+        const expandAllBtn = expandBtns.querySelector(".expand-all");
+        const collapseAllBtn = expandBtns.querySelector(".collapse-all");
 
-        expandBtns.querySelector("#collapseAll").addEventListener("click", () => {
-          document.querySelectorAll(".entries").forEach(el => el.style.display = "none");
-          document.querySelectorAll(".arrow").forEach(a => a.textContent = "▶");
-        });
+        if (expandAllBtn) {
+          expandAllBtn.addEventListener("click", () => {
+            document.querySelectorAll(".entries").forEach(el => el.style.display = "block");
+            document.querySelectorAll(".arrow").forEach(a => a.textContent = "▼");
+          });
+        }
+        if (collapseAllBtn) {
+          collapseAllBtn.addEventListener("click", () => {
+            document.querySelectorAll(".entries").forEach(el => el.style.display = "none");
+            document.querySelectorAll(".arrow").forEach(a => a.textContent = "▶");
+          });
+        }
 
         container.appendChild(section);
       });
     }
 
+    // initial render
     render(data);
 
+    // wire up controls
     sortSelect.addEventListener("change", () => render(data));
     entrySort.addEventListener("change", () => render(data));
     jumpSelect.addEventListener("change", () => {
-  const val = jumpSelect.value;
-  if (!val) return;
+      const val = jumpSelect.value;
+      if (!val) return;
 
-  sortSelect.value = "category-asc";
-  render(data);
+      sortSelect.value = "category-asc";
+      render(data);
 
-  // Collapse all categories and arrows
-  document.querySelectorAll(".entries").forEach(el => el.style.display = "none");
-  document.querySelectorAll(".arrow").forEach(a => a.textContent = "▶");
+      // Collapse all categories and arrows
+      document.querySelectorAll(".entries").forEach(el => el.style.display = "none");
+      document.querySelectorAll(".arrow").forEach(a => a.textContent = "▶");
 
-  // Expand selected category
-  const section = document.getElementById(val);
-  const entries = section?.querySelector(".entries");
-  const arrow = section?.querySelector(".arrow");
+      // Expand selected category
+      const section = document.getElementById(val);
+      const entries = section?.querySelector(".entries");
+      const arrow = section?.querySelector(".arrow");
 
-  if (entries && arrow) {
-    entries.style.display = "block";
-    arrow.textContent = "▼";
-  }
-
-  section?.scrollIntoView({ behavior: "smooth", block: "start" });
-});
+      if (entries && arrow) {
+        entries.style.display = "block";
+        arrow.textContent = "▼";
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
 
 
     /* Lightbox */
@@ -467,16 +492,34 @@ fetch("logs.json")
     document.getElementById("content").innerHTML = "<p>Could not load build log data.</p>";
   });
 
-/* Floating "Top" button behavior */
-const toTopBtn = document.getElementById("toTopBtn");
-window.onscroll = function() {
-  if (document.documentElement.scrollTop > 200) {
-    toTopBtn.style.display = "block";
-  } else {
-    toTopBtn.style.display = "none";
+/* Floating "Top" button — robust, uses scrollingElement and toggles .visible */
+(function() {
+  const toTopBtn = document.getElementById("toTopBtn");
+  if (!toTopBtn) return;
+
+  const scrollEl = document.scrollingElement || document.documentElement || document.body;
+
+  function updateVisibility() {
+    const st = scrollEl.scrollTop || window.scrollY || 0;
+    if (st > 200) {
+      toTopBtn.classList.add("visible");
+    } else {
+      toTopBtn.classList.remove("visible");
+    }
   }
-};
-toTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Attach listeners
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  window.addEventListener("resize", updateVisibility);
+  // Ensure state on load
+  document.addEventListener("DOMContentLoaded", updateVisibility);
+  // Call once now in case DOM is already ready
+  updateVisibility();
+
+  toTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
 </script>
 </body>
 </html>
