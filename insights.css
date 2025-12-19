@@ -60,6 +60,24 @@ body.insights {
   color: #777;
 }
 
+/* ---- Back Button ---- */
+
+.back-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f7f7f7;
+}
+
+.back-button:hover {
+  background: #eee;
+}
+
 /* ---- Lists ---- */
 
 .clean-list {
