@@ -1,35 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Project Insights</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<body class="insights">
 
-<h1>Project Insights</h1>
+<header class="page-header">
+  <h1>Project Insights</h1>
+  <p class="subtitle">Where the time actually went</p>
+</header>
 
-<section>
-  <h2>Summary</h2>
-  <p id="total-time"></p>
-  <p id="average-log"></p>
-</section>
+<section class="card-grid">
+  <div class="card">
+    <h3>Total Time</h3>
+    <p class="big-number" id="total-time"></p>
+    <p class="muted" id="average-log"></p>
+  </div>
 
-<section>
-  <h2>Time by Tag</h2>
-  <ul id="tag-list"></ul>
-</section>
+  <div class="card">
+    <h3>Time by Tag</h3>
+    <ul id="tag-list" class="clean-list"></ul>
+  </div>
 
-<section>
-  <h2>Time by Weekday</h2>
-  <ul id="weekday-list"></ul>
-</section>
+  <div class="card">
+    <h3>Weekday Focus</h3>
+    <ul id="weekday-list" class="clean-list"></ul>
+  </div>
 
-<section>
-  <h2>Time by Month</h2>
-  <ul id="month-list"></ul>
+  <div class="card">
+    <h3>Time by Month</h3>
+    <ul id="month-list" class="clean-list"></ul>
+  </div>
 </section>
 
 <script src="insights.js"></script>
 </body>
-</html>
