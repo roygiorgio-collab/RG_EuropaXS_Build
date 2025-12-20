@@ -4,44 +4,49 @@
   <meta charset="UTF-8">
   <title>Project Insights</title>
 
-  <!-- INSIGHTS STYLES -->
+  <!-- Insights Styles -->
   <link rel="stylesheet" href="insights.css">
-
 </head>
+
 <body class="insights">
 
-<header class="page-header">
-  <h1>Project Insights</h1>
-  <p class="subtitle">Where the time actually went</p>
-</header>
+  <header class="page-header">
+    <h1>Project Insights</h1>
+    <p class="subtitle">Where the time actually went</p>
+  </header>
 
-<section class="card-grid">
- <div class="card">
-  <h3>Total Time</h3>
-  <p class="big-number" id="total-time"></p>
-  <p class="muted" id="average-log"></p>
+  <section class="card-grid">
 
-  <a href="index.html" class="back-button">← Back to Log</a>
-</div>
+    <!-- Total Time -->
+    <div class="card">
+      <h3>Total Time</h3>
+      <p class="big-number" id="total-time"></p>
+      <p class="muted" id="average-log"></p>
 
+      <a href="index.html" class="back-button">← Back to Log</a>
+    </div>
 
-  <div class="card">
-    <h3>Time by Tag</h3>
-    <ul id="tag-list" class="clean-list"></ul>
-  </div>
+    <!-- Weekday Focus -->
+    <div class="card">
+      <h3>Weekday Focus</h3>
+      <ul id="weekday-list" class="clean-list"></ul>
+    </div>
 
-  <div class="card">
-    <h3>Weekday Focus</h3>
-    <ul id="weekday-list" class="clean-list"></ul>
-  </div>
+    <!-- Time by Month -->
+    <div class="card">
+      <h3>Time by Month</h3>
+      <ul id="month-list" class="clean-list"></ul>
+    </div>
 
-  <div class="card">
-    <h3>Time by Month</h3>
-    <ul id="month-list" class="clean-list"></ul>
-  </div>
-  
-</section>
+    <!-- Time by Tag (Full Width) -->
+    <div class="card full-width">
+      <h3>Time by Tag</h3>
+      <ul id="tag-list" class="clean-list"></ul>
+    </div>
 
-<script src="insights.js"></script>
+  </section>
+
+  <script src="insights.js"></script>
+
 </body>
 </html>

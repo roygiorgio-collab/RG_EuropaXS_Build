@@ -1,4 +1,6 @@
-/* ---- Base ---- */
+/* =========================
+   Base Page Styling
+   ========================= */
 
 body.insights {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -23,17 +25,28 @@ body.insights {
   margin-top: 0.25rem;
 }
 
-/* ---- Grid ---- */
+
+/* =========================
+   Grid Layout
+   ========================= */
 
 .card-grid {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-/* ---- Cards ---- */
+/* Full-width row (Time by Tag) */
+.card.full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================
+   Cards
+   ========================= */
 
 .card {
   background: #fff;
@@ -48,7 +61,10 @@ body.insights {
   font-size: 1.1rem;
 }
 
-/* ---- Numbers ---- */
+
+/* =========================
+   Numbers & Text
+   ========================= */
 
 .big-number {
   font-size: 2.5rem;
@@ -60,12 +76,15 @@ body.insights {
   color: #777;
 }
 
-/* ---- Back Button ---- */
+
+/* =========================
+   Back Button
+   ========================= */
 
 .back-button {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 0.9rem;
+  margin-top: 1.2rem;
+  padding: 0.5rem 1rem;
   font-size: 0.9rem;
   text-decoration: none;
   color: #333;
@@ -78,7 +97,10 @@ body.insights {
   background: #eee;
 }
 
-/* ---- Lists ---- */
+
+/* =========================
+   Lists
+   ========================= */
 
 .clean-list {
   list-style: none;
@@ -86,13 +108,52 @@ body.insights {
   margin: 0;
 }
 
+/* Default list behavior (Weekdays, Months) */
 .clean-list li {
   display: flex;
   justify-content: space-between;
-  padding: 0.4rem 0;
+  gap: 1rem;
+  padding: 0.45rem 0;
   border-bottom: 1px solid #eee;
 }
 
 .clean-list li:last-child {
   border-bottom: none;
+}
+
+
+/* =========================
+   Time by Tag (Wide Card)
+   ========================= */
+
+.card.full-width .clean-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+}
+
+/* Optional future-proofing:
+   uncomment when lists grow large */
+
+/*
+.card.full-width .clean-list {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+*/
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card.full-width {
+    grid-column: auto;
+  }
 }
