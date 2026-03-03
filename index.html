@@ -370,7 +370,7 @@ fetch("logs.json")
           const secs = parseInt(entry.timeSpent || 0, 10);
           const timeDisplay = secs ? formatTime(secs) : "";
 
-          dconst rawSummary = entry.summary || "";
+          const rawSummary = entry.summary || "";
 
 // Normalize all line endings to \n (just in case)
 const normalized = rawSummary.replace(/\r\n|\r/g, "\n");
