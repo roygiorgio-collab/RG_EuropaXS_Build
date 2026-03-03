@@ -370,9 +370,23 @@ fetch("logs.json")
           const secs = parseInt(entry.timeSpent || 0, 10);
           const timeDisplay = secs ? formatTime(secs) : "";
 
-          div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
-                           <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
-                           <p>${entry.summary || ""}</p>`;
+          dconst rawSummary = entry.summary || "";
+
+// Normalize all line endings to \n (just in case)
+const normalized = rawSummary.replace(/\r\n|\r/g, "\n");
+
+// Split into paragraphs on single newline
+const paragraphs = normalized
+  .split("\n")
+  .map(p => p.trim())
+  .filter(p => p.length > 0);
+
+// Convert to proper HTML paragraphs
+const summaryHTML = paragraphs.map(p => `<p>${p}</p>`).join("");
+
+div.innerHTML = `<h3>${entry.title || "(no title)"}</h3>
+                 <small>${entry.created || ""}${timeDisplay ? " • Time spent: " + timeDisplay : ""}</small>
+                 ${summaryHTML}`; 
 
           const photosDiv = document.createElement("div");
           photosDiv.className = "photos";
