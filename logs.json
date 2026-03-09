@@ -1,6 +1,75 @@
 [
   {
     "assets" : [
+      {
+        "description" : "I’m not sure what this was all about… I seem to be some structural adhesive sort of globbed over the gel coat. Had to sand a lot of it off.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/7E81537A-3680-4A4F-A428-D52520CD2199.jpg",
+        "id" : "7E81537A-3680-4A4F-A428-D52520CD2199"
+      },
+      {
+        "description" : "This is the bottom of the wing. Panels were sanded flush to the skin. Have some micro to add to make it all even.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/EBAD2719-FB87-40EB-B4C1-38CE74006450.jpg",
+        "id" : "EBAD2719-FB87-40EB-B4C1-38CE74006450"
+      },
+      {
+        "description" : "Lots of excess structural adhesive which created a height difference. Sanded the high spots down to be even with the wing skin.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/09ABB168-B63D-405F-A7A7-D8FE03B5D772.jpg",
+        "id" : "09ABB168-B63D-405F-A7A7-D8FE03B5D772"
+      },
+      {
+        "description" : "Micro added to smooth out the hump. Just a light coat put on with a putty knife. Will most likely have to come back with another coat after this cures.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/7C69060C-48C6-4B58-BF36-0F989A39F088.jpg",
+        "id" : "7C69060C-48C6-4B58-BF36-0F989A39F088"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-03-09T18:11:10Z",
+    "id" : "AD3DB8FA-8396-4FD9-9351-CD77FEC9E17A",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "Sanded the excess from the light panel backing plates. Also took off the excess structural adhesive over the skin. Smoothed out some of the roughness on the actual wing tip. Applied micro and will let cure.",
+    "tags" : [
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Wingtip",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Wires soldered, sealed and heat shrinked.  The anti-chafe will be installed tomorrow.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/4930C483-A032-4670-91CA-ED41800A9954.jpg",
+        "id" : "4930C483-A032-4670-91CA-ED41800A9954"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-03-04T01:19:24Z",
+    "id" : "46069AB3-1A22-4D8F-AFEA-5A8A9EDF9C2C",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I know you have to be careful when soldering on aircraft because the joint can break. However, I have twisted the wires to where they are supporting their self as well as using a vinyl sealer on the joint and then applying heat shrink tubing. All of this will go inside of an anti-chafe sleeve to offer additional support.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 2700
+      }
+    ],
+    "timeSpent" : 2700,
+    "title" : "Wiring The Nav And Strobes",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
 
     ],
     "category" : "Journey (Blog)",
@@ -10,7 +79,7 @@
 
     ],
     "reference" : "",
-    "summary" : "As I build the plane, I get these ideas. Some of them are “neat” and worthwhile… but they come at a cost, and that cost is usually time.\nAirplanes are probably simpler than most people think when it comes to how they’re constructed. Yes, there’s a lot of complexity in figuring out the aerodynamics, but when it comes down to execution, the “tried and true” methods are usually best.\nI like tinkering with electronics, and even before I picked up my kit, I built a control circuit that will handle my strobes and beacon lights in the manner of a high-end system. However, I can build mine using off-the-shelf parts that are far less expensive than a finished system. The electronic portion went very well, and I only spent a few hours on it. I have about $60 in parts replacing something that would cost roughly $900. I’m happy with that part.\nI’m not dissatisfied with the rest of the project, but I’m now at the point where I’m asking: yes, this looks cool… it’s more aerodynamic than a bolt-on system… it will be more serviceable — but at what cost in time?\nI’ve spent the last month learning how to CNC parts. That sounds simple on the surface, but learning FreeCAD (and then abandoning it because it kept crashing on my Mac) and Autodesk Fusion 360 takes time. ChatGPT has been helpful, but it can send you down some long rabbit holes as well. Then figuring out what bit to use…how much to take off of the blank material on each pass… how to hold it to the spoil board.  All these things I had to learn.\n  I spent more than a week just figuring out how I wanted to mount the wingtip lenses. Do I permanently mount them? Do I use screws? Adhesive? How will vibration affect them? It gets complicated very quickly.\nIf you look closely at the shapes of an aircraft, you’ll notice it’s rare to find a right angle. Stresses travel better around curves. It would be easy to mount these lights quickly, but you have to think ahead and consider what the part will have to endure. The goal is to avoid repairing cracks and delaminations instead of flying. I’ve had to think that through and build the structure so it can withstand the test of time. If you’re going to do something a little different, it’s best to really think it through.\nI know the pace will pick up — it has to — but these little “neat” ideas can cost a lot of time. There’s a small pit in my stomach knowing I could have purchased ready-made lights and been a month further along. That’s one month sooner I could have been flying.\n  I actually ran this write-up through ChatGPT to check it for spelling and grammar. After it cleaned it up, it pointed something out that I hope sticks with me: the time wasn’t wasted.\nIt reminded me that this wasn’t just about lights. I learned CNC. I learned Fusion 360 (after abandoning FreeCAD). I thought through vibration paths, stress distribution, serviceability, and long-term durability. I didn’t just install a part — I designed a system.\nThat month wasn’t lost time. It was invested time.\nSure, I could have bolted on a $900 system and been a month closer to flying. But I wouldn’t understand it the same way. I wouldn’t know every wire, every bracket, every decision that went into it. There’s value in that — even if it’s hard to see when you’re deep in the process.\nSo maybe the real answer to “Why did I want to do that?” is this: because building an airplane isn’t just about getting airborne. It’s about learning, solving problems, and occasionally proving to yourself that you can do something a harder way— and make it look and work better than off-the-shelf.\nTime will tell if it was the right decision but I suspect it was.",
+    "summary" : "As I build the plane, I get these ideas. Some of them are “neat” and worthwhile… but they come at a cost, and that cost is usually time.\nAirplanes are probably simpler than most people think when it comes to how they’re constructed. Yes, there’s a lot of complexity in figuring out the aerodynamics, but when it comes down to execution, the “tried and true” methods are usually best.\nI like tinkering with electronics, and even before I picked up my kit, I built a control circuit that will handle my strobes and beacon lights in the manner of a high-end system. However, I can build mine using off-the-shelf parts that are far less expensive than a finished system. The electronic portion went very well, and I only spent a few hours on it. I have about $60 in parts replacing something that would cost roughly $900. I’m happy with that part.\nI’m not dissatisfied with the rest of the project, but I’m now at the point where I’m asking: yes, this looks cool… it’s more aerodynamic than a bolt-on system… it will be more serviceable — but at what cost in time?\nI’ve spent the last month learning how to make parts with a CNC (Computer Numerically Controlled) router. That sounds simple on the surface, but learning FreeCAD (and then abandoning it because it kept crashing on my Mac) and Autodesk Fusion 360 takes time. ChatGPT has been helpful, but it can send you down some long rabbit holes as well. Then figuring out what bit to use…how much to take off of the blank material on each pass… how to hold it to the spoil board.  All these things I had to learn.\n  I spent more than a week just figuring out how I wanted to mount the wingtip lenses within the really tight space of the wingtip. Do I permanently mount them? Do I use screws? Adhesive? How will vibration affect them? It gets complicated very quickly.\nIf you look closely at the shapes of an aircraft, you’ll notice it’s rare to find a right angle. Stresses travel better around curves. It would be easy to mount these lights quickly, but you have to think ahead and consider what the part will have to endure. The goal is to avoid repairing cracks and delaminations instead of flying. I’ve had to think that through and build the structure so it can withstand the test of time. If you’re going to do something a little different, just realize that should take time to really think it through.\nI know the pace will pick up — it has to — but these little “neat” ideas can cost a lot of time. There’s a small pit in my stomach knowing I could have purchased ready-made lights and been a month further along. That’s one month sooner I could have been flying.\n  I actually ran this write-up through ChatGPT to check it for spelling and grammar. After it cleaned it up, it pointed something out that I hope sticks with me: the time wasn’t wasted.\nIt reminded me that this wasn’t just about lights. I learned CNC. I learned Fusion 360 (after abandoning FreeCAD). I thought through vibration paths, stress distribution, serviceability, and long-term durability. I didn’t just install a part — I designed a system.\nThat month wasn’t lost time. It was invested time.\nSure, I could have bolted on a $900 system and been a month closer to flying. But I wouldn’t understand it the same way. I wouldn’t know every wire, every bracket, every decision that went into it. There’s value in that — even if it’s hard to see when you’re deep in the process.\nSo maybe the real answer to “Why did I want to do that?” is this: because building an airplane isn’t just about getting airborne. It’s about learning, solving problems, and occasionally proving to yourself that you can do something a harder way— and make it look and work better than off-the-shelf.\nTime will tell if it was the right decision but I suspect it was.",
     "tags" : [
 
     ],
@@ -21,6 +90,11 @@
   {
     "assets" : [
       {
+        "description" : "Side panel floxed in.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/E2FAFC36-3033-46C0-B150-E6F93853C909.jpg",
+        "id" : "E2FAFC36-3033-46C0-B150-E6F93853C909"
+      },
+      {
         "description" : "Attached panels",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/4C0ED033-E1E6-4FDB-AEEE-F82983C6438E.jpg",
         "id" : "4C0ED033-E1E6-4FDB-AEEE-F82983C6438E"
@@ -29,11 +103,6 @@
         "description" : "Front panel floxed.  I know it’s not the prettiest flox job, but it is more than adequate. Very difficult to reach through the access hole.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/633DF0C0-184B-4C05-ADBE-898D7E01204B.jpg",
         "id" : "633DF0C0-184B-4C05-ADBE-898D7E01204B"
-      },
-      {
-        "description" : "Side panel floxed in.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/E2FAFC36-3033-46C0-B150-E6F93853C909.jpg",
-        "id" : "E2FAFC36-3033-46C0-B150-E6F93853C909"
       },
       {
         "description" : "I intentionally left a gap of about 1 mm. Tomorrow, I will put a very small radius flox fillet on this side and on the back side put a small piece of bid.",
@@ -51,14 +120,14 @@
     "summary" : "I know I haven’t posted in a while, but I’ve been learning a new skill that I’m applying to the construction of this plane. I purchased a CNC router. I created these panels with cut outs so then I can insert sockets. I just attached them with structural adhesive– Scotchweld DP 460. I know eight hours is a long time to attach two panels… But I’m including my CAD and cam drawing time as well as the machining.\n",
     "tags" : [
       {
-        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
-        "name" : "Part Construction ",
-        "timeSpent" : 26100
-      },
-      {
         "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
         "name" : "Assembly ",
         "timeSpent" : 2700
+      },
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 26100
       }
     ],
     "timeSpent" : 28800,
@@ -68,6 +137,11 @@
   {
     "assets" : [
       {
+        "description" : "I needed a C clamp to hold the ring for the first Cleco. The spacer ring tended to walk whenever the drillbit hit it with just a little spring clamps.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/874EF83E-4A1A-40D4-85FC-CE3650066826.jpg",
+        "id" : "874EF83E-4A1A-40D4-85FC-CE3650066826"
+      },
+      {
         "description" : "This is the spacer ring cleco’d and floxed in. This will be a good test to see if the release agent I am using will work. Fingers are crossed!",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/D402EBB1-1B28-428C-B5C4-30A5D27FE282.jpg",
         "id" : "D402EBB1-1B28-428C-B5C4-30A5D27FE282"
@@ -76,11 +150,6 @@
         "description" : "Everything in place.  Will drill and countersink tomorrow with rivnuts.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/FF23D6EC-0682-46DB-BFB2-6B7960C5FCC1.jpg",
         "id" : "FF23D6EC-0682-46DB-BFB2-6B7960C5FCC1"
-      },
-      {
-        "description" : "I needed a C clamp to hold the ring for the first Cleco. The spacer ring tended to walk whenever the drillbit hit it with just a little spring clamps.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/874EF83E-4A1A-40D4-85FC-CE3650066826.jpg",
-        "id" : "874EF83E-4A1A-40D4-85FC-CE3650066826"
       },
       {
         "description" : "Backing ring on the cap and the seat ring exposed.",
@@ -129,14 +198,14 @@
   {
     "assets" : [
       {
-        "description" : "Preparing for first cut",
-        "filename" : "Photo Assets\/Workshop\/93203510-903A-476D-A32A-E0C3B13E6866.jpg",
-        "id" : "93203510-903A-476D-A32A-E0C3B13E6866"
-      },
-      {
         "description" : "First part made with CNC.  Obviously it will go inside the wing, but I was just laying at there for reference.",
         "filename" : "Photo Assets\/Workshop\/594ADF6C-A1C1-46E1-A47E-4E01D4B4891E.jpg",
         "id" : "594ADF6C-A1C1-46E1-A47E-4E01D4B4891E"
+      },
+      {
+        "description" : "Preparing for first cut",
+        "filename" : "Photo Assets\/Workshop\/93203510-903A-476D-A32A-E0C3B13E6866.jpg",
+        "id" : "93203510-903A-476D-A32A-E0C3B13E6866"
       }
     ],
     "category" : "Workshop",
@@ -188,14 +257,14 @@
   {
     "assets" : [
       {
-        "description" : "I needed to lean them up to keep them from moving around after applying the so-called five minute epoxy… Why is it when you use five minute epoxy it either sets up too fast or three times slower?",
-        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/AB261417-1C32-4945-81E5-F6DDC5E1FAC1.jpg",
-        "id" : "AB261417-1C32-4945-81E5-F6DDC5E1FAC1"
-      },
-      {
         "description" : "Close-up of the new foam.",
         "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/73ED1AE6-8D2F-4E6A-A99A-47318DE35E1E.jpg",
         "id" : "73ED1AE6-8D2F-4E6A-A99A-47318DE35E1E"
+      },
+      {
+        "description" : "I needed to lean them up to keep them from moving around after applying the so-called five minute epoxy… Why is it when you use five minute epoxy it either sets up too fast or three times slower?",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/AB261417-1C32-4945-81E5-F6DDC5E1FAC1.jpg",
+        "id" : "AB261417-1C32-4945-81E5-F6DDC5E1FAC1"
       }
     ],
     "category" : "07-B Left Aileron ",
@@ -260,7 +329,7 @@
 
     ],
     "reference" : "",
-    "summary" : "This is the part that I have been dreading.   It’s where you try to work ahead by ordering items so that they will be there when you are ready…and then, when you get it, it is not what you actually needed.\nI ordered the “on paper” correct combinations of fittings to get my pitot tube from the 1\/8” OD of the tube and transition to 1\/4” OD tubing to get it down the wing and into the cockpit.  However, the pitot and static tubes were so close together that they wouldn’t fit.\nI then researched and figured out how to use Oetiker clamps and would use some 1\/8” ID silicone tubing to grip the stainless tubes and then transition to the 1\/4”.  Where it gets difficult is that these little fittings aren’t usually at Home Depot.  I might have found them at an aquarium store but who wants to drive 45 minutes and hope they have it.  So, I resort to the standard resource - Amazon.  The problem there is that the listings are quite often incorrect.  Tubing is normally listed at OD and fittings are listed as ID.  You can find in the heading what you want but when you go deep in the description, you find that it’s really a different size.  I have ordered three different sets of barbed fittings… usually getting one end to fit but the 1\/4” nylon tubing I am using is not very flexible and I have not gotten one to go in even using heat to make it more flexible.  Hopefully, the correct fittings will be here today.  These little 50 cent pieces sometimes take 3 or 4 days to come in.  Even if they do fit, the clamping tool for the Oetiker clamps won’t be here until Saturday.  So, what is really only about 15 minutes worth of work has stretched out to two weeks. I try to work on other things but now I seem to have four projects going with little progress on any of them.\nAnother major delay and disappointment has been waiting on lenses from LP Aero for my wing tips.  I don’t want to start cutting the wingtips without having the lens here for reference.  I ordered them 11\/24\/25.  Between retooling at the plant and now the ice storm, they have been delayed but are supposed to ship today.  Fingers crossed.",
+    "summary" : "This is the part that I have been dreading.   It’s where you try to work ahead by ordering items so that they will be there when you are ready…and then, when you get it, it is not what you actually needed.\nI ordered the “on paper” correct combinations of fittings to get my pitot tube from the 1\/8” OD of the tube and transition to 1\/4” OD tubing to get it down the wing and into the cockpit.  However, the pitot and static ports on the factory pitot\/static tube assembly were so close together that the fittings wouldn’t fit.\nI then researched and figured out how to use Oetiker clamps and would use some 1\/8” ID silicone tubing to grip the stainless tubes and then transition to the 1\/4”.  Where it gets difficult is that these little fittings aren’t usually at Home Depot.  I might have found them at an aquarium store but who wants to drive 45 minutes and hope they have it.  So, I resort to the standard resource - Amazon.  The problem there is that the listings are quite often incorrect.  Tubing is normally listed at OD and fittings are listed as ID.  You can find in the heading what you want but when you go deep in the description, you find that it’s really a different size.  I have ordered three different sets of barbed fittings… usually getting one end to fit but the 1\/4” nylon tubing I am using is not very flexible and I have not gotten one to go in even using heat to make it more flexible.  Hopefully, the correct fittings will be here today.  These little 50 cent pieces sometimes take 3 or 4 days to come in.  Even if they do fit, the clamping tool for the Oetiker clamps won’t be here until Saturday.  So, what is really only about 15 minutes worth of work has stretched out to two weeks. I try to work on other things but now I seem to have four projects going with little progress on any of them.\nAnother major delay and disappointment has been waiting on lenses from LP Aero for my wing tips.  I don’t want to start cutting the wingtips without having the lens here for reference.  I ordered them 11\/24\/25.  Between retooling at the plant and now the ice storm, they have been delayed but are supposed to ship today.  Fingers crossed.",
     "tags" : [
 
     ],
@@ -271,14 +340,9 @@
   {
     "assets" : [
       {
-        "description" : "Root end of wing with tubing and wires.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/DAF5EFFA-F27D-425C-8327-08338D2DD3AB.jpg",
-        "id" : "DAF5EFFA-F27D-425C-8327-08338D2DD3AB"
-      },
-      {
-        "description" : "The pedo tube mounted with the silicone tubing attached. I’m waiting on the crimping tool to close the Oetiker  clamps.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/4632C638-A1DD-48A3-81A6-3BD220A86C0E.jpg",
-        "id" : "4632C638-A1DD-48A3-81A6-3BD220A86C0E"
+        "description" : "Wires ran to the end for strobe and position lights ",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/FF5E3A5C-C90F-497A-912D-30DF4B70011E.jpg",
+        "id" : "FF5E3A5C-C90F-497A-912D-30DF4B70011E"
       },
       {
         "description" : "Oetiker clamps waiting on the 3\/16” to 1\/4” OD adapter.",
@@ -286,9 +350,14 @@
         "id" : "5F7734AC-8659-45B4-A32B-8A2AF2D9B5E2"
       },
       {
-        "description" : "Wires ran to the end for strobe and position lights ",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/FF5E3A5C-C90F-497A-912D-30DF4B70011E.jpg",
-        "id" : "FF5E3A5C-C90F-497A-912D-30DF4B70011E"
+        "description" : "The pedo tube mounted with the silicone tubing attached. I’m waiting on the crimping tool to close the Oetiker  clamps.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/4632C638-A1DD-48A3-81A6-3BD220A86C0E.jpg",
+        "id" : "4632C638-A1DD-48A3-81A6-3BD220A86C0E"
+      },
+      {
+        "description" : "Root end of wing with tubing and wires.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/DAF5EFFA-F27D-425C-8327-08338D2DD3AB.jpg",
+        "id" : "DAF5EFFA-F27D-425C-8327-08338D2DD3AB"
       }
     ],
     "category" : "08-A Left Wing",
@@ -313,14 +382,14 @@
   {
     "assets" : [
       {
+        "description" : "My nice empty envelope from Wicks Aircraft.  It was supposed to have four rod ends but the corner was torn and they all fell out.",
+        "filename" : "Photo Assets\/Journey%20(Blog)\/D209AEE5-0B0D-4834-8FB5-C558752EEBC3.jpg",
+        "id" : "D209AEE5-0B0D-4834-8FB5-C558752EEBC3"
+      },
+      {
         "description" : "The Hydrangea bush outside our then window.  Note the ice buildup.",
         "filename" : "Photo Assets\/Journey%20(Blog)\/2E128C18-E746-45A1-9C01-54F3765E5478.jpg",
         "id" : "2E128C18-E746-45A1-9C01-54F3765E5478"
-      },
-      {
-        "description" : "This “was” a large cedar.  It split into three pieces…  The two on the left may recover but the third one on the right is toast.",
-        "filename" : "Photo Assets\/Journey%20(Blog)\/47530FCE-F85F-45AB-A855-E0393F538637.jpg",
-        "id" : "47530FCE-F85F-45AB-A855-E0393F538637"
       },
       {
         "description" : "This used to be a 10’ tree",
@@ -333,9 +402,9 @@
         "id" : "DA490ED3-7CAB-43C1-A6B0-C80E3CDB6119"
       },
       {
-        "description" : "My nice empty envelope from Wicks Aircraft.  It was supposed to have four rod ends but the corner was torn and they all fell out.",
-        "filename" : "Photo Assets\/Journey%20(Blog)\/D209AEE5-0B0D-4834-8FB5-C558752EEBC3.jpg",
-        "id" : "D209AEE5-0B0D-4834-8FB5-C558752EEBC3"
+        "description" : "This “was” a large cedar.  It split into three pieces…  The two on the left may recover but the third one on the right is toast.",
+        "filename" : "Photo Assets\/Journey%20(Blog)\/47530FCE-F85F-45AB-A855-E0393F538637.jpg",
+        "id" : "47530FCE-F85F-45AB-A855-E0393F538637"
       }
     ],
     "category" : "Journey (Blog)",
@@ -345,7 +414,7 @@
 
     ],
     "reference" : "",
-    "summary" : "I put “daily” in quotes because I am not going to promise that I will write daily, but I have had some friends ask if I would put some more information about the journey in addition to the things that I get done on a regular basis.\n\nThe last week has been a little difficult.  I am having to make some decisions about what avionics I want and how I am going to handle the lighting.  Two of the avionics packages that I am considering utilize a pitot tube (a probe that is mounted to the wing to measure air speed) that is heated.  To have heat, you have to have power ran to it. The also have another port that is used to measure the Angle of Attack (AOA).  AOA is used to tell you where you are in the envelope of where the wing flys.  It will tell you if you are getting close to the edge of where the wing will stop flying.  Some people rely on a stall horn (I am one of them) to let me know when this is happening. An AOA will do the same thing but it will also tell you if you are in the sweet spot - particularly on landing.  It helps with proper power setting while on glide slope.  If I flew aerobatics, it would come in handy when doing high G maneuvers, but I don’t intend to do that.\n\nI truly struggled for several days trying to decide between one brand or the other and whether I wanted to add this ability.  If I did, it meant finding a place and a way to mount it.  That means more holes in the wing and fuselage… something you want to limit. After a great deal of thought, I have made the decision to stick with factory pitot tube.  It is not heated and does not have the AOA port.  However, it has another port that I have to have and that is called the static port.  The static port is used as a reference for several things - including the air speed indicator that uses the other part of the pitot.\n\nAfter finally making a decision, I decided to proceed. That’s when the ice storm hit.  We were extremely lucky in that our power only went off for about three seconds.  There are people within a few hundred feet that have not had power since early Sunday morning (today is Wednesday).  The temperatures have been getting into the single digits each night since Sunday.  There were, at one point, more than 200,000 Nashville Electric Service customers without power.  As of today, there are still approximately 100,000 without power.  I feel guilty that I have not been out helping but I wasn’t able to even get out of the driveway until today.  It’s still not clear but I can navigate.  While 4-wheel drive is great in snow, it doesn’t do much better on ice.   We had 1\/2” of ice buildup from the freezing rain.\n\nI did get back to work on the plane today and got two of the four segments that I am working on complete, so, at least, some progress today.",
+    "summary" : "I put “daily” in quotes because I am not going to promise that I will write daily, but I have had some friends ask if I would put some more information about the journey in addition to the things that I get done on a regular basis.\n\nThe last week has been a little difficult.  I am having to make some decisions about what avionics I want and how I am going to handle the lighting.  Two of the avionics packages that I am considering utilize a pitot tube (a probe that is mounted to the wing to measure air speed) that is heated.  To have heat, you have to have power ran to it. Their tube also have another port that is used to measure the Angle of Attack (AOA).  AOA is used to tell you where you are in the envelope of where the wing flys.  It will tell you if you are getting close to the edge of where the wing will stop flying.  Some people rely on a stall horn (I am one of them) to let me know when this is happening. An AOA will do the same thing but it will also tell you if you are in the sweet spot - particularly on landing.  It helps with proper power setting while on glide slope.  If I flew aerobatics, it would come in very handy when doing high G maneuvers, but I don’t intend to do that.\n\nI truly struggled for several days trying to decide between one brand or the other and whether I wanted to add this ability.  If I did, it meant finding a place and a way to mount it.  That means more holes in the wing and fuselage… something you want to limit. After a great deal of thought, I have made the decision to stick with factory pitot tube.  It is not heated and does not have the AOA port.  However, it has another port that I must have and that is called the static port.  The static port is used as a reference for several things - including the air speed indicator that uses the other part of the factory tube.\n\nAfter finally making a decision, I decided to proceed. That’s when the ice storm hit.  We were extremely lucky in that our power only went off for about three seconds.  There are people within a few hundred feet that have not had power since early Sunday morning (today is Wednesday).  The temperatures have been getting into the single digits each night since Sunday.  There were, at one point, more than 200,000 Nashville Electric Service customers without power.  As of today, there are still approximately 100,000 without power.  I feel guilty that I have not been out helping but I wasn’t able to even get out of the driveway until today.  It’s still not clear but I can navigate.  While 4-wheel drive is great in snow, it doesn’t do much better on ice.   We had 1\/2” of ice buildup from the freezing rain.\n\nI did get back to work on the plane today and got two of the four segments that I am working on complete, so, at least, some progress today.",
     "tags" : [
 
     ],
@@ -356,14 +425,14 @@
   {
     "assets" : [
       {
-        "description" : "Since I don’t know if I have enough movement. The bell crank end has a locknut but I put a regular nut to hold the pushrod at the wing root.  I used a red Sharpie to draw attention to install a locknut after making sure I have the correct movement.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/6CE6F0CD-8851-42C5-AD03-F29CE109111D.jpg",
-        "id" : "6CE6F0CD-8851-42C5-AD03-F29CE109111D"
-      },
-      {
         "description" : "Push rod installed.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/D0F2A084-9C28-4F0D-97DD-D7C938E6ADF7.jpg",
         "id" : "D0F2A084-9C28-4F0D-97DD-D7C938E6ADF7"
+      },
+      {
+        "description" : "Since I don’t know if I have enough movement. The bell crank end has a locknut but I put a regular nut to hold the pushrod at the wing root.  I used a red Sharpie to draw attention to install a locknut after making sure I have the correct movement.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/6CE6F0CD-8851-42C5-AD03-F29CE109111D.jpg",
+        "id" : "6CE6F0CD-8851-42C5-AD03-F29CE109111D"
       },
       {
         "description" : "I will need to do a little bit of trimming after it cures a bit.",
@@ -398,9 +467,9 @@
   {
     "assets" : [
       {
-        "description" : "I used a 20 mm hole saw instead of a paddle bit. Made a much cleaner cut.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/81352A70-F2E6-44BA-B71C-571125522712.jpg",
-        "id" : "81352A70-F2E6-44BA-B71C-571125522712"
+        "description" : "I scuffed up every opening in preparation for the floxs.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/04060E3B-6CC5-4D3B-97D1-DF1DA1B6492B.jpg",
+        "id" : "04060E3B-6CC5-4D3B-97D1-DF1DA1B6492B"
       },
       {
         "description" : "Starting to route the nylon tubing trying to make sure my holes were aligned.\n",
@@ -413,9 +482,9 @@
         "id" : "BF4720AD-0B29-4F56-BD54-73AEB8ED5573"
       },
       {
-        "description" : "I scuffed up every opening in preparation for the floxs.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/04060E3B-6CC5-4D3B-97D1-DF1DA1B6492B.jpg",
-        "id" : "04060E3B-6CC5-4D3B-97D1-DF1DA1B6492B"
+        "description" : "I used a 20 mm hole saw instead of a paddle bit. Made a much cleaner cut.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/81352A70-F2E6-44BA-B71C-571125522712.jpg",
+        "id" : "81352A70-F2E6-44BA-B71C-571125522712"
       }
     ],
     "category" : "08-A Left Wing",
@@ -440,11 +509,6 @@
   {
     "assets" : [
       {
-        "description" : "Not that I have to be this precise, but I have a laser… Why not use it?",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/DA4F0833-A95F-435A-9DAC-16E81EFD1ED7.jpg",
-        "id" : "DA4F0833-A95F-435A-9DAC-16E81EFD1ED7"
-      },
-      {
         "description" : "This was supposed to be an easy job… But for some reason, the fiberglass would not forget it’s memory And kept trying to peel and develop air pockets.  I ended up using every trick I had… which I don’t have many… But I did use peel ply and some kitchen wrap and a clamp to get them to lay down without developing bubbles.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/C7ACFD34-6F90-47AC-9D38-D5EDDCF2D1FE.jpg",
         "id" : "C7ACFD34-6F90-47AC-9D38-D5EDDCF2D1FE"
@@ -453,6 +517,11 @@
         "description" : "Six out of seven ain’t bad… This one was the worst. Fortunately, they are oversized. The area in the middle is fine. There’s a pretty good air pocket though on the bottom left.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/EC04B563-ED64-4712-B282-D7A92DCAF05A.jpg",
         "id" : "EC04B563-ED64-4712-B282-D7A92DCAF05A"
+      },
+      {
+        "description" : "Not that I have to be this precise, but I have a laser… Why not use it?",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/DA4F0833-A95F-435A-9DAC-16E81EFD1ED7.jpg",
+        "id" : "DA4F0833-A95F-435A-9DAC-16E81EFD1ED7"
       }
     ],
     "category" : "08-A Left Wing",
@@ -546,14 +615,14 @@
   {
     "assets" : [
       {
-        "description" : "Things that you take for granted… like being able to mark where the holes go with a pen or pencil. Only one hole was accessible with a pencil. See next photo for solution.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/D67F7CE5-796A-4141-AB9E-452D5DB46A98.jpg",
-        "id" : "D67F7CE5-796A-4141-AB9E-452D5DB46A98"
-      },
-      {
         "description" : "The finished pieces for the port wing. Unfortunately, it will only fit one way without stress. I had to put a label in case somebody – – myself included – – has to take it out and doesn’t remember which way it goes in.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/A5824457-8CE4-417C-9C7D-ED8AF60A592C.jpg",
         "id" : "A5824457-8CE4-417C-9C7D-ED8AF60A592C"
+      },
+      {
+        "description" : "Things that you take for granted… like being able to mark where the holes go with a pen or pencil. Only one hole was accessible with a pencil. See next photo for solution.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/D67F7CE5-796A-4141-AB9E-452D5DB46A98.jpg",
+        "id" : "D67F7CE5-796A-4141-AB9E-452D5DB46A98"
       },
       {
         "description" : "I had to take a Q-tip, pull some of the cotton off, put some tape to keep it from fraying, and then put stamp pad ink on it to push through the holes to mark the place to drill.  BTW, don’t get this ink on your hands.  It required 10 minutes of rubbing mineral oil to get it to release from my skin.  Soap and even acetone didn’t touch it.",
@@ -615,6 +684,16 @@
         "id" : "BC77BB88-7DC7-49A2-BA98-73F234DBE073"
       },
       {
+        "description" : "Loosely assembled Bell crank assembly. I need a little play to get it onto the four studs coming through the main spar.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/6290AC41-654A-4962-941E-0E92A2A9B5CE.jpg",
+        "id" : "6290AC41-654A-4962-941E-0E92A2A9B5CE"
+      },
+      {
+        "description" : "The bell crank in position, but I’m waiting on my inch\/pound torque wrench to come in this evening before finalizing.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/27F4791B-1FA9-4299-B41C-4C914FE67923.jpg",
+        "id" : "27F4791B-1FA9-4299-B41C-4C914FE67923"
+      },
+      {
         "description" : "Although the bearing itself spun freely, I was not pleased with the condition of this rod end bearing. I ordered four new ones.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/243B6D93-E870-41BD-9970-9857DB2B118B.jpg",
         "id" : "243B6D93-E870-41BD-9970-9857DB2B118B"
@@ -625,19 +704,9 @@
         "id" : "7737CC89-9A1A-4BEA-8879-F3F5920E7F8E"
       },
       {
-        "description" : "The bell crank in position, but I’m waiting on my inch\/pound torque wrench to come in this evening before finalizing.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/27F4791B-1FA9-4299-B41C-4C914FE67923.jpg",
-        "id" : "27F4791B-1FA9-4299-B41C-4C914FE67923"
-      },
-      {
         "description" : "Close-up of the residue on the studs that I am having to remove. Have to be very gentle as the locking nuts may not grip if I start removing metal. I just want to remove enough of the material to get the piece on.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/86EB1DB0-B3A7-4980-9C80-F6B34CE20237.jpg",
         "id" : "86EB1DB0-B3A7-4980-9C80-F6B34CE20237"
-      },
-      {
-        "description" : "Loosely assembled Bell crank assembly. I need a little play to get it onto the four studs coming through the main spar.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/6290AC41-654A-4962-941E-0E92A2A9B5CE.jpg",
-        "id" : "6290AC41-654A-4962-941E-0E92A2A9B5CE"
       }
     ],
     "category" : "08-A Left Wing",
@@ -667,14 +736,14 @@
   {
     "assets" : [
       {
-        "description" : "Mechanism to move the jack screw up and down 1.2”",
-        "filename" : "Photo Assets\/Shareable%20lessons%20learned%20or%20advice\/224EDC39-DF29-48AC-A0F2-2C7686FF8D2B.jpg",
-        "id" : "224EDC39-DF29-48AC-A0F2-2C7686FF8D2B"
-      },
-      {
         "description" : "The actuator disassembled showing the off-the-shelf linear pot that only has a 1” travel",
         "filename" : "Photo Assets\/Shareable%20lessons%20learned%20or%20advice\/1252B1AF-0E1B-4BB2-A169-1DDB20CD432B.jpg",
         "id" : "1252B1AF-0E1B-4BB2-A169-1DDB20CD432B"
+      },
+      {
+        "description" : "Mechanism to move the jack screw up and down 1.2”",
+        "filename" : "Photo Assets\/Shareable%20lessons%20learned%20or%20advice\/224EDC39-DF29-48AC-A0F2-2C7686FF8D2B.jpg",
+        "id" : "224EDC39-DF29-48AC-A0F2-2C7686FF8D2B"
       }
     ],
     "category" : "Shareable lessons learned or advice",
@@ -709,9 +778,9 @@
         "id" : "FE37552F-4772-400D-B6C2-FA4D1F85D785"
       },
       {
-        "description" : "The top of the table only has cross members so I can access from below. Note the compressed window foam in the background that is doing a great job holding the peace steady.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/2D9D6B8A-87DB-491A-86EE-0C49F6C96CCB.jpg",
-        "id" : "2D9D6B8A-87DB-491A-86EE-0C49F6C96CCB"
+        "description" : "The W 18 flap plate was installed correctly. However, it looks like they were pop riveted to temporarily hold it instead of using “cocktail” sticks. I don’t see how this will hurt anything but will seal them to prevent corrosion.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/46809A36-3489-4926-9E72-2D94FF69BC46.jpg",
+        "id" : "46809A36-3489-4926-9E72-2D94FF69BC46"
       },
       {
         "description" : "Wing laying on my movable stand that has spots marked on the floor for where the wheels will go. The top is perfectly level when it’s parked in the spots.",
@@ -719,9 +788,9 @@
         "id" : "5038898C-B5EE-49E6-9CA4-7E2EBBA9C9BA"
       },
       {
-        "description" : "The W 18 flap plate was installed correctly. However, it looks like they were pop riveted to temporarily hold it instead of using “cocktail” sticks. I don’t see how this will hurt anything but will seal them to prevent corrosion.",
-        "filename" : "Photo Assets\/08-A%20Left%20Wing\/46809A36-3489-4926-9E72-2D94FF69BC46.jpg",
-        "id" : "46809A36-3489-4926-9E72-2D94FF69BC46"
+        "description" : "The top of the table only has cross members so I can access from below. Note the compressed window foam in the background that is doing a great job holding the peace steady.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/2D9D6B8A-87DB-491A-86EE-0C49F6C96CCB.jpg",
+        "id" : "2D9D6B8A-87DB-491A-86EE-0C49F6C96CCB"
       }
     ],
     "category" : "08-A Left Wing",
@@ -800,9 +869,9 @@
   {
     "assets" : [
       {
-        "description" : "Note the flox buildup on the right using the  Scotchweld 460",
-        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/2530B012-9D5E-4D09-ACDA-B9CA2F15C435.jpg",
-        "id" : "2530B012-9D5E-4D09-ACDA-B9CA2F15C435"
+        "description" : "The flox worked like a champ. It now stops right at the perfect distance with 6° down deflection on the tabs.",
+        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/382E44DC-7380-4503-B6AD-AAB0C28F8945.jpg",
+        "id" : "382E44DC-7380-4503-B6AD-AAB0C28F8945"
       },
       {
         "description" : "I decided to bend the cotter pins around so that it couldn’t rotate. I know you should normally take the long one over the end of the shaft and leave the other one straight, making it easier for removal. However, I hope to never have to replace these and didn’t want them digging into the plastic shaft.",
@@ -810,9 +879,9 @@
         "id" : "90BF6E73-8484-4DD8-804B-6173CAE266F5"
       },
       {
-        "description" : "The flox worked like a champ. It now stops right at the perfect distance with 6° down deflection on the tabs.",
-        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/382E44DC-7380-4503-B6AD-AAB0C28F8945.jpg",
-        "id" : "382E44DC-7380-4503-B6AD-AAB0C28F8945"
+        "description" : "Note the flox buildup on the right using the  Scotchweld 460",
+        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/2530B012-9D5E-4D09-ACDA-B9CA2F15C435.jpg",
+        "id" : "2530B012-9D5E-4D09-ACDA-B9CA2F15C435"
       }
     ],
     "category" : "19 Elevator Trim Rigging ",
@@ -879,9 +948,9 @@
         "id" : "B35545D3-1B07-49C3-B24C-8327857BD6D2"
       },
       {
-        "description" : "This will need to be limited to 4° but I am only checking to see that I can achieve that. The upper stop for the elevator has not been set yet and won’t be until the fuselage is done.",
-        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/3C5570F3-51BC-47C7-B7DF-BD7B971C1761.jpg",
-        "id" : "3C5570F3-51BC-47C7-B7DF-BD7B971C1761"
+        "description" : "Woo hoo!  On the money!",
+        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/6004AA8B-365A-43A4-8FC7-26A0D274FB1A.jpg",
+        "id" : "6004AA8B-365A-43A4-8FC7-26A0D274FB1A"
       },
       {
         "description" : "This was only supposed to make it to 27.6°. I need to raise the stop on the mass balance arm but I i’m still waiting for the new one to come in.",
@@ -889,14 +958,14 @@
         "id" : "B5AC6709-1F0F-4496-A512-50F681CCD613"
       },
       {
-        "description" : "Woo hoo!  On the money!",
-        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/6004AA8B-365A-43A4-8FC7-26A0D274FB1A.jpg",
-        "id" : "6004AA8B-365A-43A4-8FC7-26A0D274FB1A"
-      },
-      {
         "description" : "Almost perfect and acceptable where it is now. Should be 12°.",
         "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/11BD36C6-22FC-4309-A020-B10DFE3224C1.jpg",
         "id" : "11BD36C6-22FC-4309-A020-B10DFE3224C1"
+      },
+      {
+        "description" : "This will need to be limited to 4° but I am only checking to see that I can achieve that. The upper stop for the elevator has not been set yet and won’t be until the fuselage is done.",
+        "filename" : "Photo Assets\/19%20Elevator%20Trim%20Rigging%20\/3C5570F3-51BC-47C7-B7DF-BD7B971C1761.jpg",
+        "id" : "3C5570F3-51BC-47C7-B7DF-BD7B971C1761"
       }
     ],
     "category" : "19 Elevator Trim Rigging ",
@@ -985,6 +1054,11 @@
   {
     "assets" : [
       {
+        "description" : "I don’t know if anyone has ever coined this phrase, but I haven’t heard it before… “Peel ply don’t lie.” It’s amazing that you can actually see through both sheets of fiberglass better with the peel ply on. It lets you know if you have the sheets properly saturated.",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/786C4CF4-9EBE-4489-8690-2A2E40542103.jpg",
+        "id" : "786C4CF4-9EBE-4489-8690-2A2E40542103"
+      },
+      {
         "description" : "Sanded openings after the initial fill with flox.",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/7BF6BED5-F5AA-4F6B-A67E-6EA413F180A9.jpg",
         "id" : "7BF6BED5-F5AA-4F6B-A67E-6EA413F180A9"
@@ -993,11 +1067,6 @@
         "description" : "Fiberglass panels cut on a 30° bias",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/198BA51D-DE91-4C24-A9B4-40AFF8B09467.jpg",
         "id" : "198BA51D-DE91-4C24-A9B4-40AFF8B09467"
-      },
-      {
-        "description" : "I don’t know if anyone has ever coined this phrase, but I haven’t heard it before… “Peel ply don’t lie.” It’s amazing that you can actually see through both sheets of fiberglass better with the peel ply on. It lets you know if you have the sheets properly saturated.",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/786C4CF4-9EBE-4489-8690-2A2E40542103.jpg",
-        "id" : "786C4CF4-9EBE-4489-8690-2A2E40542103"
       }
     ],
     "category" : "04 Trim Tabs",
@@ -1022,14 +1091,14 @@
   {
     "assets" : [
       {
-        "description" : "It wasn’t too far off after removing the tape and putting the T bar in. At about an hour of grinding to do with the Dremel rotary tool.  ",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/0AEC37CB-700E-44C6-879A-5CD155AC29F5.jpg",
-        "id" : "0AEC37CB-700E-44C6-879A-5CD155AC29F5"
-      },
-      {
         "description" : "Just a few bumps to fill before laying the glass but should be able to do that in the same pass.",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/F64B5E0A-F72B-4AEB-93B0-8AF5BB2C4117.jpg",
         "id" : "F64B5E0A-F72B-4AEB-93B0-8AF5BB2C4117"
+      },
+      {
+        "description" : "It wasn’t too far off after removing the tape and putting the T bar in. At about an hour of grinding to do with the Dremel rotary tool.  ",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/0AEC37CB-700E-44C6-879A-5CD155AC29F5.jpg",
+        "id" : "0AEC37CB-700E-44C6-879A-5CD155AC29F5"
       }
     ],
     "category" : "04 Trim Tabs",
@@ -1081,9 +1150,9 @@
   {
     "assets" : [
       {
-        "description" : "  The good news is that there is still space for the mass balance weight to go down.",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/7751B1C3-7CDD-4A04-A49D-B49AF917E269.jpg",
-        "id" : "7751B1C3-7CDD-4A04-A49D-B49AF917E269"
+        "description" : "The green painters tape shows the portion that did not need to be removed at the bottom.  Most of the right side of the hole will be filled back in.",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/0AEF6393-20F0-49BE-8764-E7C6575D95EB.jpg",
+        "id" : "0AEF6393-20F0-49BE-8764-E7C6575D95EB"
       },
       {
         "description" : "As of this photo, I can only rotate the elevators 10.5°. Need to get it to at least 12 for up. There’s more than enough for the bottom it currently will go six. this is with full down trim. I get to do the exercise all over with full up.",
@@ -1091,19 +1160,19 @@
         "id" : "79290ADD-AD37-4557-88DD-247566AB50D7"
       },
       {
-        "description" : "The green painters tape shows the portion that did not need to be removed at the bottom.  Most of the right side of the hole will be filled back in.",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/0AEF6393-20F0-49BE-8764-E7C6575D95EB.jpg",
-        "id" : "0AEF6393-20F0-49BE-8764-E7C6575D95EB"
-      },
-      {
-        "description" : "I now have it where in trim all the way up, the T-bar doesn’t stop movement.  However, the linkage is bottoming out at 11.7.",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/96578BA1-A839-4FAE-803B-47623FD77627.jpg",
-        "id" : "96578BA1-A839-4FAE-803B-47623FD77627"
+        "description" : "  The good news is that there is still space for the mass balance weight to go down.",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/7751B1C3-7CDD-4A04-A49D-B49AF917E269.jpg",
+        "id" : "7751B1C3-7CDD-4A04-A49D-B49AF917E269"
       },
       {
         "description" : "After adjusting the linkage, I still had a small amount of grinding to do but was finally able to achieve the correct full up deflection.",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/CB0CC041-913F-43C6-8E17-9B30E827E1C0.jpg",
         "id" : "CB0CC041-913F-43C6-8E17-9B30E827E1C0"
+      },
+      {
+        "description" : "I now have it where in trim all the way up, the T-bar doesn’t stop movement.  However, the linkage is bottoming out at 11.7.",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/96578BA1-A839-4FAE-803B-47623FD77627.jpg",
+        "id" : "96578BA1-A839-4FAE-803B-47623FD77627"
       }
     ],
     "category" : "04 Trim Tabs",
@@ -1133,6 +1202,11 @@
   {
     "assets" : [
       {
+        "description" : "It’s difficult to see in the image, but the portion of the tab that meets the elevators are aligned perfectly on both sides. However, there is approximately a 1\/16 inch difference between the two tabs near the elevator. I chose to have them aligned on the outside since the elevator will disrupt any airflow around that.\n",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/D2BDE0D7-6373-44AF-9FA3-C009AAA3217B.jpg",
+        "id" : "D2BDE0D7-6373-44AF-9FA3-C009AAA3217B"
+      },
+      {
         "description" : "Notice my fancy counterweights on the mass balance arm. I’m waiting for the new, modified version of the mass balance arm to come in from the factory.",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/5704374C-0451-4C0E-A60E-0D27315FAAFB.jpg",
         "id" : "5704374C-0451-4C0E-A60E-0D27315FAAFB"
@@ -1141,11 +1215,6 @@
         "description" : "It may not be obvious in the photo, but the hole is off center about a millimeter toward the bottom of the image. This came in handy to perfectly align in the tabs.",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/4FAA2338-9DFC-40CF-BBFF-0CE37C1E7E14.jpg",
         "id" : "4FAA2338-9DFC-40CF-BBFF-0CE37C1E7E14"
-      },
-      {
-        "description" : "It’s difficult to see in the image, but the portion of the tab that meets the elevators are aligned perfectly on both sides. However, there is approximately a 1\/16 inch difference between the two tabs near the elevator. I chose to have them aligned on the outside since the elevator will disrupt any airflow around that.\n",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/D2BDE0D7-6373-44AF-9FA3-C009AAA3217B.jpg",
-        "id" : "D2BDE0D7-6373-44AF-9FA3-C009AAA3217B"
       }
     ],
     "category" : "04 Trim Tabs",
@@ -1170,9 +1239,9 @@
   {
     "assets" : [
       {
-        "description" : "They fit very snuggly in the ends, but can still be removed.",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/73778B9D-944A-416F-9859-AA9DE2229779.jpg",
-        "id" : "73778B9D-944A-416F-9859-AA9DE2229779"
+        "description" : "Nylon bolt mounted on the XY table. Drilled the quarter inch hole first before doing anything else. Noticed the original plastic bushing setting just to the left of the nylon bolt.",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/3212F8F8-B3DC-49B1-8A2C-655260CF37C4.jpg",
+        "id" : "3212F8F8-B3DC-49B1-8A2C-655260CF37C4"
       },
       {
         "description" : "The bolt head after grinding it down.",
@@ -1180,19 +1249,19 @@
         "id" : "1F42A6DA-4CAD-4678-95DF-7B004E2E7226"
       },
       {
-        "description" : "I used two nuts to keep it level while I’m grinding it.",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/D0066BF3-43D7-48C0-BF15-4E24925EACCD.jpg",
-        "id" : "D0066BF3-43D7-48C0-BF15-4E24925EACCD"
-      },
-      {
-        "description" : "Nylon bolt mounted on the XY table. Drilled the quarter inch hole first before doing anything else. Noticed the original plastic bushing setting just to the left of the nylon bolt.",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/3212F8F8-B3DC-49B1-8A2C-655260CF37C4.jpg",
-        "id" : "3212F8F8-B3DC-49B1-8A2C-655260CF37C4"
+        "description" : "They fit very snuggly in the ends, but can still be removed.",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/73778B9D-944A-416F-9859-AA9DE2229779.jpg",
+        "id" : "73778B9D-944A-416F-9859-AA9DE2229779"
       },
       {
         "description" : "After grinding and putting a small chamfer on the end.  It weighs 0.55 grams more than the original.",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/D665AF62-99BE-4407-8C8B-C0A1F868D248.jpg",
         "id" : "D665AF62-99BE-4407-8C8B-C0A1F868D248"
+      },
+      {
+        "description" : "I used two nuts to keep it level while I’m grinding it.",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/D0066BF3-43D7-48C0-BF15-4E24925EACCD.jpg",
+        "id" : "D0066BF3-43D7-48C0-BF15-4E24925EACCD"
       }
     ],
     "category" : "04 Trim Tabs",
@@ -1217,9 +1286,9 @@
   {
     "assets" : [
       {
-        "description" : "Primered bottom after closing up the modification",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/A1149087-8D31-49D1-B465-1F58017354D9.jpg",
-        "id" : "A1149087-8D31-49D1-B465-1F58017354D9"
+        "description" : "Borescope and 1.5” grinder used to remove the excess epoxy",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/0671135B-5877-4D34-B913-7670C1993B9B.jpg",
+        "id" : "0671135B-5877-4D34-B913-7670C1993B9B"
       },
       {
         "description" : "The excess epoxy that had to be removed.  Neither elevator would go all the way on until I removed it.",
@@ -1227,9 +1296,9 @@
         "id" : "DC3304EA-5E07-4AEF-AB37-E960027262D2"
       },
       {
-        "description" : "Borescope and 1.5” grinder used to remove the excess epoxy",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/0671135B-5877-4D34-B913-7670C1993B9B.jpg",
-        "id" : "0671135B-5877-4D34-B913-7670C1993B9B"
+        "description" : "Primered bottom after closing up the modification",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/A1149087-8D31-49D1-B465-1F58017354D9.jpg",
+        "id" : "A1149087-8D31-49D1-B465-1F58017354D9"
       }
     ],
     "category" : "03-D Mod 73",
@@ -1242,14 +1311,14 @@
     "summary" : "The conditions were right to be able to clean and get some primer on the repairs. However, I wanted to make sure that I could get them on the plane. There was some epoxy from the flox that did work its way in between the torque tube and the sleeve. I gently used a drill at very low speed to grind it out. It really broke away more than ground off.",
     "tags" : [
       {
-        "id" : "A0F82CB2-6E01-43E5-8816-A14E68DD593E",
-        "name" : "Required Modifications ",
-        "timeSpent" : 1800
-      },
-      {
         "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
         "name" : "Paint Prep",
         "timeSpent" : 4500
+      },
+      {
+        "id" : "A0F82CB2-6E01-43E5-8816-A14E68DD593E",
+        "name" : "Required Modifications ",
+        "timeSpent" : 1800
       }
     ],
     "timeSpent" : 6300,
@@ -1259,11 +1328,6 @@
   {
     "assets" : [
       {
-        "description" : "Right elevator after first sanding.  ",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/F010E2CE-A825-47BF-BCE9-47631898CC2D.jpg",
-        "id" : "F010E2CE-A825-47BF-BCE9-47631898CC2D"
-      },
-      {
         "description" : "Right elevator after using some glazing compound and drilling the drain hole.",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/CDE3A6A7-8590-4088-9B2C-4CEA5665C98F.jpg",
         "id" : "CDE3A6A7-8590-4088-9B2C-4CEA5665C98F"
@@ -1272,6 +1336,11 @@
         "description" : "Left elevator after sanding, glazing, and drilling the drain hole.",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/997B4EDA-484A-40CC-9F71-CF46AA96C60C.jpg",
         "id" : "997B4EDA-484A-40CC-9F71-CF46AA96C60C"
+      },
+      {
+        "description" : "Right elevator after first sanding.  ",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/F010E2CE-A825-47BF-BCE9-47631898CC2D.jpg",
+        "id" : "F010E2CE-A825-47BF-BCE9-47631898CC2D"
       }
     ],
     "category" : "03-D Mod 73",
@@ -1311,14 +1380,14 @@
     "summary" : "You know… I probably shouldn’t feel this way but today I’ve begrudgingly applied the micro over the glass. This whole modification was unnecessary, but there was no way to know it unless I did the destructive opening. Just feels like I’ve lost two weeks for such a small thing.",
     "tags" : [
       {
-        "id" : "A0F82CB2-6E01-43E5-8816-A14E68DD593E",
-        "name" : "Required Modifications ",
-        "timeSpent" : 900
-      },
-      {
         "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
         "name" : "Paint Prep",
         "timeSpent" : 1800
+      },
+      {
+        "id" : "A0F82CB2-6E01-43E5-8816-A14E68DD593E",
+        "name" : "Required Modifications ",
+        "timeSpent" : 900
       }
     ],
     "timeSpent" : 2700,
@@ -1328,14 +1397,14 @@
   {
     "assets" : [
       {
-        "description" : "It’s difficult to tell, but the green foam is actually recessed into the hole. The black piece of fiberglass is just laying there awaiting the flox and epoxy.",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/0EC7FA8D-C2B6-49C6-8616-CBAD16E9EC72.jpg",
-        "id" : "0EC7FA8D-C2B6-49C6-8616-CBAD16E9EC72"
-      },
-      {
         "description" : "Finished layup with peel ply.",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/0F19802E-E30B-45F4-BC6D-C670FFF274CA.jpg",
         "id" : "0F19802E-E30B-45F4-BC6D-C670FFF274CA"
+      },
+      {
+        "description" : "It’s difficult to tell, but the green foam is actually recessed into the hole. The black piece of fiberglass is just laying there awaiting the flox and epoxy.",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/0EC7FA8D-C2B6-49C6-8616-CBAD16E9EC72.jpg",
+        "id" : "0EC7FA8D-C2B6-49C6-8616-CBAD16E9EC72"
       },
       {
         "description" : "Close up of the fiberglass plug that is flush with the rest of the panel.  The red lines are on the peel-ply- not the BID.",
@@ -1397,11 +1466,6 @@
   {
     "assets" : [
       {
-        "description" : "Notice the ball bearing clearance on the left of the pin.  This will allow a safe, secure use of the pin",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/9D736A3E-B0F6-4B22-BD0A-5E6978469EAE.jpg",
-        "id" : "9D736A3E-B0F6-4B22-BD0A-5E6978469EAE"
-      },
-      {
         "description" : "The drain hole will go in the middle of the pocket as opposed to through the horizontal section of the rib where it originally was drilled.",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/3D10B480-9E08-43D1-B5E1-82535492F2A5.jpg",
         "id" : "3D10B480-9E08-43D1-B5E1-82535492F2A5"
@@ -1410,6 +1474,11 @@
         "description" : "The transition from the torque tube actually turned out better than expected. ",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/9FCB90FB-5B2B-4D50-AC6F-B7FE5E148CC4.jpg",
         "id" : "9FCB90FB-5B2B-4D50-AC6F-B7FE5E148CC4"
+      },
+      {
+        "description" : "Notice the ball bearing clearance on the left of the pin.  This will allow a safe, secure use of the pin",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/9D736A3E-B0F6-4B22-BD0A-5E6978469EAE.jpg",
+        "id" : "9D736A3E-B0F6-4B22-BD0A-5E6978469EAE"
       }
     ],
     "category" : "03-D Mod 73",
@@ -1461,14 +1530,14 @@
   {
     "assets" : [
       {
-        "description" : "Foam “ramp” to angle the finished fiberglass supports.",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/0153AEC5-1333-483E-857D-E19AEBBA59AA.jpg",
-        "id" : "0153AEC5-1333-483E-857D-E19AEBBA59AA"
-      },
-      {
         "description" : "Nylon sleeve is used instead of hanging the elevators upside down on the plane",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/F3FB5C02-6A02-48D6-A931-9EA172425D41.jpg",
         "id" : "F3FB5C02-6A02-48D6-A931-9EA172425D41"
+      },
+      {
+        "description" : "Foam “ramp” to angle the finished fiberglass supports.",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/0153AEC5-1333-483E-857D-E19AEBBA59AA.jpg",
+        "id" : "0153AEC5-1333-483E-857D-E19AEBBA59AA"
       }
     ],
     "category" : "03-D Mod 73",
@@ -1493,14 +1562,14 @@
   {
     "assets" : [
       {
-        "description" : "Note the flox is up against the pin hole and was drilled to accommodate the pin.  I will attach my reinforcement to the flox. ",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/BF66E511-B2CE-4AFE-ABED-A2CCB7B11542.jpg",
-        "id" : "BF66E511-B2CE-4AFE-ABED-A2CCB7B11542"
-      },
-      {
         "description" : "I trimmed from the existing drain hole outward. I used the stud finder to see that the rib was further away. However, the fiberglass is thicker closer to the rib so I didn’t wanna cut any more than I had to.",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/1E73A134-3F9A-46B7-BD96-B1BF452CB75F.jpg",
         "id" : "1E73A134-3F9A-46B7-BD96-B1BF452CB75F"
+      },
+      {
+        "description" : "Note the flox is up against the pin hole and was drilled to accommodate the pin.  I will attach my reinforcement to the flox. ",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/BF66E511-B2CE-4AFE-ABED-A2CCB7B11542.jpg",
+        "id" : "BF66E511-B2CE-4AFE-ABED-A2CCB7B11542"
       }
     ],
     "category" : "03-D Mod 73",
@@ -1579,14 +1648,14 @@
   {
     "assets" : [
       {
-        "description" : "Ear endoscope used to verify that the reenforcement had not been added and that there was foam all the way down.",
-        "filename" : "Photo Assets\/03-D%20Mod%2073\/487DC36C-C816-4626-9D38-8933A3A305FB.jpg",
-        "id" : "487DC36C-C816-4626-9D38-8933A3A305FB"
-      },
-      {
         "description" : "A stud finder can see the rib placement close enough to allow me te gently start the cut ",
         "filename" : "Photo Assets\/03-D%20Mod%2073\/D03B4847-958B-4BC9-94EA-26CF543FEE67.jpg",
         "id" : "D03B4847-958B-4BC9-94EA-26CF543FEE67"
+      },
+      {
+        "description" : "Ear endoscope used to verify that the reenforcement had not been added and that there was foam all the way down.",
+        "filename" : "Photo Assets\/03-D%20Mod%2073\/487DC36C-C816-4626-9D38-8933A3A305FB.jpg",
+        "id" : "487DC36C-C816-4626-9D38-8933A3A305FB"
       }
     ],
     "category" : "03-D Mod 73",
@@ -1634,14 +1703,14 @@
   {
     "assets" : [
       {
-        "description" : "Leading edge where the peel ply was not used and where there were joints is just so rough. Hopefully. This will be the last filling.",
-        "filename" : "Photo Assets\/06-B%20Right%20Flap\/0B16206C-5424-42DE-93B6-F914FC333457.jpg",
-        "id" : "0B16206C-5424-42DE-93B6-F914FC333457"
-      },
-      {
         "description" : "Tops turned out OK",
         "filename" : "Photo Assets\/06-B%20Right%20Flap\/C282A4C3-0B2E-428F-9971-C7C0F66F6F55.jpg",
         "id" : "C282A4C3-0B2E-428F-9971-C7C0F66F6F55"
+      },
+      {
+        "description" : "Leading edge where the peel ply was not used and where there were joints is just so rough. Hopefully. This will be the last filling.",
+        "filename" : "Photo Assets\/06-B%20Right%20Flap\/0B16206C-5424-42DE-93B6-F914FC333457.jpg",
+        "id" : "0B16206C-5424-42DE-93B6-F914FC333457"
       }
     ],
     "category" : "06-B Right Flap",
@@ -1662,14 +1731,14 @@
   {
     "assets" : [
       {
-        "description" : "The lighter colored areas are the low spots.  I could probably let most of it pass and fix it after the first primer coat, but I can feel a few of them. Will definitely fix those.",
-        "filename" : "Photo Assets\/06-B%20Right%20Flap\/28E95EAB-17A0-4281-AC10-99E03230B81E.jpg",
-        "id" : "28E95EAB-17A0-4281-AC10-99E03230B81E"
-      },
-      {
         "description" : "Guide coat showing lots of imperfections.",
         "filename" : "Photo Assets\/06-B%20Right%20Flap\/7EC8C5A1-6B30-4FA2-91C0-FBA0C4D21734.jpg",
         "id" : "7EC8C5A1-6B30-4FA2-91C0-FBA0C4D21734"
+      },
+      {
+        "description" : "The lighter colored areas are the low spots.  I could probably let most of it pass and fix it after the first primer coat, but I can feel a few of them. Will definitely fix those.",
+        "filename" : "Photo Assets\/06-B%20Right%20Flap\/28E95EAB-17A0-4281-AC10-99E03230B81E.jpg",
+        "id" : "28E95EAB-17A0-4281-AC10-99E03230B81E"
       }
     ],
     "category" : "06-B Right Flap",
@@ -1813,24 +1882,24 @@
   {
     "assets" : [
       {
-        "description" : "There is a small notch on each end. At first, I thought it was a chip, but these look purposeful. Need to go back through the documentation because I don’t remember anything about this.",
-        "filename" : "Photo Assets\/06-B%20Right%20Flap\/A77622FA-D32D-42AE-B566-673FA2A74B72.jpg",
-        "id" : "A77622FA-D32D-42AE-B566-673FA2A74B72"
-      },
-      {
         "description" : "First slurry coat on the bottom.",
         "filename" : "Photo Assets\/06-B%20Right%20Flap\/4695F05C-01DD-4A60-8C14-222D239BCB3C.jpg",
         "id" : "4695F05C-01DD-4A60-8C14-222D239BCB3C"
       },
       {
-        "description" : "Leading edge that has been smoothed with the painters tape. I took the non-sticky side of the tape and held it like you would a draw knife.  Then, I partially wrapped it around the leading edge and pulled it to me with less pressure on the leading edge.  This smoothed the micro so that I didn’t have bumps.",
-        "filename" : "Photo Assets\/06-B%20Right%20Flap\/87A40DCE-E8F4-4A91-996A-44A11A82A708.jpg",
-        "id" : "87A40DCE-E8F4-4A91-996A-44A11A82A708"
-      },
-      {
         "description" : "The valley with its initial fill of dry micro.",
         "filename" : "Photo Assets\/06-B%20Right%20Flap\/28596CB8-6142-4C7F-A029-A7F3C08DB983.jpg",
         "id" : "28596CB8-6142-4C7F-A029-A7F3C08DB983"
+      },
+      {
+        "description" : "There is a small notch on each end. At first, I thought it was a chip, but these look purposeful. Need to go back through the documentation because I don’t remember anything about this.",
+        "filename" : "Photo Assets\/06-B%20Right%20Flap\/A77622FA-D32D-42AE-B566-673FA2A74B72.jpg",
+        "id" : "A77622FA-D32D-42AE-B566-673FA2A74B72"
+      },
+      {
+        "description" : "Leading edge that has been smoothed with the painters tape. I took the non-sticky side of the tape and held it like you would a draw knife.  Then, I partially wrapped it around the leading edge and pulled it to me with less pressure on the leading edge.  This smoothed the micro so that I didn’t have bumps.",
+        "filename" : "Photo Assets\/06-B%20Right%20Flap\/87A40DCE-E8F4-4A91-996A-44A11A82A708.jpg",
+        "id" : "87A40DCE-E8F4-4A91-996A-44A11A82A708"
       }
     ],
     "category" : "06-B Right Flap",
@@ -1843,14 +1912,14 @@
     "summary" : "Now that I’m nearing the end of the fiberglass work, I’m getting a little more efficient- I think… I laid down the slurry coat on the bottom side, and then, with the leftover slurry, added some more micro to make my dry micro. I filled the valley at the trailing edge. I also took a paintbrush and painted the slurry on the leading edge. I then took a piece of painters tape and followed the curve and knocked down the high points. Hopefully, this will save me a lot of time.",
     "tags" : [
       {
-        "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
-        "name" : "Paint Prep",
-        "timeSpent" : 1800
-      },
-      {
         "id" : "F1BE3701-A563-4722-87DB-5020B0D25431",
         "name" : "Control Surface Rigging",
         "timeSpent" : 900
+      },
+      {
+        "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
+        "name" : "Paint Prep",
+        "timeSpent" : 1800
       }
     ],
     "timeSpent" : 2700,
@@ -1914,14 +1983,14 @@
   {
     "assets" : [
       {
-        "description" : "After first primer cost",
-        "filename" : "Photo Assets\/06-A%20Left%20Flap\/F62BBC86-4E58-4AE5-A541-8999BF38B374.jpg",
-        "id" : "F62BBC86-4E58-4AE5-A541-8999BF38B374"
-      },
-      {
         "description" : "Area that needs a little fill",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/0BFD03D5-6BDF-4E77-A619-A8A91CC14EAD.jpg",
         "id" : "0BFD03D5-6BDF-4E77-A619-A8A91CC14EAD"
+      },
+      {
+        "description" : "After first primer cost",
+        "filename" : "Photo Assets\/06-A%20Left%20Flap\/F62BBC86-4E58-4AE5-A541-8999BF38B374.jpg",
+        "id" : "F62BBC86-4E58-4AE5-A541-8999BF38B374"
       }
     ],
     "category" : "06-A Left Flap",
@@ -1946,11 +2015,6 @@
   {
     "assets" : [
       {
-        "description" : "Leading edge still needs some work.",
-        "filename" : "Photo Assets\/06-A%20Left%20Flap\/E34E9B9C-99DD-4DE8-84B0-6E85169486B3.jpg",
-        "id" : "E34E9B9C-99DD-4DE8-84B0-6E85169486B3"
-      },
-      {
         "description" : "Overall, looking better than expected ",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/6E0330C4-4327-450A-B656-08FD220C969E.jpg",
         "id" : "6E0330C4-4327-450A-B656-08FD220C969E"
@@ -1959,6 +2023,11 @@
         "description" : "Need to sand and fill with some micro ",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/2324DA0D-AB4F-49D9-9BD2-B292F4973010.jpg",
         "id" : "2324DA0D-AB4F-49D9-9BD2-B292F4973010"
+      },
+      {
+        "description" : "Leading edge still needs some work.",
+        "filename" : "Photo Assets\/06-A%20Left%20Flap\/E34E9B9C-99DD-4DE8-84B0-6E85169486B3.jpg",
+        "id" : "E34E9B9C-99DD-4DE8-84B0-6E85169486B3"
       }
     ],
     "category" : "06-A Left Flap",
@@ -2010,14 +2079,14 @@
   {
     "assets" : [
       {
-        "description" : "The green areas are where the high spots were. I filled on both sides.",
-        "filename" : "Photo Assets\/06-A%20Left%20Flap\/34FE6B75-A03B-4C04-8759-9A736971EDC8.jpg",
-        "id" : "34FE6B75-A03B-4C04-8759-9A736971EDC8"
-      },
-      {
         "description" : "Pits filled with dry micro",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/1B5A82C8-8A1E-45E0-A048-A50BA1B65BE5.jpg",
         "id" : "1B5A82C8-8A1E-45E0-A048-A50BA1B65BE5"
+      },
+      {
+        "description" : "The green areas are where the high spots were. I filled on both sides.",
+        "filename" : "Photo Assets\/06-A%20Left%20Flap\/34FE6B75-A03B-4C04-8759-9A736971EDC8.jpg",
+        "id" : "34FE6B75-A03B-4C04-8759-9A736971EDC8"
       }
     ],
     "category" : "06-A Left Flap",
@@ -2074,14 +2143,14 @@
   {
     "assets" : [
       {
-        "description" : "Masking tape prior to laying the micro. Going to try and keep the knife edge right on the edge of the tape. Hopefully, we’ll come out flat without a bunch of holes.",
-        "filename" : "Photo Assets\/06-A%20Left%20Flap\/981AADDA-0561-4451-A5D8-BB12678CD24A.jpg",
-        "id" : "981AADDA-0561-4451-A5D8-BB12678CD24A"
-      },
-      {
         "description" : "After spreading the dry, micro and removing the tape.",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/0E761D2D-FADD-45AB-813E-3CEAC8F1A619.jpg",
         "id" : "0E761D2D-FADD-45AB-813E-3CEAC8F1A619"
+      },
+      {
+        "description" : "Masking tape prior to laying the micro. Going to try and keep the knife edge right on the edge of the tape. Hopefully, we’ll come out flat without a bunch of holes.",
+        "filename" : "Photo Assets\/06-A%20Left%20Flap\/981AADDA-0561-4451-A5D8-BB12678CD24A.jpg",
+        "id" : "981AADDA-0561-4451-A5D8-BB12678CD24A"
       }
     ],
     "category" : "06-A Left Flap",
@@ -2106,16 +2175,6 @@
   {
     "assets" : [
       {
-        "description" : "Taped hinge to prevent accidental scratches while sanding ",
-        "filename" : "Photo Assets\/06-A%20Left%20Flap\/F39A2091-0457-4D06-9C1D-3F0B5CDDE8F1.jpg",
-        "id" : "F39A2091-0457-4D06-9C1D-3F0B5CDDE8F1"
-      },
-      {
-        "description" : "Top sanded and ready for cleaning before dry micro.",
-        "filename" : "Photo Assets\/06-A%20Left%20Flap\/8887BC19-CD5F-485F-A860-1F87EB64E8E1.jpg",
-        "id" : "8887BC19-CD5F-485F-A860-1F87EB64E8E1"
-      },
-      {
         "description" : "I believe I will build up just a millimeter or two of dry micro and taper toward the middle of the flap for three inches or so.  I tested the corner and you can see it will be razor thin at the trailing edge. I don’t think that will be very durable.",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/5907383B-B53F-4615-993A-A081048D8759.jpg",
         "id" : "5907383B-B53F-4615-993A-A081048D8759"
@@ -2124,6 +2183,16 @@
         "description" : "Bottom after sanding and cleaning.  ",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/E9871B53-5CAA-4BBE-A0A9-291D7BFE88F5.jpg",
         "id" : "E9871B53-5CAA-4BBE-A0A9-291D7BFE88F5"
+      },
+      {
+        "description" : "Top sanded and ready for cleaning before dry micro.",
+        "filename" : "Photo Assets\/06-A%20Left%20Flap\/8887BC19-CD5F-485F-A860-1F87EB64E8E1.jpg",
+        "id" : "8887BC19-CD5F-485F-A860-1F87EB64E8E1"
+      },
+      {
+        "description" : "Taped hinge to prevent accidental scratches while sanding ",
+        "filename" : "Photo Assets\/06-A%20Left%20Flap\/F39A2091-0457-4D06-9C1D-3F0B5CDDE8F1.jpg",
+        "id" : "F39A2091-0457-4D06-9C1D-3F0B5CDDE8F1"
       }
     ],
     "category" : "06-A Left Flap",
@@ -2212,14 +2281,14 @@
   {
     "assets" : [
       {
-        "description" : "Seem where there are bumps on the edge and it’s low in the middle.",
-        "filename" : "Photo Assets\/06-A%20Left%20Flap\/D55C7A1B-B65C-4217-B395-6CC6C7DBA7E9.jpg",
-        "id" : "D55C7A1B-B65C-4217-B395-6CC6C7DBA7E9"
-      },
-      {
         "description" : "Sanded after first coat ",
         "filename" : "Photo Assets\/06-A%20Left%20Flap\/DB6ACBE7-1B17-41FD-98C7-A2D87FCE178F.jpg",
         "id" : "DB6ACBE7-1B17-41FD-98C7-A2D87FCE178F"
+      },
+      {
+        "description" : "Seem where there are bumps on the edge and it’s low in the middle.",
+        "filename" : "Photo Assets\/06-A%20Left%20Flap\/D55C7A1B-B65C-4217-B395-6CC6C7DBA7E9.jpg",
+        "id" : "D55C7A1B-B65C-4217-B395-6CC6C7DBA7E9"
       }
     ],
     "category" : "06-A Left Flap",
@@ -2372,9 +2441,9 @@
   {
     "assets" : [
       {
-        "description" : "Cutting the majority off with a knife.",
-        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/8362D5FE-869E-45A2-BBB1-B37D0B88554F.jpg",
-        "id" : "8362D5FE-869E-45A2-BBB1-B37D0B88554F"
+        "description" : "The reason you only want to use a dollop of epoxy to temporarily hold something. Lots of tedious sanding.",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/ABA0C39C-B70F-4E32-9CCF-C1CEA339C0BB.jpg",
+        "id" : "ABA0C39C-B70F-4E32-9CCF-C1CEA339C0BB"
       },
       {
         "description" : "After removing foam and sanding.",
@@ -2382,9 +2451,9 @@
         "id" : "25F1337C-6FD8-4164-A4B4-24F6B7425E54"
       },
       {
-        "description" : "The reason you only want to use a dollop of epoxy to temporarily hold something. Lots of tedious sanding.",
-        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/ABA0C39C-B70F-4E32-9CCF-C1CEA339C0BB.jpg",
-        "id" : "ABA0C39C-B70F-4E32-9CCF-C1CEA339C0BB"
+        "description" : "Cutting the majority off with a knife.",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/8362D5FE-869E-45A2-BBB1-B37D0B88554F.jpg",
+        "id" : "8362D5FE-869E-45A2-BBB1-B37D0B88554F"
       }
     ],
     "category" : "07-B Left Aileron ",
@@ -2409,6 +2478,16 @@
   {
     "assets" : [
       {
+        "description" : "Rough fit of foam against the aileron ",
+        "filename" : "Photo Assets\/07-A%20Right%20Aileron%20\/57AFA727-9CA7-4639-8EB0-0145796F29BC.jpg",
+        "id" : "57AFA727-9CA7-4639-8EB0-0145796F29BC"
+      },
+      {
+        "description" : "Finished foam blocks for the right aileron . Saving them in a Ziploc out of harms way so that they don’t get dented before installation.",
+        "filename" : "Photo Assets\/07-A%20Right%20Aileron%20\/ABA5E16E-E052-4ADA-BF4F-B5973877AD0E.jpg",
+        "id" : "ABA5E16E-E052-4ADA-BF4F-B5973877AD0E"
+      },
+      {
         "description" : "Outboard template printed at 100%",
         "filename" : "Photo Assets\/07-A%20Right%20Aileron%20\/DF9D055D-B492-407E-8F36-23135F921132.jpg",
         "id" : "DF9D055D-B492-407E-8F36-23135F921132"
@@ -2417,16 +2496,6 @@
         "description" : "Lead weight placed up against foam to check fit",
         "filename" : "Photo Assets\/07-A%20Right%20Aileron%20\/B4A4CB9A-A0FC-416E-9B9B-F185A55C84FD.jpg",
         "id" : "B4A4CB9A-A0FC-416E-9B9B-F185A55C84FD"
-      },
-      {
-        "description" : "Finished foam blocks for the right aileron . Saving them in a Ziploc out of harms way so that they don’t get dented before installation.",
-        "filename" : "Photo Assets\/07-A%20Right%20Aileron%20\/ABA5E16E-E052-4ADA-BF4F-B5973877AD0E.jpg",
-        "id" : "ABA5E16E-E052-4ADA-BF4F-B5973877AD0E"
-      },
-      {
-        "description" : "Rough fit of foam against the aileron ",
-        "filename" : "Photo Assets\/07-A%20Right%20Aileron%20\/57AFA727-9CA7-4639-8EB0-0145796F29BC.jpg",
-        "id" : "57AFA727-9CA7-4639-8EB0-0145796F29BC"
       }
     ],
     "category" : "07-A Right Aileron ",
@@ -2451,9 +2520,24 @@
   {
     "assets" : [
       {
-        "description" : "All eight clamps installed but still need torque-vue paint to show if they have loosened.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/C0B29972-48B6-4EAC-9603-AB441B2A706A.jpg",
-        "id" : "C0B29972-48B6-4EAC-9603-AB441B2A706A"
+        "description" : "My fancy tool for holding the bolt head inside the torque tube made from a PVC pipe",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/745B7DBB-48A3-4E32-807F-70200D82B118.jpg",
+        "id" : "745B7DBB-48A3-4E32-807F-70200D82B118"
+      },
+      {
+        "description" : "Top view to see all 8 nuts.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/8F8B6D81-5146-48B9-87C3-1681FEF9FCF8.jpg",
+        "id" : "8F8B6D81-5146-48B9-87C3-1681FEF9FCF8"
+      },
+      {
+        "description" : "Just a small amount of flexing in the direction of the misalignment would make the binding go away",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/09F2E0F1-F779-44D8-9A4D-4C1631A789FA.jpg",
+        "id" : "09F2E0F1-F779-44D8-9A4D-4C1631A789FA"
+      },
+      {
+        "description" : "Image on borescope shows what it looks like from the inside.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/E07BE885-1E4B-483A-8767-2D6878DEF2DD.jpg",
+        "id" : "E07BE885-1E4B-483A-8767-2D6878DEF2DD"
       },
       {
         "description" : "You can see the thread that had been ground off to be able to make the turn.",
@@ -2466,29 +2550,14 @@
         "id" : "FD3BE7B4-0142-4C02-8072-CAC200DFE4B7"
       },
       {
-        "description" : "My fancy tool for holding the bolt head inside the torque tube made from a PVC pipe",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/745B7DBB-48A3-4E32-807F-70200D82B118.jpg",
-        "id" : "745B7DBB-48A3-4E32-807F-70200D82B118"
-      },
-      {
         "description" : "I cut slots in the end so that I could slide the box end of the wrench into the pipe. I used duct tape to clamp it down so that I would be able to pull it out of the tube without it falling out of the pipe. The offset from center actually worked very well for keeping it up against the outside of the tube and being able to easily locate the bolt head.",
         "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/2BF231AF-8DB9-4465-9C50-AC772A4F12F6.jpg",
         "id" : "2BF231AF-8DB9-4465-9C50-AC772A4F12F6"
       },
       {
-        "description" : "Just a small amount of flexing in the direction of the misalignment would make the binding go away",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/09F2E0F1-F779-44D8-9A4D-4C1631A789FA.jpg",
-        "id" : "09F2E0F1-F779-44D8-9A4D-4C1631A789FA"
-      },
-      {
-        "description" : "Top view to see all 8 nuts.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/8F8B6D81-5146-48B9-87C3-1681FEF9FCF8.jpg",
-        "id" : "8F8B6D81-5146-48B9-87C3-1681FEF9FCF8"
-      },
-      {
-        "description" : "Image on borescope shows what it looks like from the inside.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/E07BE885-1E4B-483A-8767-2D6878DEF2DD.jpg",
-        "id" : "E07BE885-1E4B-483A-8767-2D6878DEF2DD"
+        "description" : "All eight clamps installed but still need torque-vue paint to show if they have loosened.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/C0B29972-48B6-4EAC-9603-AB441B2A706A.jpg",
+        "id" : "C0B29972-48B6-4EAC-9603-AB441B2A706A"
       }
     ],
     "category" : "03-C Torque Tube For Elevator ",
@@ -2513,24 +2582,14 @@
   {
     "assets" : [
       {
-        "description" : "Sleeve with Sharpie ink to show where there was excess contact.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/3507629D-9E9E-4D67-A486-9964F5B4F37A.jpg",
-        "id" : "3507629D-9E9E-4D67-A486-9964F5B4F37A"
-      },
-      {
-        "description" : "This was the second time.  Although the photos don’t do justice, the area of excess contact is smaller.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/9D1CF7E6-0AEB-4C97-A5CF-0CDA98B7F30E.jpg",
-        "id" : "9D1CF7E6-0AEB-4C97-A5CF-0CDA98B7F30E"
-      },
-      {
-        "description" : "Everything in position with pins but not clamped.  There was no binding at this point.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/84CB1C64-82E3-43C7-AA89-BD0CFA2B58C9.jpg",
-        "id" : "84CB1C64-82E3-43C7-AA89-BD0CFA2B58C9"
-      },
-      {
         "description" : "Silicone lubricant that I used.",
         "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/21687C39-5DDB-4250-811C-504ABA217AE9.jpg",
         "id" : "21687C39-5DDB-4250-811C-504ABA217AE9"
+      },
+      {
+        "description" : "Sleeve with Sharpie ink to show where there was excess contact.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/3507629D-9E9E-4D67-A486-9964F5B4F37A.jpg",
+        "id" : "3507629D-9E9E-4D67-A486-9964F5B4F37A"
       },
       {
         "description" : "The ring all the way around did not bother me.  That small amount would wear away under normal break-in but I did a very light polish to reduce wear debris getting in the oil.",
@@ -2541,6 +2600,16 @@
         "description" : "The other side of the sleeve showing the excess contact.",
         "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/827D163E-B264-4396-B55F-4741F0D7C46A.jpg",
         "id" : "827D163E-B264-4396-B55F-4741F0D7C46A"
+      },
+      {
+        "description" : "Everything in position with pins but not clamped.  There was no binding at this point.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/84CB1C64-82E3-43C7-AA89-BD0CFA2B58C9.jpg",
+        "id" : "84CB1C64-82E3-43C7-AA89-BD0CFA2B58C9"
+      },
+      {
+        "description" : "This was the second time.  Although the photos don’t do justice, the area of excess contact is smaller.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/9D1CF7E6-0AEB-4C97-A5CF-0CDA98B7F30E.jpg",
+        "id" : "9D1CF7E6-0AEB-4C97-A5CF-0CDA98B7F30E"
       }
     ],
     "category" : "03-C Torque Tube For Elevator ",
@@ -2565,14 +2634,14 @@
   {
     "assets" : [
       {
-        "description" : "Using a 1\/4” drill bit to mark the center of the 3\/4” access holes.  I then removed the tube and drilled the holes using a 3\/4” paddle bit.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/AA172AC7-529C-4534-AB14-7CFEAFCD43C4.jpg",
-        "id" : "AA172AC7-529C-4534-AB14-7CFEAFCD43C4"
-      },
-      {
         "description" : "Access holes.  These were coated with epoxy since I wasn’t quite sure if this was plywood or composite material.",
         "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/1C52C542-6E20-4A7A-8CDF-BBD6BC6E0EF3.jpg",
         "id" : "1C52C542-6E20-4A7A-8CDF-BBD6BC6E0EF3"
+      },
+      {
+        "description" : "Using a 1\/4” drill bit to mark the center of the 3\/4” access holes.  I then removed the tube and drilled the holes using a 3\/4” paddle bit.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/AA172AC7-529C-4534-AB14-7CFEAFCD43C4.jpg",
+        "id" : "AA172AC7-529C-4534-AB14-7CFEAFCD43C4"
       }
     ],
     "category" : "03-C Torque Tube For Elevator ",
@@ -2597,6 +2666,11 @@
   {
     "assets" : [
       {
+        "description" : "Final polishing to make a uniform surface.",
+        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/143E6958-4AC4-40C7-A6C7-B00A6AF8A6EF.jpg",
+        "id" : "143E6958-4AC4-40C7-A6C7-B00A6AF8A6EF"
+      },
+      {
         "description" : "One pair of the clamp (Saddle washer and 1\/2 moon key) with a 17\/64th hole in the center.",
         "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/D17DDDB0-6F33-462E-BEB5-F5F927FCC702.jpg",
         "id" : "D17DDDB0-6F33-462E-BEB5-F5F927FCC702"
@@ -2610,11 +2684,6 @@
         "description" : "Final set of clamps.",
         "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/BF852E91-6F59-47F1-9C78-D675E0D59EB8.jpg",
         "id" : "BF852E91-6F59-47F1-9C78-D675E0D59EB8"
-      },
-      {
-        "description" : "Final polishing to make a uniform surface.",
-        "filename" : "Photo Assets\/03-C%20Torque%20Tube%20For%20Elevator%20\/143E6958-4AC4-40C7-A6C7-B00A6AF8A6EF.jpg",
-        "id" : "143E6958-4AC4-40C7-A6C7-B00A6AF8A6EF"
       }
     ],
     "category" : "03-C Torque Tube For Elevator ",
@@ -2703,14 +2772,14 @@
   {
     "assets" : [
       {
-        "description" : "Note imperfections in the fiberglass where the top turns down.  These have been sanded smooth and the second coat of primer should cover them.",
-        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/095E73E2-13C7-4BDB-8700-A46DDD8E812B.jpg",
-        "id" : "095E73E2-13C7-4BDB-8700-A46DDD8E812B"
-      },
-      {
         "description" : "Small area of excess epoxy near the edge.",
         "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/F7E1CE94-40C5-45F0-85E0-F132E2FA59C7.jpg",
         "id" : "F7E1CE94-40C5-45F0-85E0-F132E2FA59C7"
+      },
+      {
+        "description" : "Note imperfections in the fiberglass where the top turns down.  These have been sanded smooth and the second coat of primer should cover them.",
+        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/095E73E2-13C7-4BDB-8700-A46DDD8E812B.jpg",
+        "id" : "095E73E2-13C7-4BDB-8700-A46DDD8E812B"
       }
     ],
     "category" : "03-A Right Horizontal Stabilizer",
@@ -2763,9 +2832,9 @@
   {
     "assets" : [
       {
-        "description" : "Sealer used for the seat",
-        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/A507A88A-255E-42FB-81E2-9837345C10C5.jpg",
-        "id" : "A507A88A-255E-42FB-81E2-9837345C10C5"
+        "description" : "Using a bolt through the center of the rough cut carbon fiber.  Using a drill, I held it to the side of a bench grinder to make a perfect circle and periodically checked diameter.",
+        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/99F697EE-D310-4392-A58F-3BD0625A76A6.jpg",
+        "id" : "99F697EE-D310-4392-A58F-3BD0625A76A6"
       },
       {
         "description" : "Teflon tape application",
@@ -2773,24 +2842,24 @@
         "id" : "8593064F-35B1-49C4-BF7B-831EF56FBA67"
       },
       {
-        "description" : "Cap seated into the 3M sealer.",
-        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/71EFD601-71CD-48E4-90CE-CD594C5FB9CD.jpg",
-        "id" : "71EFD601-71CD-48E4-90CE-CD594C5FB9CD"
-      },
-      {
         "description" : "It was easier to use a syringe to apply the small amount of 3M 4200",
         "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/E30B268D-EDAE-4BE9-8B10-669951D49F49.jpg",
         "id" : "E30B268D-EDAE-4BE9-8B10-669951D49F49"
       },
       {
-        "description" : "Using a bolt through the center of the rough cut carbon fiber.  Using a drill, I held it to the side of a bench grinder to make a perfect circle and periodically checked diameter.",
-        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/99F697EE-D310-4392-A58F-3BD0625A76A6.jpg",
-        "id" : "99F697EE-D310-4392-A58F-3BD0625A76A6"
-      },
-      {
         "description" : "Small nut and bolt installed so that I could remove the cap once the sealer cured.  Also used Teflon tape around the edges so that the sealer did not stick to the cap and offer a little bit pf clearance once everything is cured and the tape removed.",
         "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/199E676C-7DB7-4B9B-AA54-67B60BC11245.jpg",
         "id" : "199E676C-7DB7-4B9B-AA54-67B60BC11245"
+      },
+      {
+        "description" : "Sealer used for the seat",
+        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/A507A88A-255E-42FB-81E2-9837345C10C5.jpg",
+        "id" : "A507A88A-255E-42FB-81E2-9837345C10C5"
+      },
+      {
+        "description" : "Cap seated into the 3M sealer.",
+        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/71EFD601-71CD-48E4-90CE-CD594C5FB9CD.jpg",
+        "id" : "71EFD601-71CD-48E4-90CE-CD594C5FB9CD"
       },
       {
         "description" : "Finished hole.",
@@ -2939,8 +3008,8 @@
     "assets" : [
       {
         "description" : "",
-        "filename" : "Photo Assets\/Research\/455B2960-0684-4EA4-8AD7-A27A92E5527E.jpg",
-        "id" : "455B2960-0684-4EA4-8AD7-A27A92E5527E"
+        "filename" : "Photo Assets\/Research\/A2ABD16C-D9D5-4BA4-9E48-C7EADDAE507C.jpg",
+        "id" : "A2ABD16C-D9D5-4BA4-9E48-C7EADDAE507C"
       },
       {
         "description" : "",
@@ -2949,18 +3018,8 @@
       },
       {
         "description" : "",
-        "filename" : "Photo Assets\/Research\/A2ABD16C-D9D5-4BA4-9E48-C7EADDAE507C.jpg",
-        "id" : "A2ABD16C-D9D5-4BA4-9E48-C7EADDAE507C"
-      },
-      {
-        "description" : "",
         "filename" : "Photo Assets\/Research\/3485A53B-88A4-4B9C-8626-77A873C1B98B.jpg",
         "id" : "3485A53B-88A4-4B9C-8626-77A873C1B98B"
-      },
-      {
-        "description" : "",
-        "filename" : "Photo Assets\/Research\/A5892736-831B-45C2-B257-90E77F2ECF73.jpg",
-        "id" : "A5892736-831B-45C2-B257-90E77F2ECF73"
       },
       {
         "description" : "",
@@ -2969,8 +3028,13 @@
       },
       {
         "description" : "",
-        "filename" : "Photo Assets\/Research\/001F3A51-DC0B-403E-AE63-81CB75CEA870.jpg",
-        "id" : "001F3A51-DC0B-403E-AE63-81CB75CEA870"
+        "filename" : "Photo Assets\/Research\/C54ECA9F-C55F-437D-B9DB-E920C4A522D4.jpg",
+        "id" : "C54ECA9F-C55F-437D-B9DB-E920C4A522D4"
+      },
+      {
+        "description" : "",
+        "filename" : "Photo Assets\/Research\/455B2960-0684-4EA4-8AD7-A27A92E5527E.jpg",
+        "id" : "455B2960-0684-4EA4-8AD7-A27A92E5527E"
       },
       {
         "description" : "",
@@ -2979,8 +3043,13 @@
       },
       {
         "description" : "",
-        "filename" : "Photo Assets\/Research\/C54ECA9F-C55F-437D-B9DB-E920C4A522D4.jpg",
-        "id" : "C54ECA9F-C55F-437D-B9DB-E920C4A522D4"
+        "filename" : "Photo Assets\/Research\/001F3A51-DC0B-403E-AE63-81CB75CEA870.jpg",
+        "id" : "001F3A51-DC0B-403E-AE63-81CB75CEA870"
+      },
+      {
+        "description" : "",
+        "filename" : "Photo Assets\/Research\/A5892736-831B-45C2-B257-90E77F2ECF73.jpg",
+        "id" : "A5892736-831B-45C2-B257-90E77F2ECF73"
       }
     ],
     "category" : "Research",
@@ -3005,14 +3074,14 @@
   {
     "assets" : [
       {
-        "description" : "Note the cut in the brown fiberglass. ",
-        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/D94EBC16-421B-44A3-B508-27CD9749DEFF.jpg",
-        "id" : "D94EBC16-421B-44A3-B508-27CD9749DEFF"
-      },
-      {
         "description" : "Clamps keeping everything aligned while the flox cures.",
         "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/9ACC39D7-613A-4B50-B84A-BD2ED501349D.jpg",
         "id" : "9ACC39D7-613A-4B50-B84A-BD2ED501349D"
+      },
+      {
+        "description" : "Note the cut in the brown fiberglass. ",
+        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/D94EBC16-421B-44A3-B508-27CD9749DEFF.jpg",
+        "id" : "D94EBC16-421B-44A3-B508-27CD9749DEFF"
       }
     ],
     "category" : "03-A Right Horizontal Stabilizer",
@@ -3042,11 +3111,6 @@
         "id" : "26A9EA7B-9707-45AE-AA1D-602577830C7F"
       },
       {
-        "description" : "Showing the desired clearance near the back of the stabilizer.",
-        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/4CF1097D-20ED-4B37-8729-8B53D4014F4B.jpg",
-        "id" : "4CF1097D-20ED-4B37-8729-8B53D4014F4B"
-      },
-      {
         "description" : "Both Horizontal Stabilizers installed.",
         "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/00B30776-216E-40AF-8A34-958E6A192AEC.jpg",
         "id" : "00B30776-216E-40AF-8A34-958E6A192AEC"
@@ -3055,6 +3119,11 @@
         "description" : "Trying to maintain 1\/8” clearance for the entire length of the stabilizer.",
         "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/5416B1B4-3029-4B8E-B0A6-78CC512F3645.jpg",
         "id" : "5416B1B4-3029-4B8E-B0A6-78CC512F3645"
+      },
+      {
+        "description" : "Showing the desired clearance near the back of the stabilizer.",
+        "filename" : "Photo Assets\/03-A%20Right%20Horizontal%20Stabilizer\/4CF1097D-20ED-4B37-8729-8B53D4014F4B.jpg",
+        "id" : "4CF1097D-20ED-4B37-8729-8B53D4014F4B"
       }
     ],
     "category" : "03-A Right Horizontal Stabilizer",
@@ -3134,6 +3203,11 @@
     "assets" : [
       {
         "description" : "",
+        "filename" : "Photo Assets\/04%20Trim%20Tabs\/BD1850ED-4BC9-47BC-B07A-7EF4587995BE.jpg",
+        "id" : "BD1850ED-4BC9-47BC-B07A-7EF4587995BE"
+      },
+      {
+        "description" : "",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/7EF756DA-1B4D-411B-8513-7790839057AD.jpg",
         "id" : "7EF756DA-1B4D-411B-8513-7790839057AD"
       },
@@ -3141,11 +3215,6 @@
         "description" : "",
         "filename" : "Photo Assets\/04%20Trim%20Tabs\/2BFDAF05-2DA9-4C96-9FFD-FDA5D2B4D704.jpg",
         "id" : "2BFDAF05-2DA9-4C96-9FFD-FDA5D2B4D704"
-      },
-      {
-        "description" : "",
-        "filename" : "Photo Assets\/04%20Trim%20Tabs\/BD1850ED-4BC9-47BC-B07A-7EF4587995BE.jpg",
-        "id" : "BD1850ED-4BC9-47BC-B07A-7EF4587995BE"
       }
     ],
     "category" : "04 Trim Tabs",
@@ -3262,14 +3331,14 @@
     "summary" : "Verification of all of the layups and proper hole positions. There was a defect or dent in the TP5 sleeve in the 2 o'clock position abut 2.5 inches in. While only about 2\/1000, it was enough to cause the TP4 tube to bind when trying to insert. The defect was a small pocket of a crystalline type substance... maybe a pieced of embedded sand. It was scratching the tube. It took several attempts to dig it out with dental picks and some light sanding and polishing.",
     "tags" : [
       {
-        "id" : "F1BE3701-A563-4722-87DB-5020B0D25431",
-        "name" : "Control Surface Rigging",
-        "timeSpent" : 2700
-      },
-      {
         "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
         "name" : "Paint Prep",
         "timeSpent" : 11700
+      },
+      {
+        "id" : "F1BE3701-A563-4722-87DB-5020B0D25431",
+        "name" : "Control Surface Rigging",
+        "timeSpent" : 2700
       }
     ],
     "timeSpent" : 14400,
@@ -3284,14 +3353,14 @@
         "id" : "E99DC289-8B6F-4DFC-A828-62D7520B687F"
       },
       {
-        "description" : "The entire trailing edge is low and will need a bit of dry micro.",
-        "filename" : "Photo Assets\/02%20Rudder\/B46130B3-EB27-478D-B016-ABAFC3C7C946.jpg",
-        "id" : "B46130B3-EB27-478D-B016-ABAFC3C7C946"
-      },
-      {
         "description" : "Using an aerosol as a guide coat primer.  Will use Stewart systems for actual primer once it’s all sanded.",
         "filename" : "Photo Assets\/02%20Rudder\/B480DA78-A8B3-439F-9530-E419E4311D85.jpg",
         "id" : "B480DA78-A8B3-439F-9530-E419E4311D85"
+      },
+      {
+        "description" : "The entire trailing edge is low and will need a bit of dry micro.",
+        "filename" : "Photo Assets\/02%20Rudder\/B46130B3-EB27-478D-B016-ABAFC3C7C946.jpg",
+        "id" : "B46130B3-EB27-478D-B016-ABAFC3C7C946"
       }
     ],
     "category" : "02 Rudder",
@@ -3321,9 +3390,9 @@
   {
     "assets" : [
       {
-        "description" : "Used a kayak hoist to suspend top half of the fuselage until needed.",
-        "filename" : "Photo Assets\/Workshop\/CE34AC42-8C77-4E79-B41E-855B0310D54A.jpg",
-        "id" : "CE34AC42-8C77-4E79-B41E-855B0310D54A"
+        "description" : "I didn’t want to drill and I will need to remove the black safety strap when attaching to the bottom half, so I used suction cup hooks.  I scuffed them up with sandpaper and used some JB Weld to attach to the fuselage.  I can raise and lower without interference.  Just hope sanding off the JB Weld won’t be too difficult.",
+        "filename" : "Photo Assets\/Workshop\/EB15DD7A-C7E3-4214-903B-975BFBCC8B85.jpg",
+        "id" : "EB15DD7A-C7E3-4214-903B-975BFBCC8B85"
       },
       {
         "description" : "Cradle to hold bottom of fuselage.  Will probably need to raise this 10” to get clearance",
@@ -3331,14 +3400,14 @@
         "id" : "F493AEA7-9D3A-4200-9D64-E908DCC40D07"
       },
       {
-        "description" : "I didn’t want to drill and I will need to remove the black safety strap when attaching to the bottom half, so I used suction cup hooks.  I scuffed them up with sandpaper and used some JB Weld to attach to the fuselage.  I can raise and lower without interference.  Just hope sanding off the JB Weld won’t be too difficult.",
-        "filename" : "Photo Assets\/Workshop\/EB15DD7A-C7E3-4214-903B-975BFBCC8B85.jpg",
-        "id" : "EB15DD7A-C7E3-4214-903B-975BFBCC8B85"
-      },
-      {
         "description" : "Brace made from scrap wood to support the front half of the fuselage from the ceiling hoist.",
         "filename" : "Photo Assets\/Workshop\/3A185AEC-1AEE-429A-BD0C-59857772A6C0.jpg",
         "id" : "3A185AEC-1AEE-429A-BD0C-59857772A6C0"
+      },
+      {
+        "description" : "Used a kayak hoist to suspend top half of the fuselage until needed.",
+        "filename" : "Photo Assets\/Workshop\/CE34AC42-8C77-4E79-B41E-855B0310D54A.jpg",
+        "id" : "CE34AC42-8C77-4E79-B41E-855B0310D54A"
       }
     ],
     "category" : "Workshop",
