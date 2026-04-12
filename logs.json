@@ -2,27 +2,60 @@
   {
     "assets" : [
       {
+        "description" : "These are the core of the system. The two panels on the side will be structurally epoxied to the main bar in the rib. The little triangles at the bottom will fit in the corner and have a hole drilled in them for a pin to be inserted.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/4DA95DBA-3831-4FFB-B83E-9E795098DAC8.jpg",
+        "id" : "4DA95DBA-3831-4FFB-B83E-9E795098DAC8"
+      },
+      {
+        "description" : "I know it’s probably the most difficult way to do this, but I will know I have it right. I obviously don’t want to drill through any of the skin that I don’t have to. I’m manually creating a pilot hole from above. Can’t get a drill or even a right angle drill in there to drill the hole.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/88A06F02-2C44-45AE-8592-ADC5403C5E1C.jpg",
+        "id" : "88A06F02-2C44-45AE-8592-ADC5403C5E1C"
+      },
+      {
+        "description" : "OK… After about five minutes of trying to manually drill it, I decided to use a guide for a bellringer drillbit and an 8th inch long bit. It’s probably slightly off-center, but should be well within the 9.5 mm diameter hole that will eventually make using a sheet rock trim bit.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/53F6557C-5C17-4458-88D0-4878E956CC65.jpg",
+        "id" : "53F6557C-5C17-4458-88D0-4878E956CC65"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-04-10T21:59:23Z",
+    "id" : "56F00452-1344-4FB9-9580-229F49FCF60D",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I looked at the approved modification. It seemed a little heavy, and, frankly, lending itself to delamination of the main Spa if it ever got really yanked. What I’m proposing isn’t necessarily any stronger… But it will distribute a load more evenly. It will probably weigh about the same as the metal.\nI find it difficult, sometimes to start working on these things and document. When I get in the zone, I don’t wanna stop and do the documentation, but I know it’s necessary.",
+    "tags" : [
+
+    ],
+    "timeSpent" : 14400,
+    "title" : "Tie Down Pin Anchor ",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "I needed to make sure I could get the probe in and out in the event that one of the tubes needed to be replaced. One of my biggest complaints about working on cars is that engineers design them so they go together easily… Not to be worked on.",
-        "filename" : "Photo Assets\/No Category\/AFED7568-F2C0-4B60-A38F-5B56DD3C314D.jpg",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/AFED7568-F2C0-4B60-A38F-5B56DD3C314D.jpg",
         "id" : "AFED7568-F2C0-4B60-A38F-5B56DD3C314D"
       },
       {
         "description" : "I used some self fusing silicone tape to wrap the clamps to keep them from chafing.",
-        "filename" : "Photo Assets\/No Category\/C9679D22-18DE-459B-8E13-BE40AA831BC5.jpg",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/C9679D22-18DE-459B-8E13-BE40AA831BC5.jpg",
         "id" : "C9679D22-18DE-459B-8E13-BE40AA831BC5"
       },
       {
         "description" : "Tire ups aren’t the best clamping solution, but given the limited access after the wing is sealed, I wanted to be able to see where to cut. I did place silicone tape between the tie wrap, and the tubes and the tubes and the conduit. Shouldn’t have a problem with chafing.",
-        "filename" : "Photo Assets\/No Category\/975B7FB4-2D7E-4E02-A853-B3207961EEE0.jpg",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/975B7FB4-2D7E-4E02-A853-B3207961EEE0.jpg",
         "id" : "975B7FB4-2D7E-4E02-A853-B3207961EEE0"
       },
       {
         "description" : "I use some anti-chafe sleeve for the silicone tubes for two reasons; first, I obviously do not want them to chafe and bounce around, and, second, I wanted a little support at the bend. The steel tubes were vertical and the silicone tubes had to make a 90° turn. I was worried they would collapse after being exposed to heat and age.",
-        "filename" : "Photo Assets\/No Category\/CED16C66-FF21-4635-B966-6BAE417C1ED2.jpg",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/CED16C66-FF21-4635-B966-6BAE417C1ED2.jpg",
         "id" : "CED16C66-FF21-4635-B966-6BAE417C1ED2"
       }
     ],
-    "category" : "No Category",
+    "category" : "08-A Left Wing",
     "created" : "2026-04-08T18:09:57Z",
     "id" : "44FE63AA-421A-4336-BC12-E4DFA2B009CC",
     "participants" : [
@@ -34,7 +67,7 @@
 
     ],
     "timeSpent" : 2700,
-    "title" : "Mounting And Plumbing, The Pitot\/AOA\/Static Stack",
+    "title" : "Mounting and plumbing the Pitot\/AOA\/Static Stack",
     "type" : "Work Log"
   },
   {
