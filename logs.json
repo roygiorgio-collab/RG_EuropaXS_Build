@@ -2,6 +2,70 @@
   {
     "assets" : [
       {
+        "description" : "The inboard weight with clamps on it. I used foam directly on the outside of the peel ply. It sticks very little, but keeps everything pressed evenly.",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/C45026DD-E41E-4953-9B28-0A41D389546D.jpg",
+        "id" : "C45026DD-E41E-4953-9B28-0A41D389546D"
+      },
+      {
+        "description" : "The outboard weights glassed in and waiting for final cure on the epoxy.",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/389CBC86-6589-4302-9245-09C811CB18DA.jpg",
+        "id" : "389CBC86-6589-4302-9245-09C811CB18DA"
+      }
+    ],
+    "category" : "07-B Left Aileron ",
+    "created" : "2026-05-11T23:59:05Z",
+    "id" : "08DCC158-CC48-4225-A1CA-5B19ACA5ACD3",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I glassed the outboard in this morning and waited for it to cure enough to take the clamps off. I know clamps weren’t required, but I just wanna make sure I have a good bond on the perimeter and on the flox. I will remove the clamps on inboard in the morning. They each took about an hour.",
+    "tags" : [
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Glassing The Mass Balance Weights Part 2",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "The end board left a Ron mass balance weight with the unit directional fiberglass installed.",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/7B290764-9DEE-4CB2-9F37-B9A4EF2BC6D2.jpg",
+        "id" : "7B290764-9DEE-4CB2-9F37-B9A4EF2BC6D2"
+      },
+      {
+        "description" : "Waiting for the epoxy to cure on the outboard left aileron mass balance weight.",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/2415A58B-64B1-4DA8-9DDB-F3CF253A04DD.jpg",
+        "id" : "2415A58B-64B1-4DA8-9DDB-F3CF253A04DD"
+      }
+    ],
+    "category" : "07-B Left Aileron ",
+    "created" : "2026-05-08T15:55:30Z",
+    "id" : "C22D3692-1B9B-4B19-9E4A-5A6C36D745DC",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I thought this would be a two day job, but it’s turning into five. I was not comfortable with the first one as I was doing it. I ended up taking it off and doing it again the next day. I was getting some air pockets. I decided for safety and comfort that I would do one at a time. I guess I’m paranoid, but was not happy with the way I had a clamp with foam. It actually worked well, but I would have no way of seeing it. I ended up clamping for about 45 minutes, then waiting for the epoxy to get to the gel state. I made sure everything stayed down.",
+    "tags" : [
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 12600
+      }
+    ],
+    "timeSpent" : 12600,
+    "title" : "Glassing In The Mass Balance Weights",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "This was my first experience, using aircraft grade pop-rivets. They send out quite the shockwave when the rivet pops. It was enough to crack the foam holding the mass balance weight.",
         "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/37F1A1FD-EE08-4287-AE95-C0B659E9F59A.jpg",
         "id" : "37F1A1FD-EE08-4287-AE95-C0B659E9F59A"
@@ -123,7 +187,7 @@
 
     ],
     "reference" : "",
-    "summary" : "I did what I’m, unfortunately, very good at… I started working on multiple things at once. I had the left Taylor on sitting on top of the wing as I was sanding part of the wing. The vibration caused the eon to fall. It chipped the corner of the trailing edge. Fortunately, there is an intention that has to be filled, anyway. I am putting some flocks to make the shape and then laying some bid on both sides for reinforcement.",
+    "summary" : "I did what I’m, unfortunately, not very good at… I started working on multiple things at once. I had the left aileron sitting on top of the wing as I was sanding part of the wing. The vibration caused the aileron to fall. It chipped the corner of the trailing edge. Fortunately, there is an indention that has to be filled, anyway. I am putting some flox to make the shape and then laying some bid on both sides for reinforcement.",
     "tags" : [
 
     ],
