@@ -2,6 +2,164 @@
   {
     "assets" : [
       {
+        "description" : "Tubes making the 90° turn",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/32C7E558-4E4E-4247-A0B3-AA3E4EF9A3ED.jpg",
+        "id" : "32C7E558-4E4E-4247-A0B3-AA3E4EF9A3ED"
+      },
+      {
+        "description" : "The underside of the wing with all three tubes in position",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/C605F367-3D09-4DB2-8BC6-BCB071701D6A.jpg",
+        "id" : "C605F367-3D09-4DB2-8BC6-BCB071701D6A"
+      },
+      {
+        "description" : "I made the center tube longer so that I could point the clamps inwardly. This will make for easy removal should the hoses have to be replaced after the wing is closed up",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/F4454ED0-6C8B-4831-BF9F-CAAAD31F6FE5.jpg",
+        "id" : "F4454ED0-6C8B-4831-BF9F-CAAAD31F6FE5"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-06-02T18:59:45Z",
+    "id" : "E5456A7C-61B5-43F4-9C82-70F204E5F3EF",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "After speaking with Bud yearly and Jim Butcher, I found it was better to have the AOA at a 60° angle. While I was able to achieve that with the original arrangement, I did not like the looks of my brazing that I did with the Tig welder. Also, I did not like the way the tubes needed to be supported. So I made another one and used the small stainless to make the curve so that the tubes did not have to be supported .",
+    "tags" : [
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 3600
+      }
+    ],
+    "timeSpent" : 3600,
+    "title" : "Pitot\/Static\/AOA #2",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "The outboard box cut out and micro, added to some of the openings",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/713BCD1B-9E74-4C10-812F-5B0D228EC377.jpg",
+        "id" : "713BCD1B-9E74-4C10-812F-5B0D228EC377"
+      },
+      {
+        "description" : "First coat of primer on the bottom.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/AC102834-6F54-45D1-AE18-A6FAC7136474.jpg",
+        "id" : "AC102834-6F54-45D1-AE18-A6FAC7136474"
+      },
+      {
+        "description" : "Feels pretty good. One little bump toward the bottom that I will have to work out later.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/80C554A6-A70C-418E-9713-6C30B14B8A22.jpg",
+        "id" : "80C554A6-A70C-418E-9713-6C30B14B8A22"
+      },
+      {
+        "description" : "Note the flox on the left upper corner",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/0C83B294-A797-4B16-9E24-C6AC1DEB8852.jpg",
+        "id" : "0C83B294-A797-4B16-9E24-C6AC1DEB8852"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-05-26T20:33:35Z",
+    "id" : "E4D82201-1F59-4FA7-822A-E09A66E5406A",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "Worked on several things… Did the final cut out on the mass balance weight pockets. Did most of the smoothing of the underside of the wing tip to the main part of the wing… Put some flox in the corner of one of the mass balance weight boxes, where there was excess material removed…primed the bottom of the aileron.",
+    "tags" : [
+      {
+        "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
+        "name" : "Paint Prep",
+        "timeSpent" : 5400
+      },
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 11700
+      }
+    ],
+    "timeSpent" : 17100,
+    "title" : "Miscellaneous Day",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Typical missed spot of the micro",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/A8F5CE6E-2FF4-4CF6-A34B-7B395B20E6B7.jpg",
+        "id" : "A8F5CE6E-2FF4-4CF6-A34B-7B395B20E6B7"
+      },
+      {
+        "description" : "Dry guide coat",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/1029EE53-F723-4D2D-9386-16169DC52EA9.jpg",
+        "id" : "1029EE53-F723-4D2D-9386-16169DC52EA9"
+      }
+    ],
+    "category" : "07-B Left Aileron ",
+    "created" : "2026-05-18T19:02:23Z",
+    "id" : "9A7DEDFE-50FE-40D5-96AD-A6F056DF3097",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "There’s nothing like applying guide code to a surface that you think is fairly smooth… it can be quite humbling.",
+    "tags" : [
+      {
+        "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
+        "name" : "Paint Prep",
+        "timeSpent" : 6300
+      }
+    ],
+    "timeSpent" : 6300,
+    "title" : "Guide Coat",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+
+    ],
+    "category" : "Research",
+    "created" : "2026-05-13T01:42:52Z",
+    "id" : "7BEE8F44-D576-4405-B200-E4DFC951CE2F",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I was in a meeting of Europa enthusiasts and heard that the door struts are 300mm and 175 Newtons pressure",
+    "tags" : [
+
+    ],
+    "timeSpent" : 0,
+    "title" : "Door Lift Struts",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Most difficult area to apply micro",
+        "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/6446F6EA-B431-49D2-A566-7AD2645D5CB0.jpg",
+        "id" : "6446F6EA-B431-49D2-A566-7AD2645D5CB0"
+      }
+    ],
+    "category" : "07-B Left Aileron ",
+    "created" : "2026-05-12T15:29:20Z",
+    "id" : "BEBB8D71-BEA1-4069-A794-F14F581F98DB",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I want to continue with my plan of putting primer on all of the parts before assembly. I have to decide, though, am I going to paint the left aileron? Or the right one for that matter? I cannot balance them until they are painted. I know a way to do it, but I don’t know if I’m risking having a different looking paint surface on the aileron versus the wing. ￼",
+    "tags" : [
+
+    ],
+    "timeSpent" : 9900,
+    "title" : "First Coat Of Micro",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "The inboard weight with clamps on it. I used foam directly on the outside of the peel ply. It sticks very little, but keeps everything pressed evenly.",
         "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/C45026DD-E41E-4953-9B28-0A41D389546D.jpg",
         "id" : "C45026DD-E41E-4953-9B28-0A41D389546D"
@@ -34,7 +192,7 @@
   {
     "assets" : [
       {
-        "description" : "The end board left a Ron mass balance weight with the unit directional fiberglass installed.",
+        "description" : "The inboard left aileron mass balance weight with the unit directional fiberglass installed.",
         "filename" : "Photo Assets\/07-B%20Left%20Aileron%20\/7B290764-9DEE-4CB2-9F37-B9A4EF2BC6D2.jpg",
         "id" : "7B290764-9DEE-4CB2-9F37-B9A4EF2BC6D2"
       },
@@ -51,7 +209,7 @@
 
     ],
     "reference" : "",
-    "summary" : "I thought this would be a two day job, but it’s turning into five. I was not comfortable with the first one as I was doing it. I ended up taking it off and doing it again the next day. I was getting some air pockets. I decided for safety and comfort that I would do one at a time. I guess I’m paranoid, but was not happy with the way I had a clamp with foam. It actually worked well, but I would have no way of seeing it. I ended up clamping for about 45 minutes, then waiting for the epoxy to get to the gel state. I made sure everything stayed down.",
+    "summary" : "I thought this would be a two day job, but it’s turning into five. I was not comfortable with the first one as I was doing it. I ended up taking it off and doing it again the next day. I was getting some air pockets. I decided for safety and comfort that I would do one at a time. I guess I’m paranoid, but was not happy with the way I had it clamped with foam. It actually worked well, but I would have had no way of seeing it. I ended up clamping for about 45 minutes, then waited for the epoxy to get to the gel state. I made sure everything stayed down.",
     "tags" : [
       {
         "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
