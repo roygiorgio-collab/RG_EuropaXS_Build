@@ -2,6 +2,112 @@
   {
     "assets" : [
       {
+        "description" : "The flap in position. No restrictions on rotation. It fits very nicely.",
+        "filename" : "Photo Assets\/No Category\/2BC89CD5-804A-4750-885D-B29AA91CC0B5.jpg",
+        "id" : "2BC89CD5-804A-4750-885D-B29AA91CC0B5"
+      },
+      {
+        "description" : "I need to find some spacers to mount the limiting bracket in the lower part of the image.  Nylon tubing works for the slide but I need to find or make some nylon washers.",
+        "filename" : "Photo Assets\/No Category\/B52AE04A-F180-4653-868D-E46960D4647D.jpg",
+        "id" : "B52AE04A-F180-4653-868D-E46960D4647D"
+      }
+    ],
+    "category" : "No Category",
+    "created" : "2026-07-08T21:53:19Z",
+    "id" : "5B98D98D-D56C-4B28-ADA6-6E175F27B080",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I did this a little differently than how the book says to do it. They suggested using Bondo to bond the jig to the wing. I opted to mount the jig to my cradle and let the wings sit in it. It never tried moving. Plus, when I was finished, I was able to test it without having to remove Bondo.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Flap Mounted ",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Where the small 1\/8 inch tubing goes into the quarter inch, there were some pinhole leaks. Lesson learned is that just blowing through it and not noticing a pressure drop isn’t a good enough test.😳",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/64FBC60D-3F99-4954-87CB-D325A52668E0.jpg",
+        "id" : "64FBC60D-3F99-4954-87CB-D325A52668E0"
+      },
+      {
+        "description" : "Holding a vacuum equal to 1000 feet above your current altitude for one minute is the requirement. It can lose up to 100 feet within that minute. However, I know things add up. I’ve been holding 1000 feet for 10 minutes. Feel pretty good about this section of the system.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/5208D1E5-EF83-41B4-A57F-CA1D1C168086.jpg",
+        "id" : "5208D1E5-EF83-41B4-A57F-CA1D1C168086"
+      },
+      {
+        "description" : "It is difficult to see in this light, but I ended up cleaning each one thoroughly with acetone. I then dried it with a heat gun. After that, I pulled a vacuum and applied some epoxy. After about a minute, I could see a dimple in the epoxy where it pulled into the leaking pathway. As it cured, I added, as a safety, and epoxy cap over the entire thing.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/0439928E-F685-4AF6-A84A-E57DFBE7DFED.jpg",
+        "id" : "0439928E-F685-4AF6-A84A-E57DFBE7DFED"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-07-07T16:46:14Z",
+    "id" : "2C7409FF-D17F-4914-8BAD-6558593F08D6",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I thought it would be a good idea to test the pedo static system prior to closing up the wing in case anything was wrong. I’m glad I did it. Apparently my braising skills were it as good as I thought. I had a minor leak at the elbows.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Pitot Static Test",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "I am putting indexing holes all the way up what will be the bottom side as a reference to create the wing contour needed. The reference points were provided in the manual.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/41639116-5486-4C03-9E64-D0A5A615B0B8.jpg",
+        "id" : "41639116-5486-4C03-9E64-D0A5A615B0B8"
+      },
+      {
+        "description" : "Having an extra day to wait for the bits to come in, I found some extra things to do that have turned to be very valuable… I wrote the file name which also happened to be the coordinates of where it was going to machine… And I placed them by the holes where the workspace coordinates would be centered. This was very reassuring as I moved the board through the six different regions.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/6872E227-39E7-4B41-A6B1-76C34C8747CB.jpg",
+        "id" : "6872E227-39E7-4B41-A6B1-76C34C8747CB"
+      },
+      {
+        "description" : "It may not look like much and yes, these could’ve been built by hand, but it’s a great confidence builder to enter coordinates in a CNC and cut out the exact profile needed. I don’t have to guess if I did it right.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/43652872-4FB3-4F5B-919D-F31A0DCF3309.jpg",
+        "id" : "43652872-4FB3-4F5B-919D-F31A0DCF3309"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-07-02T00:14:39Z",
+    "id" : "E26B6E04-2592-467C-B9C6-C99B45DB1653",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I know I haven’t been posting much lately… I’ve been doing some preparation work. I figured out a way in CAD to create the jig for the flaps utilizing my CNC machine.",
+    "tags" : [
+      {
+        "id" : "F1BE3701-A563-4722-87DB-5020B0D25431",
+        "name" : "Control Surface Rigging",
+        "timeSpent" : 0
+      }
+    ],
+    "timeSpent" : 26100,
+    "title" : "Building Jig For Flap Installation",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "Tubes making the 90° turn",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/32C7E558-4E4E-4247-A0B3-AA3E4EF9A3ED.jpg",
         "id" : "32C7E558-4E4E-4247-A0B3-AA3E4EF9A3ED"
@@ -24,7 +130,7 @@
 
     ],
     "reference" : "",
-    "summary" : "After speaking with Bud yearly and Jim Butcher, I found it was better to have the AOA at a 60° angle. While I was able to achieve that with the original arrangement, I did not like the looks of my brazing that I did with the Tig welder. Also, I did not like the way the tubes needed to be supported. So I made another one and used the small stainless to make the curve so that the tubes did not have to be supported .",
+    "summary" : "After speaking with Bud Yerly and Jim Butcher, I found it was better to have the AOA at a 60° angle. While I was able to achieve that with the original arrangement, I did not like the looks of my brazing that I did with the TIG welder. Also, I did not like the way the silicone tubes needed to be supported. So I made another one and used the small stainless to make the curve so that the tubes did not have to be supported .",
     "tags" : [
       {
         "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
