@@ -2,6 +2,49 @@
   {
     "assets" : [
       {
+        "description" : "Make sure the main spar is vertical. I used foam to prop up the trailing edge to make it level.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/27A16CBE-7C30-474D-B53C-E9F33CB6019D.jpg",
+        "id" : "27A16CBE-7C30-474D-B53C-E9F33CB6019D"
+      },
+      {
+        "description" : "The edge of the fiberglass up against the main spar is exactly 11 inches from the edge of the stand at the root of the wing. The circled 1 is the edge I am using. This is for the entire length of the wing and should match on the other end.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/2067A68C-4816-4E2F-8304-2BC8CFA22F72.jpg",
+        "id" : "2067A68C-4816-4E2F-8304-2BC8CFA22F72"
+      },
+      {
+        "description" : "The root of the wing should overhang by 3 13\/16” to the fiberglass edge in the photo.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/017A6AA1-F237-42E1-ABAF-6105E9418257.jpg",
+        "id" : "017A6AA1-F237-42E1-ABAF-6105E9418257"
+      },
+      {
+        "description" : "I use a laser level on the front side of the spar as the reference line for where all of the jigs will be mounted",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/E47938BF-BC7F-425F-B8A4-FEE44E7F8445.jpg",
+        "id" : "E47938BF-BC7F-425F-B8A4-FEE44E7F8445"
+      },
+      {
+        "description" : "Since I had an extra board, I decided to go ahead and do an eighth brace.  Unfortunately, I had all of the others even with or above the seventh brace… The eighth brace will need to have a 3\/8” shim or the brace that I have to build will need to be raised 3\/16 to make sure it meets.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/555B5070-4FD4-44E9-8C4B-1BA6FA11A5BC.jpg",
+        "id" : "555B5070-4FD4-44E9-8C4B-1BA6FA11A5BC"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-07-20T15:14:49Z",
+    "id" : "1ACFEDDF-C260-4450-A02E-6C9A71C9252F",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "This entry is not only informative for how everything‘s being done, but I will also use it as reference when I go to do the right wing and simply reverse the direction.",
+    "tags" : [
+
+    ],
+    "timeSpent" : 19800,
+    "title" : "Jig Building",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "The flap in position. No restrictions on rotation. It fits very nicely.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/2BC89CD5-804A-4750-885D-B29AA91CC0B5.jpg",
         "id" : "2BC89CD5-804A-4750-885D-B29AA91CC0B5"
@@ -56,7 +99,7 @@
 
     ],
     "reference" : "",
-    "summary" : "I thought it would be a good idea to test the pedo static system prior to closing up the wing in case anything was wrong. I’m glad I did it. Apparently my braising skills were it as good as I thought. I had a minor leak at the elbows.",
+    "summary" : "I thought it would be a good idea to test the pitot static system prior to closing up the wing in case anything was wrong. I’m glad I did it. Apparently my braising skills were it as good as I thought. I had a minor leak at the elbows.",
     "tags" : [
       {
         "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
