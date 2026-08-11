@@ -2,6 +2,203 @@
   {
     "assets" : [
       {
+        "description" : "I have to be careful with how this board is placed. The fiberglass will actually flex in if I get the weights too far toward the leading edge.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/77FE6936-C16C-4727-975F-480A489B3DE6.jpg",
+        "id" : "77FE6936-C16C-4727-975F-480A489B3DE6"
+      },
+      {
+        "description" : "Overview with the majority of clecos in place and tested for fit.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/8D8D7225-BCA7-476F-818A-5653882816FF.jpg",
+        "id" : "8D8D7225-BCA7-476F-818A-5653882816FF"
+      },
+      {
+        "description" : "The aluminum channel has packing tape on top to prevent a permanent bond in the event we get seepage from the epoxy.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/4F67FC64-9112-44B0-A5E3-37567563BAA2.jpg",
+        "id" : "4F67FC64-9112-44B0-A5E3-37567563BAA2"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-08-11T16:38:27Z",
+    "id" : "F62C381C-6D50-4C82-89A3-27757B78F7BF",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I made sure I could get clecos in all the holes. Waiting on another 50 Clecos to come in tomorrow. Only need 20 more… But I figured I’d buy another kit to have a second pair of Cleco pliers.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Trial Fit",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Everything built up with the Parabeam where it was needed. Everything is sanded. It was actually closer than what I originally thought as far as gaps.  ",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/409AF5E8-8C78-4FF9-A76D-A259D2467846.jpg",
+        "id" : "409AF5E8-8C78-4FF9-A76D-A259D2467846"
+      },
+      {
+        "description" : "I drew red lines showing where I needed to paint the epoxy on the top skin.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/BD72E6E3-4845-42DD-A130-76CFA26CCB64.jpg",
+        "id" : "BD72E6E3-4845-42DD-A130-76CFA26CCB64"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-08-10T19:57:21Z",
+    "id" : "92BF77CE-FDAE-4565-BAA6-37E62E5BBF7B",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I’ve ordered the 3M DP460. I’m hoping it will be here before Thursday. Meanwhile, I have now gotten everything sanded and wiped down ready for the epoxy.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 14400
+      }
+    ],
+    "timeSpent" : 14400,
+    "title" : "Prep For Epoxy",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Yardstick with cleco holding it in hloe B.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/469D4D57-357A-4311-ACCE-5CB6C1DCE452.jpg",
+        "id" : "469D4D57-357A-4311-ACCE-5CB6C1DCE452"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-08-06T20:56:40Z",
+    "id" : "D2088189-E384-42B6-AF20-EF0AB3C5035F",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I used a laser for the line down the rib and then a yardstick to triangulate from marked holes along the spar to pinpoint.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Holes For Clecos",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Small dots of plasticine clay to measure the gap and make sure it does not exceed the width of the Parabeam in either direction.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/867514E6-E1FD-4912-A178-0F92FA06458A.jpg",
+        "id" : "867514E6-E1FD-4912-A178-0F92FA06458A"
+      },
+      {
+        "description" : "Two strips of unidirectional fiberglass are now holding the back lip up.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/2C682807-BDEA-45BB-98D5-78C9CDB3DDA6.jpg",
+        "id" : "2C682807-BDEA-45BB-98D5-78C9CDB3DDA6"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-07-28T15:46:09Z",
+    "id" : "B5199190-B1B5-4BE6-9F5D-549402BEF90F",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I added two strips of unidirectional, fiberglass to lift the top lip of the trailing edge. It worked out very, very well. Now, I am just continuing with measuring the gap and filling appropriately between the ribs and the wing skin.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Gap Filling And Sizing",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Clecos holding at both ends.  Rough trim completed over aileron.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/FC719225-01A0-40B2-9AA2-A2AACF0B4FDD.jpg",
+        "id" : "FC719225-01A0-40B2-9AA2-A2AACF0B4FDD"
+      },
+      {
+        "description" : "Wearing the one on the left cure another day before sanding down the rough edges.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/6FF1FEC5-21D4-4A20-A75A-E0B470F75AB1.jpg",
+        "id" : "6FF1FEC5-21D4-4A20-A75A-E0B470F75AB1"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-07-26T21:42:44Z",
+    "id" : "2D242D39-F541-4B6D-BB39-A0AC150CD352",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "In order to be able to tell where the lower skin should be raised to meet the upper skin, I had to trim the upper skin. The Ron was lifting it up and I could not get a clear view. Also, the first three pieces of pair beam have turned out well.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 9000
+      }
+    ],
+    "timeSpent" : 9000,
+    "title" : "Parabeam And Rough Skin Trim",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Rough trim on the intersection of the aileron and flap.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/09996F85-9899-4475-924C-80F0C3427845.jpg",
+        "id" : "09996F85-9899-4475-924C-80F0C3427845"
+      },
+      {
+        "description" : "I saturated the Parabeam with the epoxy. I will put the skin on with a Cleco, a couple of clamps and await. I will let this cure overnight.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/D59480A8-8318-44C2-B04E-6624EE72AAC5.jpg",
+        "id" : "D59480A8-8318-44C2-B04E-6624EE72AAC5"
+      },
+      {
+        "description" : "Clamped, Cleco and weight applied.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/D57F14AC-EA33-4A95-8042-ED8CEA2ABB41.jpg",
+        "id" : "D57F14AC-EA33-4A95-8042-ED8CEA2ABB41"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-07-22T21:57:39Z",
+    "id" : "38D01212-3D34-4713-B465-3C2F2C660A80",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "There are some pretty large gaps between the top skin and the ribs. This one was one of the worst. I used some plasticine clay in between tape to measure the difference. It was about an eighth of an inch or more. I decided to use Parabeam on the recommendation of a fellow EAA member who had used it on his airplane.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 11700
+      }
+    ],
+    "timeSpent" : 11700,
+    "title" : "Initial Fit And First Parabeam",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "Make sure the main spar is vertical. I used foam to prop up the trailing edge to make it level.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/AFF91706-0ECB-4699-B6C0-404B9FA166A0.jpg",
         "id" : "AFF91706-0ECB-4699-B6C0-404B9FA166A0"
