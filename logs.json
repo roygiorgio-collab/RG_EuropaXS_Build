@@ -2,6 +2,48 @@
   {
     "assets" : [
       {
+        "description" : "After cure",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/7BC9A6DF-7BAD-4C40-BB7D-AF4A46C917BD.jpg",
+        "id" : "7BC9A6DF-7BAD-4C40-BB7D-AF4A46C917BD"
+      },
+      {
+        "description" : "In position ready for Clecos",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/60584FF3-3407-4DEB-8B5E-DB6A90F53584.jpg",
+        "id" : "60584FF3-3407-4DEB-8B5E-DB6A90F53584"
+      },
+      {
+        "description" : "Top skin being prepped ",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/2BC3A599-44ED-4401-A3B5-261B995CAC74.jpg",
+        "id" : "2BC3A599-44ED-4401-A3B5-261B995CAC74"
+      },
+      {
+        "description" : "3M DP 460NS in a 200ml tube worked great ",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/6C96BBAB-1CCD-460E-A788-08E97EF0B496.jpg",
+        "id" : "6C96BBAB-1CCD-460E-A788-08E97EF0B496"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-09-18T18:32:17Z",
+    "id" : "D5979C94-31B1-4D96-AE76-BB60CE6C95BC",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "Finally got the wing closed.  Looking forward to lots of filling and sanding.\nThanks to David, Trent and Connor for the assistance.  I would have never made it alone.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 7200
+      }
+    ],
+    "timeSpent" : 7200,
+    "title" : "Skin Attachment ",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "I have to be careful with how this board is placed. The fiberglass will actually flex in if I get the weights too far toward the leading edge.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/77FE6936-C16C-4727-975F-480A489B3DE6.jpg",
         "id" : "77FE6936-C16C-4727-975F-480A489B3DE6"
@@ -15,6 +57,11 @@
         "description" : "The aluminum channel has packing tape on top to prevent a permanent bond in the event we get seepage from the epoxy.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/4F67FC64-9112-44B0-A5E3-37567563BAA2.jpg",
         "id" : "4F67FC64-9112-44B0-A5E3-37567563BAA2"
+      },
+      {
+        "description" : "Jugs in proper oder to achieve flat surface.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/0C4D98E7-1913-48E0-9D0E-35998A70F4DA.jpg",
+        "id" : "0C4D98E7-1913-48E0-9D0E-35998A70F4DA"
       }
     ],
     "category" : "08-A Left Wing",
@@ -135,7 +182,7 @@
         "id" : "FC719225-01A0-40B2-9AA2-A2AACF0B4FDD"
       },
       {
-        "description" : "Wearing the one on the left cure another day before sanding down the rough edges.",
+        "description" : "Letting the one on the left cure another day before sanding down the rough edges.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/6FF1FEC5-21D4-4A20-A75A-E0B470F75AB1.jpg",
         "id" : "6FF1FEC5-21D4-4A20-A75A-E0B470F75AB1"
       }
@@ -147,7 +194,7 @@
 
     ],
     "reference" : "",
-    "summary" : "In order to be able to tell where the lower skin should be raised to meet the upper skin, I had to trim the upper skin. The Ron was lifting it up and I could not get a clear view. Also, the first three pieces of pair beam have turned out well.",
+    "summary" : "In order to be able to tell where the lower skin should be raised to meet the upper skin, I had to trim the upper skin. The aileron was lifting it up and I could not get a clear view. Also, the first three pieces of pair beam have turned out well.",
     "tags" : [
       {
         "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
