@@ -2,6 +2,100 @@
   {
     "assets" : [
       {
+        "description" : "This is the prototype board that I built using my CNC machine, but I was not at all comfortable with the inconsistencies in the traces but it was good enough to prove that it would work.",
+        "filename" : "Photo Assets\/Beacon%20And%20Strobes\/E6FF10BD-B02A-4FFF-BB61-6B584BD76C38.jpg",
+        "id" : "E6FF10BD-B02A-4FFF-BB61-6B584BD76C38"
+      },
+      {
+        "description" : "This is the back of the board. Much easier to solder with the isolated gold solder footprints.",
+        "filename" : "Photo Assets\/Beacon%20And%20Strobes\/B99C6338-6404-4C35-91BD-ADE56E232082.jpg",
+        "id" : "B99C6338-6404-4C35-91BD-ADE56E232082"
+      },
+      {
+        "description" : "The brains of the operation is an Arduino Nano. If anyone wants the code, I would be more than happy to send it to them.",
+        "filename" : "Photo Assets\/Beacon%20And%20Strobes\/04BF23D3-ABEA-4426-BFFE-5B9BA39E48B6.jpg",
+        "id" : "04BF23D3-ABEA-4426-BFFE-5B9BA39E48B6"
+      },
+      {
+        "description" : "I designed the board in KiCAD. You can use it for both the schematic and the PCB layout. This is the front of the board after being returned from a board manufacturer in China. The board was $4… The shipping was $23.",
+        "filename" : "Photo Assets\/Beacon%20And%20Strobes\/917B2628-10A6-4947-B596-9942BFCF6D3E.jpg",
+        "id" : "917B2628-10A6-4947-B596-9942BFCF6D3E"
+      },
+      {
+        "description" : "Bench testing for heat and functionality. Yeah… I know it’s a green light I have for the beacon, but it was handy 😜",
+        "filename" : "Photo Assets\/Beacon%20And%20Strobes\/FF8C62E7-7707-4D10-BE84-A1C894069E11.jpg",
+        "id" : "FF8C62E7-7707-4D10-BE84-A1C894069E11"
+      }
+    ],
+    "category" : "Beacon And Strobes",
+    "created" : "2026-10-22T02:17:27Z",
+    "id" : "76C9291C-D3EB-4FD4-9C09-B8A042A91D03",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "While working on the plane and filling in from when I couldn’t be in the shop, I went back on my earlier career skills and decided I wanted to build my own strobe light and Beacon flasher system. What started out to be what I figured a four hour project ended up being about 60+ hours, however, I’m very pleased with the final product. It flashes all the lights the way that I want to, I am switching them through a MOSFET transistor that does not even warm above room temperature and I have about $100 in the lights and the controller.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 7200
+      },
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 28800
+      },
+      {
+        "id" : "F5E1FC7C-2395-4D02-AC91-11BBADEA518C",
+        "name" : "Support\/Research\/Indirect",
+        "timeSpent" : 180000
+      }
+    ],
+    "timeSpent" : 216000,
+    "title" : "Final Beacon And Strobe Board",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "Excess micro so that I can sand them smooth ",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/977B1224-A831-49C6-B909-C1F6F0FECF47.jpg",
+        "id" : "977B1224-A831-49C6-B909-C1F6F0FECF47"
+      },
+      {
+        "description" : "All of the holes filled ",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/C08ED74B-A614-4D10-A4A9-1A31548CA94A.jpg",
+        "id" : "C08ED74B-A614-4D10-A4A9-1A31548CA94A"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-10-20T21:53:34Z",
+    "id" : "A4C95CDB-BC1F-43B6-8EA1-30A6199F6A80",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I mixed up some dry, micro and filled the 70 Cleco holes. I also used it to feather the transition to the end cap.",
+    "tags" : [
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 3600
+      },
+      {
+        "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
+        "name" : "Paint Prep",
+        "timeSpent" : 3600
+      }
+    ],
+    "timeSpent" : 3600,
+    "title" : "Filling Cleco Holes",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "After cure",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/7BC9A6DF-7BAD-4C40-BB7D-AF4A46C917BD.jpg",
         "id" : "7BC9A6DF-7BAD-4C40-BB7D-AF4A46C917BD"
