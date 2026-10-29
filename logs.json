@@ -2,6 +2,34 @@
   {
     "assets" : [
       {
+        "description" : "Ridges on the edge of the original wing vary greatly throughout the length.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/AAB18FB3-A8DE-4E09-A503-22C851CD4DE7.jpg",
+        "id" : "AAB18FB3-A8DE-4E09-A503-22C851CD4DE7"
+      },
+      {
+        "description" : "I’m working from the tip to the root. I figure I will perfect my technique where it’s more easily reached and then be more efficient when I get to the wider route.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/B51DAA19-3FA9-41E2-A94B-17135851CA64.jpg",
+        "id" : "B51DAA19-3FA9-41E2-A94B-17135851CA64"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-10-29T16:43:34Z",
+    "id" : "7AEF66D2-A997-4F3C-924B-AC0E42A4791F",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I’ve begun the journey of smoothing out the top skin seem, and covering my Cleco holes. I had an unrealistic hope that I could put them together and only have to fill a little gap down the middle. But reality shows me there are some imperfections in the fiberglass… Some imperfections were the Cleco held it down a little too tight… So, I see days and days ahead of dry Micro filling and sanding.",
+    "tags" : [
+
+    ],
+    "timeSpent" : 7200,
+    "title" : "The Long And Winding Road…",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "This is the prototype board that I built using my CNC machine, but I was not at all comfortable with the inconsistencies in the traces but it was good enough to prove that it would work.",
         "filename" : "Photo Assets\/Beacon%20And%20Strobes\/E6FF10BD-B02A-4FFF-BB61-6B584BD76C38.jpg",
         "id" : "E6FF10BD-B02A-4FFF-BB61-6B584BD76C38"
