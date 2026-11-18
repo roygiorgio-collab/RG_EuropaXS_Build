@@ -2,12 +2,76 @@
   {
     "assets" : [
       {
+        "description" : "Peel ply on top of the four plies. The little lines show where the ends of each pliers.",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/95C06A08-F18B-441D-BAC6-3376DB834BCE.jpg",
+        "id" : "95C06A08-F18B-441D-BAC6-3376DB834BCE"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-11-18T14:52:10Z",
+    "id" : "707AFEA1-A814-4728-B139-9A954A3847EA",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "There are four flies of unidirectional fiberglass that have to go with the root of the wing. I guess they stiffen it up to keep it from twisting now that the skin is added. Not much to look at… But it’s done.",
+    "tags" : [
+      {
+        "id" : "F0607E12-D317-49C5-B81F-BCD819084133",
+        "name" : "Part Construction ",
+        "timeSpent" : 4500
+      },
+      {
+        "id" : "C8AA565A-C221-4A26-B9C8-B54965ED78DB",
+        "name" : "Assembly ",
+        "timeSpent" : 4500
+      }
+    ],
+    "timeSpent" : 4500,
+    "title" : "Wing Root Plies",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
+        "description" : "One of the putty knife grooves after filling ",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/DC7C9537-37E1-4D63-83CD-9E3E50F57C2E.jpg",
+        "id" : "DC7C9537-37E1-4D63-83CD-9E3E50F57C2E"
+      },
+      {
+        "description" : "Three patches of dry micro",
+        "filename" : "Photo Assets\/08-A%20Left%20Wing\/10003EFE-0E99-4E7A-8D9B-51146A47E3B2.jpg",
+        "id" : "10003EFE-0E99-4E7A-8D9B-51146A47E3B2"
+      }
+    ],
+    "category" : "08-A Left Wing",
+    "created" : "2026-11-03T20:59:19Z",
+    "id" : "A1D3FABD-9E6A-4D52-9CC4-14CB0A864B46",
+    "participants" : [
+
+    ],
+    "reference" : "",
+    "summary" : "I added dry, micro to the end of the wing and sanded it. It took quite a while to sand it adequately. There were also marks within the area where my petty knife drug that I had to fill. This time I’m trying a method that I thought of… I am going to place patches of dry micro using a 10 inch sheet rock knife. I will sand the tops of them close to where I think they should be. They should make it easy to fill in the gap in between on the next batch of dry micro. I have my fingers crossed.",
+    "tags" : [
+      {
+        "id" : "FE48FA67-BE44-4A68-97D2-9A84585FD0DD",
+        "name" : "Paint Prep",
+        "timeSpent" : 3600
+      }
+    ],
+    "timeSpent" : 3600,
+    "title" : "Worth A Shot…",
+    "type" : "Work Log"
+  },
+  {
+    "assets" : [
+      {
         "description" : "Ridges on the edge of the original wing vary greatly throughout the length.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/AAB18FB3-A8DE-4E09-A503-22C851CD4DE7.jpg",
         "id" : "AAB18FB3-A8DE-4E09-A503-22C851CD4DE7"
       },
       {
-        "description" : "I’m working from the tip to the root. I figure I will perfect my technique where it’s more easily reached and then be more efficient when I get to the wider route.",
+        "description" : "I’m working from the tip to the root. I figure I will perfect my technique where it’s more easily reached and then be more efficient when I get to the wider root.",
         "filename" : "Photo Assets\/08-A%20Left%20Wing\/B51DAA19-3FA9-41E2-A94B-17135851CA64.jpg",
         "id" : "B51DAA19-3FA9-41E2-A94B-17135851CA64"
       }
